@@ -1,5 +1,5 @@
 # pinned, reproducible — playbook discipline
-edge-tts==7.0.2
+edge-tts>=7.2.8          # boundary="WordBoundary" required for karaoke captions
 google-generativeai==0.8.5
 google-api-python-client==2.149.1
 google-auth-oauthlib==1.2.1
