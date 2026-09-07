@@ -1,0 +1,76 @@
+name: post
+
+# ONE short per day at a fixed clock (fresh-channel law). The 12:05 slot is
+# added by flipping cadence in state/state.json (day 15-16 roll) — never by
+# editing this file mid-flight.
+on:
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Post even if state says no slot today"
+        type: boolean
+        default: false
+      privacy:
+        description: "unlisted | public"
+        type: string
+        default: "unlisted"
+  schedule:
+    - cron: "5 6 * * *" # 06:05 UTC — off the :00 mark, playbook anti-robot
+
+permissions:
+  contents: write # engine commits state/state.json after every run
+
+concurrency:
+  group: post-engine
+  cancel-in-progress: false # a delayed run must never collide with the next
+
+jobs:
+  engine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300 # delay(≤2h) + render + upload, well under the 6h cap
+    env:
+      YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+      YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+      YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+      GEMINI_API_KEY_1: ${{ secrets.GEMINI_API_KEY_1 }}
+      PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # need history: dup-title guard walks every past title in state.json
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg fonts-dejavu
+
+      - run: pip install -q -r requirements.txt
+
+      - name: Slot check + human-like random delay (0-7200s, constitution §C)
+        run: |
+          python src/slot_check.py --force "${{ inputs.force || 'false' }}"
+          DELAY=$(python -c "import random; print(random.randint(0,7200))")
+          echo "Sleeping ${DELAY}s …"
+          sleep "$DELAY"
+
+      - name: Generate story + metadata (Gemini, fallback chain, dup-title guard)
+        run: python src/story.py
+
+      - name: Voiceover + karaoke subtitles (edge-tts word boundaries)
+        run: python src/tts.py
+
+      - name: Visuals + music bed + render (1080x1920@30, crf22)
+        run: python src/render_all.py
+
+      - name: Upload (OAuth refresh, resumable, unlisted-first)
+        run: python src/upload.py --privacy "${{ inputs.privacy || 'unlisted' }}"
+
+      - name: Verify live (probe the uploaded video URL — rule #1)
+        run: python src/verify.py
+
+      - name: Commit new state (posted title, streak, cadence roll)
+        run: python src/state_commit.py
