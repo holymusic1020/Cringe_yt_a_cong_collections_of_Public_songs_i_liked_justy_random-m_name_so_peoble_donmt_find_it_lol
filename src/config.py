@@ -99,7 +99,7 @@ CAPTION_FONT_MAP = {
     "bn": ("Hind Siliguri", 84),
 }
 
-# ── The Robot — NixSpeechFav mascot narrator (bottom-left, animated) ────────
+# ── The Robot — NixSpeechFav mascot narrator (MAIN character of the channel) ─
 ROBOT = dict(
     sid="narrator",
     w=600,                      # mascot is slightly bigger than characters
@@ -107,6 +107,8 @@ ROBOT = dict(
     bob_px=13, bob_period_s=2.7,       # idle floating
     blink_period_s=3.7, blink_dur_s=0.14,  # eyes-open/blink frame swap
     slide_px=320, slide_s=0.22,        # slide-in from below (all stickers)
+    talk_flicker_period_s=0.34,        # antenna vibration WHILE TALKING:
+    talk_flicker_on_s=0.17,            # open/tilt frame swap every 0.17s
 )
 
 # ── Story topic pool — ALL of life, randomized (boss law: never one theme) ──
