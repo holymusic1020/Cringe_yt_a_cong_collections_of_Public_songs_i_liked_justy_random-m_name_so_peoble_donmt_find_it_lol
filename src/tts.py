@@ -65,6 +65,8 @@ def synth_episode(lines, workdir, lang="en"):
             line.get("emotion", "neutral"), config.EMOTIONS["neutral"])
         rate = _shift(char["rate"], emo_rate, "%", clamp=50)
         pitch = _shift(char["pitch"], emo_pitch, "Hz", clamp=60)
+        print(f"[tts] line {i + 1:02d} {sid:<8} -> {voice} "
+              f"rate={rate} pitch={pitch} emo={line.get('emotion', 'neutral')}")
         mp3 = workdir / f"line_{i:02d}.mp3"
         words = asyncio.run(_synth_line(
             line["text"], voice, rate, pitch, mp3))

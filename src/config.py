@@ -64,21 +64,22 @@ LANG_SWAPS = {
 }
 
 # ── Emotion engine: per-line emotion shifts rate/pitch on top of base voice ─
+# (kept moderate — big pitch swings make male voices sound female, boss bug report)
 EMOTIONS = {
     "neutral": ("+0%",  "+0Hz"),
-    "angry":   ("+18%", "+25Hz"),
-    "shock":   ("+10%", "+45Hz"),
-    "sad":     ("-18%", "-15Hz"),
-    "excited": ("+22%", "+15Hz"),
-    "smug":    ("-8%",  "-5Hz"),
-    "whisper": ("-25%", "-8Hz"),
-    "panic":   ("+30%", "+30Hz"),
+    "angry":   ("+14%", "+12Hz"),
+    "shock":   ("+8%",  "+20Hz"),
+    "sad":     ("-16%", "-12Hz"),
+    "excited": ("+18%", "+10Hz"),
+    "smug":    ("-8%",  "-4Hz"),
+    "whisper": ("-22%", "-6Hz"),
+    "panic":   ("+22%", "+12Hz"),
     "deadpan": ("-12%", "-6Hz"),
 }
 
 # ── Layout (1080x1920): captions TOP multi-line, sticker BIG bottom-left ────
 LAYOUT = dict(
-    sticker_w=560,              # bigger (boss request)
+    sticker_w=560,              # character stickers
     sticker_x=24,               # true bottom-left
     sticker_bottom_gap=44,      # small gap under, no dead space
     caption_font=74,
@@ -88,7 +89,17 @@ LAYOUT = dict(
     max_chunk_words=7,
     max_chunk_dur=2.8,
     endcard_font=104,
-    endcard_hold_s=3.5,         # let the ending BREATHE (boss request)
+    endcard_hold_s=3.5,
+)
+
+# ── The Robot — NixSpeechFav mascot narrator (bottom-left, animated) ────────
+ROBOT = dict(
+    sid="narrator",
+    w=600,                      # mascot is slightly bigger than characters
+    x=24, bottom_gap=40,
+    bob_px=13, bob_period_s=2.7,       # idle floating
+    blink_period_s=3.7, blink_dur_s=0.14,  # eyes-open/blink frame swap
+    slide_px=320, slide_s=0.22,        # slide-in from below (all stickers)
 )
 
 # ── Story topic pool — ALL of life, randomized (boss law: never one theme) ──

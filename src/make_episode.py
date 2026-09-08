@@ -1,21 +1,22 @@
-"""Episode orchestrator: script JSON -> TTS -> captions -> bg -> render -> Telegram.
+"""Episode orchestrator: script JSON -> TTS -> captions -> bg -> HAND OFF.
+
+Stage 1 (this file): synth everything render needs, then os.execv into
+postrender.py — replacing this process image so ALL edge-tts/aiohttp residue
+is freed before ffmpeg passes start (sandbox memory cap assassinates ffmpeg
+otherwise — battle-scarred fact).
 
 Usage:
   python src/make_episode.py scripts/queue/ep001.json [out.mp4]
-  python src/make_episode.py            # picks oldest unrendered from queue/
-
-Rendered marker: a .done sidecar next to the script (queue is consumed FIFO).
-Vault rule (playbook §0): always keep ≥1 rendered episode ahead of the slot.
+  python src/make_episode.py            # oldest unrendered from queue/
 """
 import json, shutil, sys, time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import config, tg
+import config
 from tts import synth_episode
 from ass import build_ass
 import bg
-from render import render
 
 QUEUE = config.ROOT / "scripts" / "queue"
 
@@ -33,16 +34,18 @@ def main():
     out = Path(sys.argv[2]) if len(sys.argv) > 2 else \
         config.ROOT / "output" / f"{script.stem}.mp4"
     ep = json.loads(script.read_text())
-    workdir = Path("/tmp/ep_work")
+    # NEVER /tmp — it's a 993MB tmpfs (RAM!) and OOM-kills ffmpeg mid-pass
+    workdir = config.ROOT / ".work" / f"{script.stem}_{int(time.time())}"
+    workdir.mkdir(parents=True, exist_ok=True)
 
     t0 = time.time()
     voice, timeline = synth_episode(ep["lines"], workdir, ep.get("lang", "en"))
     tl = json.loads(timeline.read_text())
-    if not (config.SHORT["min_s"] - 15 <= tl["total_s"] <= config.SHORT["max_s"] + 15):
-        print(f"[make] WARNING: {tl['total_s']:.0f}s outside target "
-              f"{config.SHORT['min_s']}-{config.SHORT['max_s']}s (still rendering)")
+    print(f"[make] voiceover {tl['total_s']:.0f}s "
+          f"(target {config.SHORT['min_s']}-{config.SHORT['max_s']}s)")
+
     endcard = ep.get("endcard")
-    if not endcard:  # CTA rotation fallback
+    if not endcard:
         import random
         endcard = random.choice(config.EPISODE_SPEC["cta_rotation"])
     build_ass(timeline, workdir / "captions.ass", endcard)
@@ -52,19 +55,17 @@ def main():
     shutil.copy(bgvid, workdir / "bg.mp4")
 
     out.parent.mkdir(parents=True, exist_ok=True)
-    render(workdir, out)
+    # hand off EVERYTHING stage 2 needs (fresh process, clean heap)
+    job = {"script": str(script), "out": str(out), "workdir": str(workdir),
+           "ep": ep, "total_s": tl["total_s"], "bgcredit": bgcredit}
+    (workdir / "job.json").write_text(json.dumps(job))
+    print(f"[make] stage 1 done in {time.time()-t0:.0f}s — execv to postrender")
+    os.execv(sys.executable, [sys.executable,
+                              str(config.ROOT / "src" / "postrender.py"),
+                              str(workdir)])
 
-    # YouTube description preview (dup-title guard + credits assembled later by upload.py)
-    desc_bits = [b for b in [bgcredit] if b]
-    caption = f"🎬 {ep['title']}\n{tl['total_s']:.0f}s · {ep.get('topic','')}"
-    if desc_bits:
-        caption += "\n" + " | ".join(desc_bits)
-    tg.send_video(out, caption)
 
-    script.with_suffix(".done").write_text(out.name)
-    print(f"[make] {out.name} DONE in {time.time()-t0:.0f}s "
-          f"({tl['total_s']:.0f}s episode, {len(ep['lines'])} lines)")
-
+import os  # (top of file ordering for execv readability)
 
 if __name__ == "__main__":
     main()
