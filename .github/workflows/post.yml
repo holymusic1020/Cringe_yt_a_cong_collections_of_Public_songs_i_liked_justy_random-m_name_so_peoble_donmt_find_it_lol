@@ -14,8 +14,6 @@ on:
         description: "unlisted | public"
         type: string
         default: "unlisted"
-  schedule:
-    - cron: "5 6 * * *" # 06:05 UTC — off the :00 mark, playbook anti-robot
 
 permissions:
   contents: write # engine commits state/state.json after every run
