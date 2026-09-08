@@ -54,5 +54,6 @@ jobs:
         with:
           name: vault-${{ github.run_id }}-${{ github.run_number }}
           path: output/*.mp4
+          output/*_meta.json
           retention-days: 90
           if-no-files-found: error
