@@ -1,0 +1,58 @@
+name: render
+
+# Continuous production (boss architecture): render on GH Actions = no resource
+# limits. Every finished episode -> boss's Telegram + 90-day artifact vault.
+# post.yml later feeds YouTube from the vault on the constitution cadence.
+
+on:
+  workflow_dispatch:
+    inputs:
+      script:
+        description: "ep script filename (blank = oldest unrendered in queue)"
+        type: string
+        default: ""
+  schedule:
+    - cron: "33 1,13 * * *" # 2x/day, off-peak, keeps vault >=1 ahead
+
+permissions:
+  contents: read
+
+concurrency:
+  group: render-engine
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg fonts-dejavu-core
+
+      - run: pip install -q edge-tts yt-dlp pillow requests
+
+      - name: Render episode (queue FIFO)
+        run: |
+          SCRIPT="${{ inputs.script }}"
+          if [ -n "$SCRIPT" ]; then
+            python3 src/make_episode.py "scripts/queue/$SCRIPT"
+          else
+            python3 src/make_episode.py
+          fi
+
+      - name: Vault it (90-day artifact = render-ahead buffer)
+        uses: actions/upload-artifact@v4
+        with:
+          name: vault-${{ github.run_id }}-${{ github.run_number }}
+          path: output/*.mp4
+          retention-days: 90
+          if-no-files-found: error

@@ -16,7 +16,7 @@ RENDER_BACKOFF_S = 30 * 60         # 30 min backoff after failed render
 LANG_WHEEL = ["en", "en", "en", "en", "en", "bn", "hi"]  # 5 EN / 1 BN / 1 HI
 
 # ── Video (playbook §2 & §11 + 2026 retention research) ────────────────────
-SHORT = dict(w=1080, h=1920, fps=30, target_s=45, min_s=35, max_s=55)
+SHORT = dict(w=1080, h=1920, fps=30, target_s=100, min_s=85, max_s=115)
 X264 = dict(preset="veryfast", crf="22")
 
 # ── The Cast (fixed names/voices/faces = channel brand) ────────────────────
@@ -76,16 +76,19 @@ EMOTIONS = {
     "deadpan": ("-12%", "-6Hz"),
 }
 
-# ── Layout (1080x1920): captions TOP multi-line, sticker BOTTOM-LEFT ───────
+# ── Layout (1080x1920): captions TOP multi-line, sticker BIG bottom-left ────
 LAYOUT = dict(
-    sticker_x=40, sticker_y=1150, sticker_w=430,   # bottom-left (boss-approved)
+    sticker_w=560,              # bigger (boss request)
+    sticker_x=24,               # true bottom-left
+    sticker_bottom_gap=44,      # small gap under, no dead space
     caption_font=74,
     caption_align=8,            # top-center
-    caption_margin_v=170,       # from top edge
+    caption_margin_v=170,
     caption_margin_lr=90,
-    max_chunk_words=7,          # long speeches span multi-line chunks
+    max_chunk_words=7,
     max_chunk_dur=2.8,
     endcard_font=104,
+    endcard_hold_s=3.5,         # let the ending BREATHE (boss request)
 )
 
 # ── Story topic pool — ALL of life, randomized (boss law: never one theme) ──

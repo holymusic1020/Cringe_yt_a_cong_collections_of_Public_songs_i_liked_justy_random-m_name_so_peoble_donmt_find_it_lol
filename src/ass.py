@@ -73,12 +73,13 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
             events.append(f"Dialogue: 0,{_ts(start)},{_ts(end)},Kara,,0,0,0,,"
                           f"{dot}{text.strip()}")
 
-    # punchy end-card: big yellow center text, fades in over the CTA
+    # punchy end-card: big yellow center text, holds LONG enough to land
     if endcard:
         total = tl["total_s"]
+        hold = config.LAYOUT.get("endcard_hold_s", 3.5)
         ec = (f"{{\\an5\\pos({w // 2},985)\\fs{L['endcard_font']}\\b1"
               f"\\fad(200,150)\\c&H3DD9FF&\\3c&H00202020}}{endcard}")
-        events.append(f"Dialogue: 1,{_ts(max(0, total - 2.6))},{_ts(total - 0.1)},"
+        events.append(f"Dialogue: 1,{_ts(max(0, total - hold))},{_ts(total - 0.1)},"
                       f"Kara,,0,0,0,,{ec}")
 
     Path(out_path).write_text(header + "\n".join(events) + "\n")
