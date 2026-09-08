@@ -27,6 +27,13 @@ def _dur(path):
     return float(json.loads(p.stdout)["format"]["duration"])
 
 
+def _shift(base, delta, unit, clamp):
+    """'+6%' + '+18%' -> '+24%'; '-2Hz' + '+25Hz' -> '+23Hz'"""
+    b, d = int(base.rstrip(unit)), int(delta.rstrip(unit))
+    v = max(-clamp, min(clamp, b + d))
+    return f"{v:+d}%".replace("%", unit) if unit == "Hz" else f"{v:+d}%"
+
+
 async def _synth_line(text, voice, rate, pitch, out_path):
     words, audio = [], b""
     c = edge_tts.Communicate(text, voice, rate=rate, pitch=pitch,
@@ -43,7 +50,7 @@ async def _synth_line(text, voice, rate, pitch, out_path):
 
 
 def synth_episode(lines, workdir, lang="en"):
-    """lines = [{speaker, text}] -> (voice.mp3, timeline.json) in workdir."""
+    """lines = [{speaker, text, emotion?}] -> (voice.mp3, timeline.json)."""
     workdir = Path(workdir); workdir.mkdir(parents=True, exist_ok=True)
     swaps = config.LANG_SWAPS.get(lang, {})
     timeline, parts = [], []
@@ -54,9 +61,13 @@ def synth_episode(lines, workdir, lang="en"):
         voice = swaps.get(sid, char["voice"])
         if voice is None:
             raise RuntimeError(f"{sid} has no voice (SFX-only character)")
+        emo_rate, emo_pitch = config.EMOTIONS.get(
+            line.get("emotion", "neutral"), config.EMOTIONS["neutral"])
+        rate = _shift(char["rate"], emo_rate, "%", clamp=50)
+        pitch = _shift(char["pitch"], emo_pitch, "Hz", clamp=60)
         mp3 = workdir / f"line_{i:02d}.mp3"
         words = asyncio.run(_synth_line(
-            line["text"], voice, char["rate"], char["pitch"], mp3))
+            line["text"], voice, rate, pitch, mp3))
         d = _dur(mp3)
         timeline.append({
             "speaker": sid, "name": char["name"], "text": line["text"],

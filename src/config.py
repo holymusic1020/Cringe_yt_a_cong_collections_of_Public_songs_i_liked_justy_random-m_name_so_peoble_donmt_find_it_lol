@@ -22,7 +22,9 @@ X264 = dict(preset="veryfast", crf="22")
 # ── The Cast (fixed names/voices/faces = channel brand) ────────────────────
 # rate/pitch per character = same base voice can feel different people.
 # color = caption + nametag accent per character (visual identity, anti-template)
+# narrator=True -> no sticker, no name-dot: pure explainer voice
 CAST = {
+    "narrator":dict(name="Narrator",       voice="en-US-EmmaMultilingualNeural", rate="-4%",  pitch="-2Hz",  color="#CFD8DC", role="explainer", narrator=True),
     "nix":     dict(name="Nix",           voice="en-US-AndrewNeural",           rate="+6%",  pitch="+0Hz",  color="#FFD93D", role="protagonist"),
     "lubna":   dict(name="Lubna (Mom)",   voice="en-US-MichelleNeural",         rate="+2%",  pitch="+0Hz",  color="#1FBF75", role="mom"),
     "rafiq":   dict(name="Rafiq (Dad)",   voice="en-US-ChristopherNeural",      rate="-4%",  pitch="-2Hz",  color="#4D96FF", role="dad"),
@@ -50,13 +52,52 @@ CAST = {
     "browser": dict(name="Browser",       voice=None,                            rate="+0%",  pitch="+0Hz",  color="#C9A66B", role="dog (SFX only)"),
 }
 CORE_FAMILY = ["nix", "lubna", "rafiq", "tuli", "milli", "nani", "dada"]
-HAS_STICKER = CORE_FAMILY  # v1 stickers; more characters get stickers later
+HAS_STICKER = ["nix", "lubna", "rafiq", "tuli", "milli", "nani", "dada",
+               "bruno", "huda"]  # cast art expands over time
 
 # Bangla / Hindi episode voice swaps (same characters, native voices)
 LANG_SWAPS = {
-    "bn": {"nix": "bn-BD-PradeepNeural", "lubna": "bn-BD-NabanitaNeural"},
-    "hi": {"nix": "hi-IN-MadhurNeural", "lubna": "hi-IN-SwaraNeural", "mira": "hi-IN-NeerjaNeural"},
+    "bn": {"nix": "bn-BD-PradeepNeural", "lubna": "bn-BD-NabanitaNeural",
+           "narrator": "bn-IN-TanishaaNeural"},
+    "hi": {"nix": "hi-IN-MadhurNeural", "lubna": "hi-IN-SwaraNeural",
+           "mira": "hi-IN-NeerjaNeural", "narrator": "hi-IN-SwaraNeural"},
 }
+
+# ── Emotion engine: per-line emotion shifts rate/pitch on top of base voice ─
+EMOTIONS = {
+    "neutral": ("+0%",  "+0Hz"),
+    "angry":   ("+18%", "+25Hz"),
+    "shock":   ("+10%", "+45Hz"),
+    "sad":     ("-18%", "-15Hz"),
+    "excited": ("+22%", "+15Hz"),
+    "smug":    ("-8%",  "-5Hz"),
+    "whisper": ("-25%", "-8Hz"),
+    "panic":   ("+30%", "+30Hz"),
+    "deadpan": ("-12%", "-6Hz"),
+}
+
+# ── Layout (1080x1920): captions TOP multi-line, sticker BOTTOM-LEFT ───────
+LAYOUT = dict(
+    sticker_x=40, sticker_y=1150, sticker_w=430,   # bottom-left (boss-approved)
+    caption_font=74,
+    caption_align=8,            # top-center
+    caption_margin_v=170,       # from top edge
+    caption_margin_lr=90,
+    max_chunk_words=7,          # long speeches span multi-line chunks
+    max_chunk_dur=2.8,
+    endcard_font=104,
+)
+
+# ── Story topic pool — ALL of life, randomized (boss law: never one theme) ──
+TOPICS = [
+    "school drama", "bullying & payback", "racism confronted", "family chaos",
+    "sibling wars", "friendship betrayal", "crush embarrassment", "karma stories",
+    "exam disasters", "neighbor drama", "wedding chaos", "travel disaster",
+    "first job", "sports tryouts", "talent show", "secrets & mystery",
+    "money lessons", "food adventures", "technology chaos", "growing up",
+    "festival madness", "rich vs poor moments", "teachers & students",
+    "street smarts", "loss & lessons", "parties gone wrong", "small victories",
+]
 
 # ── Backgrounds — REAL VIDEO FIRST (boss law), generated = plan C ──────────
 BG_PRIORITY = ["pexels_video", "nocopyright_gameplay", "generated_image"]

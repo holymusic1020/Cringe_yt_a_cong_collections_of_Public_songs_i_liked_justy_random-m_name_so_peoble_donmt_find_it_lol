@@ -11,8 +11,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import config
 
 FONT_BOLD = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
-STICKER_W = 430          # display width in frame
-STICKER_X, STICKER_Y = 40, 1170
+STICKER_W = config.LAYOUT["sticker_w"]
+STICKER_X = config.LAYOUT["sticker_x"]
+STICKER_Y = config.LAYOUT["sticker_y"]
 
 
 def _run(cmd, timeout=1500):

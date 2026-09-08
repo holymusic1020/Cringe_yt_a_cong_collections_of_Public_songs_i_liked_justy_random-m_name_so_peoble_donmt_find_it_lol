@@ -1,0 +1,19 @@
+{
+  "lang": "en",
+  "title": "The Bully Who Insulted Mom's Biryani",
+  "endcard": "PART 2 TOMORROW",
+  "lines": [
+    {"speaker": "narrator", "text": "Every school has that one bully. Ours was Bruno.", "emotion": "deadpan"},
+    {"speaker": "bruno", "text": "Ew. What is that smell? Is that YOUR lunch, Nix?", "emotion": "smug"},
+    {"speaker": "narrator", "text": "Bruno mocked Mom's kacchi biryani. Every single day.", "emotion": "deadpan"},
+    {"speaker": "nix", "text": "It's my mom's kacchi. She wakes up at five to make it.", "emotion": "sad"},
+    {"speaker": "bruno", "text": "Nobody cares, curry boy.", "emotion": "deadpan"},
+    {"speaker": "narrator", "text": "But Bruno made one mistake. He said it in front of Principal Huda.", "emotion": "excited"},
+    {"speaker": "huda", "text": "Curry boy? My office. Now.", "emotion": "angry"},
+    {"speaker": "narrator", "text": "Because Principal Huda's mother makes the exact same kacchi.", "emotion": "smug"},
+    {"speaker": "huda", "text": "Nix, open your lunch box. Bruno, you will eat every single grain.", "emotion": "deadpan"},
+    {"speaker": "bruno", "text": "It's the best thing I have ever eaten. I'm sorry, Nix.", "emotion": "sad"},
+    {"speaker": "nix", "text": "Worth it. Follow for part two, Bruno joins family dinner.", "emotion": "smug"},
+    {"speaker": "narrator", "text": "Karma. Served with rice.", "emotion": "deadpan"}
+  ]
+}
