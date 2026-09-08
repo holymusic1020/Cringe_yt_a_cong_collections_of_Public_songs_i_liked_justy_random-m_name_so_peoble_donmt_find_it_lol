@@ -73,17 +73,19 @@ def bake_nametag(sid, out_path):
 
 
 def _slide_terms(windows, R):
-    """ffmpeg expr terms: eased slide-in offset decaying to 0 after slide_s."""
+    """ffmpeg expr terms: eased slide-in offset decaying to 0 after slide_s.
+    NOTE: plain commas — argv is passed without a shell, and escaped commas
+    made the expr parser silently mis-evaluate (the vanishing-sticker bug)."""
     s, dur = R["slide_px"], R["slide_s"]
     terms = []
     for t0, _ in windows:
         terms.append(
-            f"{s}*pow(max(0\\,1-min(1\\,(t-{t0:.2f})/{dur}))\\,2)")
+            f"{s}*pow(max(0,1-min(1,(t-{t0:.2f})/{dur})),2)")
     return terms
 
 
 def _enable_expr(windows):
-    return "+".join(f"between(t\\,{s:.2f}\\,{e:.2f})" for s, e in windows)
+    return "+".join(f"between(t,{s:.2f},{e:.2f})" for s, e in windows)
 
 
 def render(workdir, out_path):
@@ -104,7 +106,7 @@ def render(workdir, out_path):
     # ── Pass A: bg + karaoke captions
     tmp = workdir / "tmp_capped.mp4"
     _run_resilient(["ffmpeg", "-y", "-nostdin", "-i", str(bg),
-          "-vf", f"ass=filename='{caps}':fontsdir='/usr/share/fonts/truetype/dejavu',format=yuv420p",
+          "-vf", f"ass=filename='{caps}':fontsdir='{config.ASSETS / 'fonts'}',format=yuv420p",
           "-t", f"{total:.2f}", "-r", str(config.SHORT["fps"]),
           "-c:v", "libx264", "-preset", config.X264["preset"],
           "-crf", config.X264["crf"], "-an", str(tmp)])

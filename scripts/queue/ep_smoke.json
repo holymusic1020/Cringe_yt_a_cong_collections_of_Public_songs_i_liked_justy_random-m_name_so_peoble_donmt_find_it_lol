@@ -1,0 +1,15 @@
+{
+  "lang": "en",
+  "topic": "smoke test",
+  "energy": "mid",
+  "arc": "QA",
+  "part": 0,
+  "title": "ENGINE SMOKE TEST",
+  "endcard": "PART 2 TOMORROW",
+  "lines": [
+    {"speaker": "narrator", "text": "Engine smoke test. Everything you see right now is the machine proving itself.", "emotion": "deadpan"},
+    {"speaker": "bruno", "text": "Ohhh, a test? Let me guess. I'm the villain again.", "emotion": "smug"},
+    {"speaker": "huda", "text": "You are always the villain, Bruno. Sit down.", "emotion": "deadpan"},
+    {"speaker": "nix", "text": "Stickers, captions, robot, background. All systems live.", "emotion": "excited"}
+  ]
+}

@@ -84,13 +84,20 @@ LAYOUT = dict(
     sticker_bottom_gap=44,      # small gap under, no dead space
     caption_font=74,
     caption_align=8,            # top-center
-    caption_margin_v=170,
+    caption_margin_v=320,       # lower from top edge (boss: not glued to top)
     caption_margin_lr=90,
     max_chunk_words=7,
     max_chunk_dur=2.8,
     endcard_font=104,
     endcard_hold_s=3.5,
 )
+
+# caption font per language (files live in assets/fonts; names = font families)
+CAPTION_FONT_MAP = {
+    "en": ("Luckiest Guy", 80),
+    "hi": ("Mukta", 84),
+    "bn": ("Hind Siliguri", 84),
+}
 
 # ── The Robot — NixSpeechFav mascot narrator (bottom-left, animated) ────────
 ROBOT = dict(

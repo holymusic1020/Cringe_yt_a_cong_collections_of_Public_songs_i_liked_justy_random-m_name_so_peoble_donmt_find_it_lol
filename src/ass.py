@@ -43,6 +43,8 @@ def build_ass(timeline_path, out_path, endcard="PART 2 TOMORROW"):
     tl = json.loads(Path(timeline_path).read_text())
     L = config.LAYOUT
     w, h = config.SHORT["w"], config.SHORT["h"]
+    font_family, font_size = config.CAPTION_FONT_MAP.get(
+        tl.get("lang", "en"), config.CAPTION_FONT_MAP["en"])
     header = f"""[Script Info]
 ScriptType: v4.00+
 PlayResX: {w}
@@ -52,7 +54,7 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Kara,DejaVu Sans,{L['caption_font']},&H00FFFFFF,&H5AFFFFFF,&H00202020,&H00000000,-1,0,0,0,100,100,0,0,1,6,0,{L['caption_align']},{L['caption_margin_lr']},{L['caption_margin_lr']},{L['caption_margin_v']},1
+Style: Kara,{font_family},{font_size},&H00FFFFFF,&H00B4B4B4,&H00202020,&H00000000,-1,0,0,0,100,100,0,0,1,6,0,{L['caption_align']},{L['caption_margin_lr']},{L['caption_margin_lr']},{L['caption_margin_v']},1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
