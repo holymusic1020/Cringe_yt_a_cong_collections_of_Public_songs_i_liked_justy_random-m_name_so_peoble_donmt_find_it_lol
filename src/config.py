@@ -61,7 +61,7 @@ LANG_SWAPS = {
     "bn": {"nix": "bn-BD-PradeepNeural", "lubna": "bn-BD-NabanitaNeural",
            "narrator": "bn-IN-TanishaaNeural"},
     "hi": {"nix": "hi-IN-MadhurNeural", "lubna": "hi-IN-SwaraNeural",
-           "mira": "hi-IN-NeerjaNeural", "narrator": "hi-IN-SwaraNeural"},
+           "mira": "en-US-AvaMultilingualNeural", "narrator": "hi-IN-SwaraNeural"},
 }
 
 # ── Emotion engine: per-line emotion shifts rate/pitch on top of base voice ─

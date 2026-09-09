@@ -47,19 +47,33 @@ def _shift(base, delta, unit, clamp):
     return f"{v:+d}{unit}"
 
 
-async def _synth_line(text, voice, rate, pitch, out_path):
-    words, audio = [], b""
-    c = edge_tts.Communicate(text, voice, rate=rate, pitch=pitch,
-                             boundary="WordBoundary")
-    async for chunk in c.stream():
-        if chunk["type"] == "audio":
-            audio += chunk["data"]
-        elif chunk["type"] == "WordBoundary":
-            words.append({"w": chunk["text"],
-                          "start": chunk["offset"] / TICK,
-                          "end": (chunk["offset"] + chunk["duration"]) / TICK})
-    out_path.write_bytes(audio)
-    return words
+async def _synth_line(text, voice, rate, pitch, out_path, fallback_voice=None):
+    """3 attempts: same voice (transient hiccups), then narrator-voice
+    fallback — a retired/flaky edge voice must NEVER kill an episode."""
+    tries = [voice, voice, fallback_voice or voice]
+    for attempt, v in enumerate(tries):
+        words, audio = [], b""
+        try:
+            c = edge_tts.Communicate(text, v, rate=rate, pitch=pitch,
+                                     boundary="WordBoundary")
+            async for chunk in c.stream():
+                if chunk["type"] == "audio":
+                    audio += chunk["data"]
+                elif chunk["type"] == "WordBoundary":
+                    words.append({"w": chunk["text"],
+                                  "start": chunk["offset"] / TICK,
+                                  "end": (chunk["offset"] + chunk["duration"]) / TICK})
+            if not audio:
+                raise RuntimeError("empty audio stream")
+            out_path.write_bytes(audio)
+            if v != voice:
+                print(f"[tts]   ! {voice} unavailable -> fell back to {v}")
+            return words
+        except Exception as e:
+            if attempt == len(tries) - 1:
+                raise RuntimeError(f"TTS failed for all voices ({voice}, "
+                                   f"{fallback_voice}): {e}") from e
+            await asyncio.sleep(1.5)
 
 
 def synth_episode(lines, workdir, lang="en"):
@@ -85,7 +99,9 @@ def synth_episode(lines, workdir, lang="en"):
         line_words, seg_cursor, entries = [], 0.0, []
         for k, seg in enumerate(segs):
             mp3 = workdir / f"line_{i:02d}_{k:02d}.mp3"
-            words = asyncio.run(_synth_line(seg, voice, rate, pitch, mp3))
+            fallback = swaps.get("narrator") or config.CAST["narrator"]["voice"]
+            words = asyncio.run(_synth_line(seg, voice, rate, pitch, mp3,
+                                           fallback_voice=fallback))
             d = _dur(mp3)
             line_words += [{"w": w["w"],
                             "start": round(t_cursor + seg_cursor + w["start"], 3),
