@@ -53,7 +53,11 @@ def _bg_yt_clip(energy, duration, workdir, used_names):
     YouTube video, MUTE it, and transform (mirror + zoom + speed + color
     shift) so Content ID can't match it. Video-only download (no audio
     stream at all). Layered under original story/voices/captions =
-    transformative use per constitution §E."""
+    transformative use per constitution §E.
+
+    Datacenter IPs (GH runners) often hit YouTube's bot-wall demanding
+    cookies — so we retry across candidates AND the tv/ios player clients,
+    which historically skip the PO-token check."""
     cat = config.BG_ENERGY_MAP.get(energy, "satisfying")
     queries = config.YT_BG_SEARCHES.get(cat, config.YT_BG_SEARCHES["satisfying"])
     q = random.choice(queries)
@@ -62,30 +66,48 @@ def _bg_yt_clip(energy, duration, workdir, used_names):
                if e and (e.get("duration") or 0) > 600]
     if not entries:
         raise RuntimeError("yt search: no long candidates")
-    pick = random.choice(entries)
-    total = pick["duration"]
-    seg = duration + 25
-    start = total * 0.30 + random.uniform(0, max(1.0, total * 0.45 - seg))
-    raw = workdir / "bg_raw.mp4"
-    _run(["yt-dlp", "-f", "bv*[height<=1080][ext=mp4]",
-          "--download-sections", f"*{start:.0f}-{start + seg:.0f}",
-          "--force-keyframes-at-cuts",
-          "--sleep-requests", "2", "--sleep-interval", "4", "--retries", "3",
-          "-o", str(raw), pick["webpage_url"]], timeout=500)
-    w, h, fps = config.SHORT["w"], config.SHORT["h"], config.SHORT["fps"]
-    dst = workdir / "bg.mp4"
-    _run(["ffmpeg", "-y", "-nostdin", "-i", str(raw),
-          "-vf", (f"hflip,scale={int(w * 1.09)}:{int(h * 1.09)}:"
-                  "force_original_aspect_ratio=increase,"
-                  f"crop={w}:{h},eq=saturation=1.09:contrast=1.05,"
-                  f"hue=h=7,fps={fps},setpts=1.05*PTS"),
-          "-t", f"{duration:.2f}", "-an",
-          "-c:v", "libx264", "-preset", config.X264["preset"],
-          "-crf", config.X264["crf"], str(dst)])
-    raw.unlink(missing_ok=True)
-    log(f"yt_clip: '{pick.get('title', '?')[:48]}' mid-segment @{start:.0f}s, "
-        "muted+mirrored+graded")
-    return dst, None  # transformed bg — no credit line needed
+    # retry ladder: up to 3 candidates x (default client, tv/ios client)
+    attempts = []
+    for pick in random.sample(entries, min(3, len(entries))):
+        attempts.append((pick, []))
+        attempts.append((pick, ["--extractor-args",
+                                "youtube:player_client=tv,ios"]))
+    last_err = None
+    for pick, extra in attempts:
+        total = pick["duration"]
+        seg = duration + 25
+        start = total * 0.30 + random.uniform(0, max(1.0, total * 0.45 - seg))
+        raw = workdir / "bg_raw.mp4"
+        try:
+            _run(["yt-dlp", "-f", "bv*[height<=1080][ext=mp4]",
+                  "--download-sections", f"*{start:.0f}-{start + seg:.0f}",
+                  "--force-keyframes-at-cuts",
+                  "--sleep-requests", "2", "--sleep-interval", "4", "--retries", "2",
+                  *extra,
+                  "-o", str(raw), pick["webpage_url"]], timeout=400)
+            if not raw.exists() or raw.stat().st_size < 100_000:
+                raise RuntimeError("download produced no usable file")
+        except Exception as e:
+            last_err = e
+            raw.unlink(missing_ok=True)
+            log(f"yt_clip: candidate '{(pick.get('title') or '?')[:36]}' failed "
+                f"({'tv/ios' if extra else 'default'} client) — trying next")
+            continue
+        w, h, fps = config.SHORT["w"], config.SHORT["h"], config.SHORT["fps"]
+        dst = workdir / "bg.mp4"
+        _run(["ffmpeg", "-y", "-nostdin", "-i", str(raw),
+              "-vf", (f"hflip,scale={int(w * 1.09)}:{int(h * 1.09)}:"
+                      "force_original_aspect_ratio=increase,"
+                      f"crop={w}:{h},eq=saturation=1.09:contrast=1.05,"
+                      f"hue=h=7,fps={fps},setpts=1.05*PTS"),
+              "-t", f"{duration:.2f}", "-an",
+              "-c:v", "libx264", "-preset", config.X264["preset"],
+              "-crf", config.X264["crf"], str(dst)])
+        raw.unlink(missing_ok=True)
+        log(f"yt_clip: '{pick.get('title', '?')[:48]}' mid-segment @{start:.0f}s, "
+            f"muted+mirrored+graded ({'tv/ios' if extra else 'default'} client)")
+        return dst, None  # transformed bg — no credit line needed
+    raise RuntimeError(f"yt_clip: all candidates failed ({last_err})")
 
 
 def _bg_pexels_video(energy, duration, workdir, used_names):

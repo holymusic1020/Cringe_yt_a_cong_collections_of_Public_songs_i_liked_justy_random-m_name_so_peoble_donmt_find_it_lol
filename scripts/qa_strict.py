@@ -63,15 +63,22 @@ def main():
     if config.ROBOT["sid"] in lines:
         check(config.ROBOT["sid"], "robot")
 
-    sp = next(iter(lines.values()))
-    im = grab(VIDEO, (sp["start"] + sp["end"]) / 2, "/tmp/qa_cap.png")
+    # karaoke: sample several caption frames (a [beat] pause can leave the
+    # sampled frame mid-gap) and judge the strongest frame
     capbox = (90, 300, 990, 1000)
-    px = list(im.crop(capbox).getdata())
-    white = sum(1 for r, g, b in px if r > 235 and g > 235 and b > 235)
-    gray = sum(1 for r, g, b in px if 150 < r < 210 and abs(r - g) < 25
-               and abs(g - b) < 25 and abs(r - b) < 25)
-    ok = white > 300 and gray > 100
-    print(f"[qa] karaoke two-tone: white={white} gray={gray} "
+    best_w = best_g = 0
+    for l in TL["lines"][:3]:
+        for t in ((l["start"] + l["end"]) / 2,
+                  l["start"] + (l["end"] - l["start"]) * 0.3):
+            im = grab(VIDEO, t, "/tmp/qa_cap.png")
+            px = list(im.crop(capbox).getdata())
+            w = sum(1 for r, g, b in px if r > 235 and g > 235 and b > 235)
+            g = sum(1 for r, g, b in px if 150 < r < 210 and abs(r - g) < 25
+                    and abs(g - b) < 25 and abs(r - b) < 25)
+            if w + g > best_w + best_g:
+                best_w, best_g = w, g
+    ok = best_w > 300 and best_g > 100
+    print(f"[qa] karaoke two-tone: white={best_w} gray={best_g} "
           f"{'PASS' if ok else 'FAIL'}")
     if not ok:
         failures.append("karaoke")
