@@ -102,6 +102,9 @@ def commit_state(st):
         subprocess.run(["git", "commit", "-m",
                         f"state: posted {st['posted'][-1]['stem']} "
                         f"({st['posted'][-1]['video_id']})"], check=True)
+        # remote may have moved (concurrent state commits) — rebase then push
+        subprocess.run(["git", "pull", "--rebase", "origin",
+                        os.environ.get("GITHUB_REF_NAME", "main")], check=False)
         subprocess.run(["git", "push"], check=True)
         print("[post] state committed")
 

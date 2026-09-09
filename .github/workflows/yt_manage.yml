@@ -1,0 +1,43 @@
+name: yt-manage
+
+# Manual-only YouTube management (private/public/delete a video by id).
+# Never scheduled. Delete is double-gated (--confirm DELETE).
+
+on:
+  workflow_dispatch:
+    inputs:
+      video_id:
+        description: "YouTube video id (the part after youtu.be/)"
+        type: string
+        required: true
+      action:
+        description: "private | public | delete"
+        type: choice
+        options: [private, public, delete]
+        required: true
+      confirm:
+        description: "type DELETE here if action=delete"
+        type: string
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  manage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+      YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+      YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q requests
+      - name: Manage video
+        run: |
+          python3 src/yt_manage.py --video "${{ inputs.video_id }}" \
+            --action "${{ inputs.action }}" --confirm "${{ inputs.confirm }}"
