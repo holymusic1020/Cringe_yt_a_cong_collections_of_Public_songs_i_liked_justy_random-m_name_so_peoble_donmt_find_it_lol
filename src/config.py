@@ -129,7 +129,7 @@ TOPICS = [
 # ── Backgrounds — REAL VIDEO FROM YOUTUBE/TIKTOK FIRST (boss law Sep 9) ─────
 # yt_clip: middle segment of a real video, MUTED + mirrored + zoom + speed +
 # color shift (copyright-safe transform, constitution §E transformative layer)
-BG_PRIORITY = ["yt_clip", "pool", "pexels_video",
+BG_PRIORITY = ["yt_clip", "pixabay_video", "pool", "pexels_video",
                "nocopyright_gameplay", "generated_image"]
 YT_BG_SEARCHES = {
     "gameplay": ["minecraft parkour 1 hour no copyright",
@@ -146,6 +146,13 @@ BG_ENERGY_MAP = {
     "mid":    "satisfying",
     "chill":  "satisfying", # asmr / paint / cutting / restock
 }
+PIXABAY_QUERIES = {
+    "satisfying": ["satisfying", "soap cutting", "kinetic sand", "slime",
+                   "hydraulic press", "lava lamp", "paint mixing"],
+    "gameplay":   ["parkour", "skateboard", "city traffic timelapse",
+                   "night city", "subway", "rollerskate"],
+}
+
 PEXELS_QUERIES = {
     "satisfying": [
         "paint mixing", "kinetic sand cutting", "soap cutting", "glass cutting",

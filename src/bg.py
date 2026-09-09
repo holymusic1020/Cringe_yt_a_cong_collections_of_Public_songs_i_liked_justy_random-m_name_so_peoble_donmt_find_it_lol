@@ -146,6 +146,64 @@ def _bg_pool(energy, duration, workdir, used_names):
     return dst, None  # public-domain footage — no credit line needed
 
 
+def _bg_pixabay_video(energy, duration, workdir, used_names):
+    """Pixabay stock footage (Content License: free use, no attribution,
+    alteration required — we mirror/zoom/grade/speed-shift, so compliant).
+    Same boss-spec transform as yt_clip: muted, hflip, 1.09 zoom, color
+    shift, 1.05 speed. Long clip -> random MIDDLE segment; short clip ->
+    seamless loop."""
+    key = os.environ.get("PIXABAY_API_KEY", "").strip()
+    if not key:
+        raise RuntimeError("no PIXABAY_API_KEY")
+    category = config.BG_ENERGY_MAP.get(energy, "satisfying")
+    queries = config.PIXABAY_QUERIES.get(category,
+                                         config.PIXABAY_QUERIES["satisfying"])
+    query = random.choice(queries)
+    url = ("https://pixabay.com/api/videos/?key=" + key
+           + "&q=" + urllib.request.quote(query)
+           + "&video_type=film&per_page=40&safesearch=true")
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    data = json.loads(urllib.request.urlopen(req, timeout=30).read())
+    hits = [h for h in data.get("hits", [])
+            if h.get("videos") and h.get("tags") not in used_names]
+    if not hits:
+        raise RuntimeError("pixabay: no results")
+    # prefer clips long enough for a middle-segment cut
+    long_hits = [h for h in hits if (h.get("duration") or 0) >= duration + 8]
+    pick = random.choice(long_hits or hits)
+    vids = pick["videos"]
+    files = [vids[k] for k in ("large", "medium", "small", "tiny") if k in vids]
+    best = next((f for f in files if f.get("height", 0) >= 1080),
+                next((f for f in files if f.get("height", 0) >= 720), files[0]))
+    raw = workdir / "bg_raw.mp4"
+    urllib.request.urlretrieve(best["url"], raw)
+    used_names.add(pick.get("tags"))
+    clip_dur = _probe_duration(raw)
+    w, h, fps = config.SHORT["w"], config.SHORT["h"], config.SHORT["fps"]
+    dst = workdir / "bg.mp4"
+    cmd = ["ffmpeg", "-y", "-nostdin"]
+    if clip_dur >= duration + 8:   # middle segment, never the whole clip
+        off = random.uniform(max(0, clip_dur * 0.2),
+                             max(clip_dur * 0.2, clip_dur - duration - 2))
+        cmd += ["-ss", f"{off:.2f}", "-i", str(raw)]
+        seg = f"@{off:.0f}s mid-segment"
+    else:                          # short stock clip: seamless loop
+        cmd += ["-stream_loop", "-1", "-i", str(raw)]
+        seg = "(looped)"
+    cmd += ["-vf", (f"hflip,scale={int(w * 1.09)}:{int(h * 1.09)}:"
+                    "force_original_aspect_ratio=increase,"
+                    f"crop={w}:{h},eq=saturation=1.09:contrast=1.05,"
+                    f"hue=h=7,fps={fps},setpts=1.05*PTS"),
+            "-t", f"{duration:.2f}", "-an",
+            "-c:v", "libx264", "-preset", config.X264["preset"],
+            "-crf", config.X264["crf"], str(dst)]
+    _run(cmd)
+    raw.unlink(missing_ok=True)
+    log(f"pixabay: '{query}' {pick.get('tags', '')[:40]} "
+        f"{best.get('width')}x{best.get('height')} {seg}, muted+mirrored+graded")
+    return dst, None  # Pixabay Content License — no credit line required
+
+
 def _bg_pexels_video(energy, duration, workdir, used_names):
     key = os.environ.get("PEXELS_API_KEY", "").strip()
     if not key:
@@ -236,7 +294,7 @@ def fetch_bg(energy, duration, workdir):
             if provider == "generated_image":
                 return _bg_generated_image(energy, duration, workdir, used)
             raw, credit = globals()[f"_bg_{provider}"](energy, duration, workdir, used)
-            if provider in ("yt_clip", "pool"):
+            if provider in ("yt_clip", "pixabay_video", "pool"):
                 return raw, credit  # already final (transformed + exact cut)
             dst = workdir / "bg.mp4"
             _cut_cover(raw, duration, dst)
