@@ -6,7 +6,7 @@ generated_image     → LAST resort: assets/bg PNG + Ken Burns zoompan
 
 Every episode gets a different bg + different random segment = anti-template.
 """
-import os, random, subprocess, sys, json, urllib.request
+import os, time, random, subprocess, sys, json, urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -162,8 +162,20 @@ def _bg_pixabay_video(energy, duration, workdir, used_names):
     url = ("https://pixabay.com/api/videos/?key=" + key
            + "&q=" + urllib.request.quote(query)
            + "&video_type=film&per_page=40&safesearch=true")
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    data = json.loads(urllib.request.urlopen(req, timeout=30).read())
+    # NO fake browser UA — bare "Mozilla/5.0" is a bot fingerprint that
+    # Cloudflare 403s; the default urllib UA is honest and verified-working
+    # from GH runners (pixabay-debug probe, 2026-09-09)
+    data = None
+    for attempt in range(2):
+        try:
+            req = urllib.request.Request(url)
+            data = json.loads(urllib.request.urlopen(req, timeout=30).read())
+            break
+        except urllib.error.HTTPError as e:
+            if e.code == 403 and attempt == 0:  # transient cloudflare edge
+                time.sleep(4)
+                continue
+            raise
     hits = [h for h in data.get("hits", [])
             if h.get("videos") and h.get("tags") not in used_names]
     if not hits:
