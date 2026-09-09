@@ -129,14 +129,20 @@ def _bg_pool(energy, duration, workdir, used_names):
     hue = random.choice([-12, -8, -5, 5, 8, 12])
     w, h, fps = config.SHORT["w"], config.SHORT["h"], config.SHORT["fps"]
     dst = workdir / "bg.mp4"
-    _run(["ffmpeg", "-y", "-nostdin", "-ss", f"{off:.2f}", "-i", str(pick),
-          "-vf", (f"scale={w}:{h}:force_original_aspect_ratio=increase,"
-                  f"crop={w}:{h},hue=h={hue},fps={fps}"),
-          "-t", f"{duration:.2f}", "-an",
-          "-c:v", "libx264", "-preset", config.X264["preset"],
-          "-crf", config.X264["crf"], str(dst)])
-    log(f"bg_pool: '{pick.name}' @{off:.0f}s hue {hue:+d} — NASA public domain, "
-        f"exact {duration:.0f}s cut")
+    cmd = ["ffmpeg", "-y", "-nostdin"]
+    if dur >= duration + 2:                       # random mid-offset when it fits
+        cmd += ["-ss", f"{off:.2f}", "-i", str(pick)]
+    else:                                         # long episode: seamless loop
+        cmd += ["-stream_loop", "-1", "-i", str(pick)]
+    cmd += ["-vf", (f"scale={w}:{h}:force_original_aspect_ratio=increase,"
+                    f"crop={w}:{h},hue=h={hue},fps={fps}"),
+            "-t", f"{duration:.2f}", "-an",
+            "-c:v", "libx264", "-preset", config.X264["preset"],
+            "-crf", config.X264["crf"], str(dst)]
+    _run(cmd)
+    log(f"bg_pool: '{pick.name}' hue {hue:+d}"
+        f"{' @' + str(int(off)) + 's' if dur >= duration + 2 else ' (looped)'}"
+        f" — NASA public domain, exact {duration:.0f}s cut")
     return dst, None  # public-domain footage — no credit line needed
 
 
@@ -230,7 +236,7 @@ def fetch_bg(energy, duration, workdir):
             if provider == "generated_image":
                 return _bg_generated_image(energy, duration, workdir, used)
             raw, credit = globals()[f"_bg_{provider}"](energy, duration, workdir, used)
-            if provider in ("yt_clip", "bg_pool"):
+            if provider in ("yt_clip", "pool"):
                 return raw, credit  # already final (transformed + exact cut)
             dst = workdir / "bg.mp4"
             _cut_cover(raw, duration, dst)
