@@ -1,7 +1,7 @@
 name: post
 
-# The YouTube cadence: 1 Short every 15-19h (randomized window, boss spec).
-# Fed from the render vault (artifacts). Unlisted-first -> verify -> public.
+# MANUAL-ONLY (boss order Sep 9: no auto pushes — spam-flag protection.
+# Videos go to Telegram; boss posts via dispatch when ready.)
 
 on:
   workflow_dispatch:
@@ -14,8 +14,6 @@ on:
         description: "ignore the cadence window"
         type: boolean
         default: false
-  schedule:
-    - cron: "23 */6 * * *" # check the window every 6h
 
 permissions:
   contents: write   # state commits
