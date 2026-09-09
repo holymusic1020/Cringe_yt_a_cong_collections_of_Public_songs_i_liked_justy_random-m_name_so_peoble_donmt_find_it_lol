@@ -40,6 +40,13 @@ jobs:
 
       - run: pip install -q edge-tts yt-dlp pillow requests
 
+      - name: Install deno (yt-dlp JS runtime — YouTube bg extraction needs it on datacenter IPs)
+        run: |
+          curl -fsSL -o /tmp/deno.zip https://github.com/denoland/deno/releases/latest/download/deno-x86_64-unknown-linux-gnu.zip
+          unzip -o /tmp/deno.zip -d /tmp/denobin
+          sudo install -m 755 /tmp/denobin/deno /usr/local/bin/deno
+          deno --version
+
       - name: Render episode (queue FIFO)
         run: |
           SCRIPT="${{ inputs.script }}"
