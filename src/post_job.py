@@ -98,7 +98,7 @@ def commit_state(st):
         subprocess.run(["git", "config", "user.name", "nixfav-engine"], check=True)
         subprocess.run(["git", "config", "user.email",
                         "engine@users.noreply.github.com"], check=True)
-        subprocess.run(["git", "add", "state/state.json"], check=True)
+        subprocess.run(["git", "add", "-f", "state/state.json"], check=True)
         subprocess.run(["git", "commit", "-m",
                         f"state: posted {st['posted'][-1]['stem']} "
                         f"({st['posted'][-1]['video_id']})"], check=True)
