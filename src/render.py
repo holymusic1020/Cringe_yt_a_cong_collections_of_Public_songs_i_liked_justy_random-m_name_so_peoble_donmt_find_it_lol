@@ -109,7 +109,7 @@ def render(workdir, out_path):
           "-vf", f"ass=filename='{caps}':fontsdir='{config.ASSETS / 'fonts'}',format=yuv420p",
           "-t", f"{total:.2f}", "-r", str(config.SHORT["fps"]),
           "-c:v", "libx264", "-preset", config.X264["preset"],
-          "-crf", config.X264["crf"], "-an", str(tmp)])
+          "-crf", config.X264["crf"], "-threads", "2", "-an", str(tmp)])
     bg.unlink(missing_ok=True)
     for f in workdir.glob("line_*.mp3"):
         f.unlink(missing_ok=True)
@@ -123,25 +123,24 @@ def render(workdir, out_path):
         return h_scaled
 
     # ── Pass B chain: one overlay per pass
-    def overlay_pass(cur, nxt, png, w, x, y_expr, enable_expr, last, voice_in=False):
+    def overlay_pass(cur, nxt, png, w, x, y_expr, enable_expr, last):
+        # VIDEO-ONLY: never mix -loop image + audio + -shortest in one
+        # filter graph — that combo leaks ~47MB/s RSS on some ffmpeg builds
+        # and OOM-kills the pass (dmesg-verified). Voice muxes separately.
         cmd = ["ffmpeg", "-y", "-nostdin",
                "-i", str(cur),
                "-loop", "1", "-r", str(config.SHORT["fps"]),
-               "-t", f"{total:.2f}", "-i", str(png)]
-        if last:
-            cmd += ["-i", str(voice)]
-        cmd += ["-filter_complex",
-                f"[1:v]scale={w}:-2,format=rgba[stk];"
-                f"[0:v][stk]overlay=x={x}:y='{y_expr}':"
-                f"enable='{enable_expr}':eval=frame,format=yuv420p[vout]",
-                "-map", "[vout]"]
-        if last:
-            cmd += ["-map", "2:a", "-c:a", "aac", "-ar", "44100",
-                    "-b:a", "128k", "-shortest", "-movflags", "+faststart"]
-        cmd += ["-t", f"{total:.2f}", "-r", str(config.SHORT["fps"]),
-                "-c:v", "libx264", "-preset", config.X264["preset"],
-                "-crf", "16" if not last else config.X264["crf"]]
-        cmd.append(str(nxt))
+               "-t", f"{total:.2f}", "-i", str(png),
+               "-filter_complex",
+               f"[1:v]scale={w}:-2,format=rgba[stk];"
+               f"[0:v][stk]overlay=x={x}:y='{y_expr}':"
+               f"enable='{enable_expr}':eval=frame,format=yuv420p[vout]",
+               "-map", "[vout]",
+               "-t", f"{total:.2f}", "-r", str(config.SHORT["fps"]),
+               "-c:v", "libx264", "-preset", config.X264["preset"],
+               "-threads", "2", "-an",
+               "-crf", "16" if not last else config.X264["crf"],
+               str(nxt)]
         _run_resilient(cmd)
 
     cur = tmp
@@ -187,13 +186,18 @@ def render(workdir, out_path):
         print(f"[render] pass {i + 1}/{len(passes)}: {Path(png).stem} ok")
 
     if not passes:  # nothing to overlay: mux voice directly
-        cmd = ["ffmpeg", "-y", "-nostdin", "-i", str(tmp), "-i", str(voice),
-               "-map", "0:v", "-map", "1:a", "-c:v", "copy",
-               "-c:a", "aac", "-b:a", "128k", "-shortest",
-               "-movflags", "+faststart", str(out_path)]
-        _run(cmd)
+        cur = tmp
     else:
-        shutil.move(str(cur), str(out_path))
+        print("[render] voice mux (copy, no re-encode)")
+        _run_resilient(["ffmpeg", "-y", "-nostdin", "-i", str(cur),
+                        "-i", str(voice),
+                        "-map", "0:v", "-map", "1:a", "-c:v", "copy",
+                        "-c:a", "aac", "-ar", "44100", "-b:a", "128k",
+                        "-shortest", "-movflags", "+faststart", str(out_path)])
+        tmp.unlink(missing_ok=True)
+        print(f"[render] {out_path.name} done ({total:.1f}s, "
+              f"{len(sticker_sids)} stickers + robot:{has_robot})")
+        return
     tmp.unlink(missing_ok=True)
     print(f"[render] {out_path.name} done ({total:.1f}s, "
           f"{len(sticker_sids)} stickers + robot:{has_robot})")
