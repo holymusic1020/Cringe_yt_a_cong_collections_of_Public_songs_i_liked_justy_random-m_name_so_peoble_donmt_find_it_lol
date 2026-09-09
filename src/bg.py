@@ -110,6 +110,36 @@ def _bg_yt_clip(energy, duration, workdir, used_names):
     raise RuntimeError(f"yt_clip: all candidates failed ({last_err})")
 
 
+def _bg_pool(energy, duration, workdir, used_names):
+    """REAL-VIDEO pool fallback: pre-transformed NASA public-domain clips
+    (aurora timelapses / rocket views) stored as GitHub release assets,
+    fetched into assets/bg_pool/ by the render workflow. Live YouTube
+    extraction gets bot-walled on datacenter IPs — this always works.
+    Random offset + hue shift per use so no two episodes share the same
+    bg frame-for-frame."""
+    pool = config.ASSETS / "bg_pool"
+    clips = sorted(pool.glob("*.mp4")) if pool.exists() else []
+    if not clips:
+        raise RuntimeError("bg pool empty (release fetch failed?)")
+    cat = config.BG_ENERGY_MAP.get(energy, "satisfying")
+    prefer = [c for c in clips if cat in c.stem] or clips
+    pick = random.choice(prefer)
+    dur = _probe_duration(pick)
+    off = random.uniform(0, max(0.0, dur - duration - 1))
+    hue = random.choice([-12, -8, -5, 5, 8, 12])
+    w, h, fps = config.SHORT["w"], config.SHORT["h"], config.SHORT["fps"]
+    dst = workdir / "bg.mp4"
+    _run(["ffmpeg", "-y", "-nostdin", "-ss", f"{off:.2f}", "-i", str(pick),
+          "-vf", (f"scale={w}:{h}:force_original_aspect_ratio=increase,"
+                  f"crop={w}:{h},hue=h={hue},fps={fps}"),
+          "-t", f"{duration:.2f}", "-an",
+          "-c:v", "libx264", "-preset", config.X264["preset"],
+          "-crf", config.X264["crf"], str(dst)])
+    log(f"bg_pool: '{pick.name}' @{off:.0f}s hue {hue:+d} — NASA public domain, "
+        f"exact {duration:.0f}s cut")
+    return dst, None  # public-domain footage — no credit line needed
+
+
 def _bg_pexels_video(energy, duration, workdir, used_names):
     key = os.environ.get("PEXELS_API_KEY", "").strip()
     if not key:
@@ -200,7 +230,7 @@ def fetch_bg(energy, duration, workdir):
             if provider == "generated_image":
                 return _bg_generated_image(energy, duration, workdir, used)
             raw, credit = globals()[f"_bg_{provider}"](energy, duration, workdir, used)
-            if provider == "yt_clip":
+            if provider in ("yt_clip", "bg_pool"):
                 return raw, credit  # already final (transformed + exact cut)
             dst = workdir / "bg.mp4"
             _cut_cover(raw, duration, dst)

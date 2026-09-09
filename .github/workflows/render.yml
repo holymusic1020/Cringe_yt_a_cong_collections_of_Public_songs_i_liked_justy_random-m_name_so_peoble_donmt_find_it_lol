@@ -49,6 +49,15 @@ jobs:
           sudo install -m 755 /tmp/denobin/deno /usr/local/bin/deno
           deno --version
 
+      - name: Fetch real-video bg pool (release assets)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p assets/bg_pool
+          gh release download bg-archive --repo "$GITHUB_REPOSITORY" --pattern "pool_*.mp4" --dir assets/bg_pool --clobber \
+            || echo "bg pool unavailable — providers will fall through"
+          ls -la assets/bg_pool 2>/dev/null || true
+
       - name: Render episode (queue FIFO)
         run: |
           SCRIPT="${{ inputs.script }}"

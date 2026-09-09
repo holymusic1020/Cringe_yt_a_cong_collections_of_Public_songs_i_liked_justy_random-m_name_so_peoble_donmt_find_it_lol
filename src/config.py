@@ -129,7 +129,8 @@ TOPICS = [
 # ── Backgrounds — REAL VIDEO FROM YOUTUBE/TIKTOK FIRST (boss law Sep 9) ─────
 # yt_clip: middle segment of a real video, MUTED + mirrored + zoom + speed +
 # color shift (copyright-safe transform, constitution §E transformative layer)
-BG_PRIORITY = ["yt_clip", "pexels_video", "nocopyright_gameplay", "generated_image"]
+BG_PRIORITY = ["yt_clip", "bg_pool", "pexels_video",
+               "nocopyright_gameplay", "generated_image"]
 YT_BG_SEARCHES = {
     "gameplay": ["minecraft parkour 1 hour no copyright",
                  "minecraft parkour long video", "racing game gameplay 1 hour"],
