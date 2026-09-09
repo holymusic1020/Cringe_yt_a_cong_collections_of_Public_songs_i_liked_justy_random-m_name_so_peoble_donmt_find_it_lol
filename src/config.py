@@ -109,6 +109,8 @@ ROBOT = dict(
     slide_px=320, slide_s=0.22,        # slide-in from below (all stickers)
     talk_flicker_period_s=0.34,        # antenna vibration WHILE TALKING:
     talk_flicker_on_s=0.17,            # open/tilt frame swap every 0.17s
+    jaw_bob_px=3.5,                    # jaw motion = head bob at speech tempo
+    jaw_bob_period_s=0.16,             # (no visible mouth — boss law)
 )
 
 # ── Story topic pool — ALL of life, randomized (boss law: never one theme) ──

@@ -164,14 +164,17 @@ def render(workdir, out_path):
         h_scaled = pos_for(ROBOT_DIR / "robot.png", R["w"])
         base_y = config.SHORT["h"] - R["bottom_gap"] - h_scaled
         bob = (f"{base_y}+{R['bob_px']}*sin(2*PI*t/{R['bob_period_s']})")
-        y_expr = bob + "".join("+" + t for t in _slide_terms(w, R))
         talk = _enable_expr(w)
+        # JAW MOTION (boss spec): no visible mouth — while talking, the whole
+        # head bobs slightly at speech tempo = "his jaw is moving"
+        jaw = (f"{R['jaw_bob_px']}*sin(2*PI*t/{R['jaw_bob_period_s']})*({talk})")
+        y_expr = bob + "+" + jaw + "".join("+" + t for t in _slide_terms(w, R))
         flicker = (f"lt(mod(t,{R['talk_flicker_period_s']}),"
                    f"{R['talk_flicker_on_s']})")
         blink = f"lt(mod(t,{R['blink_period_s']}),{R['blink_dur_s']})"
         passes.append((ROBOT_DIR / "robot.png", R["w"], R["x"], y_expr,
                        f"if({talk},if({flicker},0,if({blink},0,1)),0)"))
-        passes.append((ROBOT_DIR / "robot_talk.png", R["w"], R["x"], y_expr,
+        passes.append((ROBOT_DIR / "robot_antenna.png", R["w"], R["x"], y_expr,
                        f"if({talk},if({flicker},if({blink},0,1),0),0)"))
         passes.append((ROBOT_DIR / "robot_blink.png", R["w"], R["x"], y_expr,
                        f"if({talk},if({blink},1,0),0)"))

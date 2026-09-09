@@ -1,74 +1,57 @@
 name: post
 
-# ONE short per day at a fixed clock (fresh-channel law). The 12:05 slot is
-# added by flipping cadence in state/state.json (day 15-16 roll) — never by
-# editing this file mid-flight.
+# The YouTube cadence: 1 Short every 15-19h (randomized window, boss spec).
+# Fed from the render vault (artifacts). Unlisted-first -> verify -> public.
+
 on:
   workflow_dispatch:
     inputs:
+      episode:
+        description: "episode stem (e.g. ep001) — blank = FIFO vault"
+        type: string
+        default: ""
       force:
-        description: "Post even if state says no slot today"
+        description: "ignore the cadence window"
         type: boolean
         default: false
-      privacy:
-        description: "unlisted | public"
-        type: string
-        default: "unlisted"
+  schedule:
+    - cron: "23 */6 * * *" # check the window every 6h
 
 permissions:
-  contents: write # engine commits state/state.json after every run
+  contents: write   # state commits
+  actions: read     # artifact downloads
 
 concurrency:
   group: post-engine
-  cancel-in-progress: false # a delayed run must never collide with the next
+  cancel-in-progress: false
 
 jobs:
-  engine:
+  post:
     runs-on: ubuntu-latest
-    timeout-minutes: 300 # delay(≤2h) + render + upload, well under the 6h cap
+    timeout-minutes: 30
     env:
       YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
       YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
       YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
-      GEMINI_API_KEY_1: ${{ secrets.GEMINI_API_KEY_1 }}
-      PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
     steps:
       - uses: actions/checkout@v4
         with:
-          # need history: dup-title guard walks every past title in state.json
           fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          cache: pip
 
-      - run: sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg fonts-dejavu
+      - run: pip install -q requests
 
-      - run: pip install -q -r requirements.txt
+      - name: Preflight — verify channel binding (constitution §D)
+        run: python3 src/preflight.py
 
-      - name: Slot check + human-like random delay (0-7200s, constitution §C)
+      - name: Post one episode (cadence window respected)
         run: |
-          python src/slot_check.py --force "${{ inputs.force || 'false' }}"
-          DELAY=$(python -c "import random; print(random.randint(0,7200))")
-          echo "Sleeping ${DELAY}s …"
-          sleep "$DELAY"
-
-      - name: Generate story + metadata (Gemini, fallback chain, dup-title guard)
-        run: python src/story.py
-
-      - name: Voiceover + karaoke subtitles (edge-tts word boundaries)
-        run: python src/tts.py
-
-      - name: Visuals + music bed + render (1080x1920@30, crf22)
-        run: python src/render_all.py
-
-      - name: Upload (OAuth refresh, resumable, unlisted-first)
-        run: python src/upload.py --privacy "${{ inputs.privacy || 'unlisted' }}"
-
-      - name: Verify live (probe the uploaded video URL — rule #1)
-        run: python src/verify.py
-
-      - name: Commit new state (posted title, streak, cadence roll)
-        run: python src/state_commit.py
+          ARGS=""
+          [ -n "${{ inputs.episode }}" ] && ARGS="--episode ${{ inputs.episode }}"
+          ${{ inputs.force }} && ARGS="$ARGS --force" || true
+          python3 src/post_job.py $ARGS
