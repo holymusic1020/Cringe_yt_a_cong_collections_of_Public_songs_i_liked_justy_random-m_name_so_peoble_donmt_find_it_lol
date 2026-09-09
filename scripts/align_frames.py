@@ -7,6 +7,7 @@ from PIL import Image
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 import config  # noqa: F401  (paths)
 from chroma import key
+from stickers import stickerize
 
 RAW = config.ASSETS / "robot"
 OUT = config.ASSETS / "robot_keyed"
@@ -18,7 +19,7 @@ def main():
     imgs = {}
     for f in FRAMES:
         im = Image.open(RAW / f"{f}_raw.png").convert("RGB")
-        imgs[f] = key(im)  # keyed, uncropped (full canvas)
+        imgs[f] = stickerize(key(im))  # keyed + white-outline sticker look
 
     # union bbox across all frames
     boxes = [im.getchannel("A").getbbox() for im in imgs.values()]
@@ -26,8 +27,8 @@ def main():
            max(b[2] for b in boxes), max(b[3] for b in boxes))
     for f, im in imgs.items():
         im.crop(box).save(OUT / f"{f}.png")
-        print(f"{f}: {im.size} -> union crop {box} -> {(box[2]-box[0], box[3]-box[1])}")
-    print("all frames share identical canvas ✅")
+        print(f"{f}: stickerized, union crop -> {(box[2]-box[0], box[3]-box[1])}")
+    print("all frames share identical canvas, white-outlined ✅")
 
 
 if __name__ == "__main__":

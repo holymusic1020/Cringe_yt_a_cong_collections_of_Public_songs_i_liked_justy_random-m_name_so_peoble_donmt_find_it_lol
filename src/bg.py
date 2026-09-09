@@ -48,6 +48,46 @@ def _cut_cover(src, duration, dst):
     log(f"cut {duration:.0f}s @ {start:.0f}s offset -> {dst.name}")
 
 
+def _bg_yt_clip(energy, duration, workdir, used_names):
+    """BOSS SPEC (copyright-safe transform): pull a MIDDLE segment of a real
+    YouTube video, MUTE it, and transform (mirror + zoom + speed + color
+    shift) so Content ID can't match it. Video-only download (no audio
+    stream at all). Layered under original story/voices/captions =
+    transformative use per constitution §E."""
+    cat = config.BG_ENERGY_MAP.get(energy, "satisfying")
+    queries = config.YT_BG_SEARCHES.get(cat, config.YT_BG_SEARCHES["satisfying"])
+    q = random.choice(queries)
+    info = _run(["yt-dlp", "-J", f"ytsearch6:{q}", "--no-playlist"], timeout=180)
+    entries = [e for e in (json.loads(info.stdout).get("entries") or [])
+               if e and (e.get("duration") or 0) > 600]
+    if not entries:
+        raise RuntimeError("yt search: no long candidates")
+    pick = random.choice(entries)
+    total = pick["duration"]
+    seg = duration + 25
+    start = total * 0.30 + random.uniform(0, max(1.0, total * 0.45 - seg))
+    raw = workdir / "bg_raw.mp4"
+    _run(["yt-dlp", "-f", "bv*[height<=1080][ext=mp4]",
+          "--download-sections", f"*{start:.0f}-{start + seg:.0f}",
+          "--force-keyframes-at-cuts",
+          "--sleep-requests", "2", "--sleep-interval", "4", "--retries", "3",
+          "-o", str(raw), pick["webpage_url"]], timeout=500)
+    w, h, fps = config.SHORT["w"], config.SHORT["h"], config.SHORT["fps"]
+    dst = workdir / "bg.mp4"
+    _run(["ffmpeg", "-y", "-nostdin", "-i", str(raw),
+          "-vf", (f"hflip,scale={int(w * 1.09)}:{int(h * 1.09)}:"
+                  "force_original_aspect_ratio=increase,"
+                  f"crop={w}:{h},eq=saturation=1.09:contrast=1.05,"
+                  f"hue=h=7,fps={fps},setpts=1.05*PTS"),
+          "-t", f"{duration:.2f}", "-an",
+          "-c:v", "libx264", "-preset", config.X264["preset"],
+          "-crf", config.X264["crf"], str(dst)])
+    raw.unlink(missing_ok=True)
+    log(f"yt_clip: '{pick.get('title', '?')[:48]}' mid-segment @{start:.0f}s, "
+        "muted+mirrored+graded")
+    return dst, None  # transformed bg — no credit line needed
+
+
 def _bg_pexels_video(energy, duration, workdir, used_names):
     key = os.environ.get("PEXELS_API_KEY", "").strip()
     if not key:
@@ -137,7 +177,9 @@ def fetch_bg(energy, duration, workdir):
         try:
             if provider == "generated_image":
                 return _bg_generated_image(energy, duration, workdir, used)
-            raw, credit = (globals()[f"_bg_{provider}"](energy, duration, workdir, used))
+            raw, credit = globals()[f"_bg_{provider}"](energy, duration, workdir, used)
+            if provider == "yt_clip":
+                return raw, credit  # already final (transformed + exact cut)
             dst = workdir / "bg.mp4"
             _cut_cover(raw, duration, dst)
             raw.unlink(missing_ok=True)

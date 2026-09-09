@@ -1,0 +1,25 @@
+{
+  "lang": "en",
+  "topic": "canteen chaos ensemble",
+  "energy": "mid",
+  "arc": "The Canteen Crisis",
+  "part": 1,
+  "title": "The Canteen Ran Out Of Samosas… WAR 🤖 Ep.1",
+  "endcard": "PART 2: THE SECRET STASH",
+  "lines": [
+    {"speaker": "narrator", "text": "12:30 p.m. Choto Mia's canteen. [beat] One announcement… and this school lost its mind.", "emotion": "deadpan"},
+    {"speaker": "choto", "text": "Listen, listen! Samosas… FINISHED! [beat] Only bread and despair left!", "emotion": "panic"},
+    {"speaker": "joy", "text": "FINISHED?! [beat] Bro, I queued through MATH class for this!", "emotion": "shock"},
+    {"speaker": "ding", "text": "This is what they wanted. Starve us… so we can't think. [beat] I read about this.", "emotion": "deadpan"},
+    {"speaker": "mira", "text": "Ding… [beat] it's just a samosa.", "emotion": "deadpan"},
+    {"speaker": "riku", "text": "Just a SAMOSA? [beat] Mira, I'd trade my ranked account for one right now.", "emotion": "panic"},
+    {"speaker": "narrator", "text": "And then… the doors burst open. Jamal Chacha. Back from Dubai. [beat] With a steel tiffin carrier.", "emotion": "excited"},
+    {"speaker": "jamal", "text": "Beta! In Dubai, we never say finished! [beat] Fifty samosas. Home delivery. Your uncle's treat!", "emotion": "excited"},
+    {"speaker": "phupu", "text": "FIFTY samosas?! [beat] Who told him to cook? I MUST call everyone. EVERYONE.", "emotion": "shock"},
+    {"speaker": "bruno", "text": "Step aside, step aside… [beat] bully privilege. I queued first, remember?", "emotion": "smug"},
+    {"speaker": "huda", "text": "Bruno. [beat] The back of the line has excellent… education.", "emotion": "deadpan"},
+    {"speaker": "narrator", "text": "The line reorganized itself… [beat] with record speed.", "emotion": "smug"},
+    {"speaker": "nix", "text": "Best day of my life. [beat] Follow for part two — someone HID a whole secret stash in the staff room.", "emotion": "excited"},
+    {"speaker": "narrator", "text": "The staff room stash… [beat] was about to become this school's biggest scandal.", "emotion": "deadpan"}
+  ]
+}

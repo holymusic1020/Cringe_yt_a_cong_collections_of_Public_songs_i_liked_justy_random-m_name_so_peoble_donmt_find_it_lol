@@ -53,7 +53,8 @@ CAST = {
 }
 CORE_FAMILY = ["nix", "lubna", "rafiq", "tuli", "milli", "nani", "dada"]
 HAS_STICKER = ["nix", "lubna", "rafiq", "tuli", "milli", "nani", "dada",
-               "bruno", "huda"]  # cast art expands over time
+               "bruno", "huda", "joy", "ding", "mira", "jamal", "phupu",
+               "riku", "kamal", "mim"]  # 17 stickered cast members
 
 # Bangla / Hindi episode voice swaps (same characters, native voices)
 LANG_SWAPS = {
@@ -90,6 +91,7 @@ LAYOUT = dict(
     max_chunk_dur=2.8,
     endcard_font=104,
     endcard_hold_s=3.5,
+    max_sticker_passes=10,         # big ensemble episodes (boss: more characters!)
 )
 
 # caption font per language (files live in assets/fonts; names = font families)
@@ -124,8 +126,17 @@ TOPICS = [
     "street smarts", "loss & lessons", "parties gone wrong", "small victories",
 ]
 
-# ── Backgrounds — REAL VIDEO FIRST (boss law), generated = plan C ──────────
-BG_PRIORITY = ["pexels_video", "nocopyright_gameplay", "generated_image"]
+# ── Backgrounds — REAL VIDEO FROM YOUTUBE/TIKTOK FIRST (boss law Sep 9) ─────
+# yt_clip: middle segment of a real video, MUTED + mirrored + zoom + speed +
+# color shift (copyright-safe transform, constitution §E transformative layer)
+BG_PRIORITY = ["yt_clip", "pexels_video", "nocopyright_gameplay", "generated_image"]
+YT_BG_SEARCHES = {
+    "gameplay": ["minecraft parkour 1 hour no copyright",
+                 "minecraft parkour long video", "racing game gameplay 1 hour"],
+    "satisfying": ["oddly satisfying compilation 1 hour",
+                   "satisfying video compilation long",
+                   "asmr satisfying video compilation"],
+}
 
 # energy -> what kind of real video matches the story vibe
 BG_ENERGY_MAP = {

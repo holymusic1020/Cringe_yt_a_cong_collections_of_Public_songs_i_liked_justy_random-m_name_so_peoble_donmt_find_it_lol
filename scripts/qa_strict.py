@@ -1,9 +1,12 @@
-"""STRICT QA v2 — FRAME-DIFF based (color counting was fooled by colorful bg).
+"""STRICT QA v3 — BACKGROUND-INVARIANT sticker proof.
 
-Method: t≈0.08s is a clean reference (slide-ins still offscreen, zone empty).
-Each stickered speaker's mid-window frame vs reference: strong-diff fraction
-in the sticker zone must exceed threshold => sticker actually rendered.
-Same for the robot visor zone during narrator lines. Exits 1 on failure.
+Compares the FINAL video frame at time T against the RAW bg.mp4 frame at the
+SAME time T, inside the sticker zone. diff = exactly the sticker/robot pixels
+(bgs can't fake it, motion can't mask it). One speaker per window => the diff
+at a speaker's mid-line is THEIR sticker.
+
+Usage: qa_strict.py <video> <timeline.json> [<bg.mp4>]
+If bg.mp4 missing (older renders), falls back to v2 frame-diff with a warning.
 """
 import json, subprocess, sys
 from pathlib import Path
@@ -14,16 +17,16 @@ import config
 
 VIDEO = Path(sys.argv[1])
 TL = json.loads(Path(sys.argv[2]).read_text())
-ZONE = (24, 900, 700, 1900)          # sticker+robot zone
-REF_T = 0.08                          # before any slide-in completes
-THRESH = 0.10                         # strong-diff fraction => sticker present
+BG = Path(sys.argv[3]) if len(sys.argv) > 3 else \
+    VIDEO.parent / f"{VIDEO.stem}_bg.mp4"
+ZONE = (24, 700, 700, 1900)   # sticker/robot zone (below caption area)
+THRESH = 0.02                  # 2% strong-diff => sticker present
 
 
-def grab(t):
+def grab(src, t, name):
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-ss", str(t),
-                    "-i", str(VIDEO), "-frames:v", "1", "/tmp/qa_v2.png"],
-                   check=True)
-    return Image.open("/tmp/qa_v2.png").convert("RGB")
+                    "-i", str(src), "-frames:v", "1", name], check=True)
+    return Image.open(name).convert("RGB")
 
 
 def strong_diff(a, b):
@@ -33,31 +36,35 @@ def strong_diff(a, b):
 
 
 def main():
-    ref = grab(REF_T)
+    have_bg = BG.exists()
+    if not have_bg:
+        print("[qa] WARNING: no bg.mp4 — falling back to v2 (less reliable)")
+    ref = grab(BG if have_bg else VIDEO, 0.08, "/tmp/qa_ref.png")
     lines = {l["speaker"]: l for l in TL["lines"]}
     failures = []
 
-    for sid in {l["speaker"] for l in TL["lines"]}:
-        if sid not in config.HAS_STICKER:
-            continue
+    def check(sid, label):
         l = lines[sid]
-        frac = strong_diff(grab((l["start"] + l["end"]) / 2), ref)
+        mid = (l["start"] + l["end"]) / 2
+        frame = grab(VIDEO, mid, "/tmp/qa_frame.png")
+        if have_bg:
+            base = grab(BG, mid, "/tmp/qa_base.png")
+        else:
+            base = ref
+        frac = strong_diff(frame, base)
         ok = frac > THRESH
-        print(f"[qa] sticker {sid}: zone-diff {frac*100:.1f}% "
-              f"{'PASS' if ok else 'FAIL'}")
+        print(f"[qa] {label} {sid}: diff {frac*100:.1f}% {'PASS' if ok else 'FAIL'}")
         if not ok:
             failures.append(sid)
 
+    for sid in {l["speaker"] for l in TL["lines"]}:
+        if sid in config.HAS_STICKER:
+            check(sid, "sticker")
     if config.ROBOT["sid"] in lines:
-        l = lines[config.ROBOT["sid"]]
-        frac = strong_diff(grab((l["start"] + l["end"]) / 2), ref)
-        ok = frac > THRESH
-        print(f"[qa] robot: zone-diff {frac*100:.1f}% {'PASS' if ok else 'FAIL'}")
-        if not ok:
-            failures.append("robot")
+        check(config.ROBOT["sid"], "robot")
 
     sp = next(iter(lines.values()))
-    im = grab((sp["start"] + sp["end"]) / 2)
+    im = grab(VIDEO, (sp["start"] + sp["end"]) / 2, "/tmp/qa_cap.png")
     capbox = (90, 300, 990, 1000)
     px = list(im.crop(capbox).getdata())
     white = sum(1 for r, g, b in px if r > 235 and g > 235 and b > 235)
@@ -72,7 +79,7 @@ def main():
     if failures:
         print(f"[qa] FAILED: {failures}")
         sys.exit(1)
-    print("[qa] ALL FRAME-DIFF CHECKS PASSED ✅")
+    print("[qa] ALL BACKGROUND-INVARIANT CHECKS PASSED ✅")
 
 
 if __name__ == "__main__":

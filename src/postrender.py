@@ -42,6 +42,8 @@ def main():
     if job.get("bgcredit"):
         caption += "\n" + job["bgcredit"]
     shutil.copy(workdir / "timeline.json", out.parent / f"{out.stem}_timeline.json")
+    if (workdir / "bg_source.mp4").exists():
+        shutil.copy(workdir / "bg_source.mp4", out.parent / f"{out.stem}_bg.mp4")
     tg.send_video(out, caption)
 
     Path(job["script"]).with_suffix(".done").write_text(out.name)
@@ -51,7 +53,8 @@ def main():
     # older mp4s/metas/timelines get purged so the latest is always findable
     keep = {out.name,
             (out.parent / f"{out.stem}_meta.json").name,
-            (out.parent / f"{out.stem}_timeline.json").name}
+            (out.parent / f"{out.stem}_timeline.json").name,
+            (out.parent / f"{out.stem}_bg.mp4").name}
     for f in out.parent.iterdir():
         if f.is_file() and f.name not in keep and f.suffix in (".mp4", ".json"):
             f.unlink(missing_ok=True)

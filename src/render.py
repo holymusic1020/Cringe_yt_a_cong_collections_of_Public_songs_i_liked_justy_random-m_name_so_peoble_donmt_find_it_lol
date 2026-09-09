@@ -101,7 +101,7 @@ def render(workdir, out_path):
     R = config.ROBOT
     has_robot = R["sid"] in windows
     sticker_sids = [s for s in windows
-                    if s in config.HAS_STICKER][:4]
+                    if s in config.HAS_STICKER][:config.LAYOUT["max_sticker_passes"]]
 
     # ── Pass A: bg + karaoke captions
     tmp = workdir / "tmp_capped.mp4"

@@ -53,6 +53,7 @@ def main():
     bgvid, bgcredit = bg.fetch_bg(ep.get("energy", "mid"),
                                   tl["total_s"] + 0.5, workdir / "bgwork")
     shutil.copy(bgvid, workdir / "bg.mp4")
+    shutil.copy(bgvid, workdir / "bg_source.mp4")  # QA v3 needs it (render deletes bg.mp4)
 
     out.parent.mkdir(parents=True, exist_ok=True)
     # hand off EVERYTHING stage 2 needs (fresh process, clean heap)
