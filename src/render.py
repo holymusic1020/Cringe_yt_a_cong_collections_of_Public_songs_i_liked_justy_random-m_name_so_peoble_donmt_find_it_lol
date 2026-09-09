@@ -171,7 +171,7 @@ def render(workdir, out_path):
         blink = f"lt(mod(t,{R['blink_period_s']}),{R['blink_dur_s']})"
         passes.append((ROBOT_DIR / "robot.png", R["w"], R["x"], y_expr,
                        f"if({talk},if({flicker},0,if({blink},0,1)),0)"))
-        passes.append((ROBOT_DIR / "robot_antenna.png", R["w"], R["x"], y_expr,
+        passes.append((ROBOT_DIR / "robot_talk.png", R["w"], R["x"], y_expr,
                        f"if({talk},if({flicker},if({blink},0,1),0),0)"))
         passes.append((ROBOT_DIR / "robot_blink.png", R["w"], R["x"], y_expr,
                        f"if({talk},if({blink},1,0),0)"))

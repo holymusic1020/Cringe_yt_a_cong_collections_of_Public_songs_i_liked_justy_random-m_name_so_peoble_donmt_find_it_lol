@@ -52,9 +52,10 @@ def _bg_pexels_video(energy, duration, workdir, used_names):
     key = os.environ.get("PEXELS_API_KEY", "").strip()
     if not key:
         raise RuntimeError("no PEXELS_API_KEY")
-    kind = config.PEXELS_QUERIES.get(
-        config.BG_ENERGY_MAP.get(energy, "satisfying"), "satisfying")
-    query = random.choice(config.PEXELS_QUERIES[kind])
+    category = config.BG_ENERGY_MAP.get(energy, "satisfying")
+    queries = config.PEXELS_QUERIES.get(category,
+                                        config.PEXELS_QUERIES["satisfying"])
+    query = random.choice(queries)
     url = ("https://api.pexels.com/videos/search?query="
            + urllib.request.quote(query) + "&per_page=25&orientation=portrait")
     req = urllib.request.Request(url, headers={"Authorization": key})

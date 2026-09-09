@@ -46,6 +46,17 @@ def main():
 
     Path(job["script"]).with_suffix(".done").write_text(out.name)
     shutil.rmtree(workdir, ignore_errors=True)  # disk hygiene
+
+    # JUNK LAW (boss): only the LATEST episode's files may live in output/ —
+    # older mp4s/metas/timelines get purged so the latest is always findable
+    keep = {out.name,
+            (out.parent / f"{out.stem}_meta.json").name,
+            (out.parent / f"{out.stem}_timeline.json").name}
+    for f in out.parent.iterdir():
+        if f.is_file() and f.name not in keep_names and f.suffix in (".mp4", ".json"):
+            f.unlink(missing_ok=True)
+    print(f"[post] junk law enforced: output/ now holds only {sorted(keep_names)}")
+
     print(f"[post] {out.name} COMPLETE in {time.time()-t0:.0f}s "
           f"({job['total_s']:.0f}s episode)")
 

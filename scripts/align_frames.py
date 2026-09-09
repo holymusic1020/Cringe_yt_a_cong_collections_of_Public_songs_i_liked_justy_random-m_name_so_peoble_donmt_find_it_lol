@@ -10,7 +10,7 @@ from chroma import key
 
 RAW = config.ASSETS / "robot"
 OUT = config.ASSETS / "robot_keyed"
-FRAMES = ["robot", "robot_blink", "robot_antenna"]
+FRAMES = ["robot", "robot_blink", "robot_talk"]
 
 
 def main():
