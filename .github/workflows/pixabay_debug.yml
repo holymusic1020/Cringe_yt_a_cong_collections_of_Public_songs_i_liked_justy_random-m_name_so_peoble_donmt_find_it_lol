@@ -1,0 +1,40 @@
+name: pixabay-debug
+on:
+  workflow_dispatch:
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Probe Pixabay API (status + body head only — key never printed)
+        env:
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+        run: |
+          python3 - <<'EOF'
+          import os, urllib.request, urllib.error
+          key = os.environ.get("PIXABAY_API_KEY", "").strip()
+          print("key present:", bool(key), "| length:", len(key),
+                "| first char alnum:", (key[:1].isalnum() if key else None),
+                "| has space:", (" " in os.environ.get("PIXABAY_API_KEY", "")))
+          url = ("https://pixabay.com/api/videos/?key=" + key
+                 + "&q=satisfying&video_type=film&per_page=3")
+          for label, headers in [
+              ("plain urllib", {}),
+              ("browser UA", {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) "
+                              "AppleWebKit/537.36 (KHTML, like Gecko) "
+                              "Chrome/120.0 Safari/537.36"}),
+          ]:
+              req = urllib.request.Request(url, headers=headers)
+              try:
+                  r = urllib.request.urlopen(req, timeout=30)
+                  body = r.read().decode("utf-8", "replace")
+                  print(f"[{label}] HTTP {r.status} OK — body head:",
+                        body[:200])
+                  break
+              except urllib.error.HTTPError as e:
+                  print(f"[{label}] HTTP {e.code} — body head:",
+                        e.read().decode("utf-8", "replace")[:300])
+              except Exception as e:
+                  print(f"[{label}] {type(e).__name__}: {e}")
+          EOF
