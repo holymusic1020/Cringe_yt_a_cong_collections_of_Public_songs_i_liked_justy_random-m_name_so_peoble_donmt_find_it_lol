@@ -45,7 +45,9 @@ jobs:
         with:
           python-version: "3.12"
 
-      - run: pip install -q requests
+      - run: pip install -q requests pillow
+
+      - run: sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg
 
       - name: Preflight — verify channel binding (constitution §D)
         run: python3 src/preflight.py

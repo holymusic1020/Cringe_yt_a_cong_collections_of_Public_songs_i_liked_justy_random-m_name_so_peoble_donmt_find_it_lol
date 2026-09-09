@@ -131,6 +131,17 @@ def main():
         return
 
     print(f"[post] episode: {mp4.stem} | {meta['title']}")
+
+    # SAFETY GATE: frame-diff QA on the exact file before it touches YouTube
+    qa = subprocess.run([sys.executable,
+                         str(config.ROOT / "scripts" / "qa_strict.py"),
+                         str(mp4), str(mp4.parent / f"{mp4.stem}_timeline.json")],
+                        capture_output=True, text=True)
+    print(qa.stdout)
+    if qa.returncode != 0:
+        print(f"[post] QA GATE FAILED — refusing to upload {mp4.stem}")
+        sys.exit(3)
+
     yt = YT()
     ch = yt.whoami()
     print(f"[post] channel binding verified: {ch['title']}")
