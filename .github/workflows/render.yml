@@ -18,7 +18,9 @@ permissions:
   contents: read
 
 concurrency:
-  group: render-engine
+  # scheduled runs serialize together; manual dispatches run free in parallel
+  # (rapid dispatches into one busy group supersede-cancel older pending runs)
+  group: ${{ github.event_name == 'schedule' && 'render-cron' || format('render-{0}', github.run_id) }}
   cancel-in-progress: false
 
 jobs:
