@@ -84,7 +84,7 @@ def _post(prompt, voice, out_mp3, deadline_s, label=""):
                 return False  # try next prompt variant
             retryable = e.code in (429, 500, 503)
             if retryable and time.time() - t_start < deadline_s:
-                wait = min(60, 15 * attempt)
+                wait = min(40, 10 * attempt)
                 print(f"[gtts] {voice} attempt {attempt} rate-limited — "
                       f"waiting {wait}s")
                 time.sleep(wait)

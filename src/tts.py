@@ -16,8 +16,12 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import config
+import time
 import edge_tts
 import gtts as gemini
+
+_GEMINI_T0 = None
+_GEMINI_SPENT = False
 
 TICK = 1e7  # edge-tts offsets are 100ns ticks
 GAP_S = 0.28  # breathing room between speakers
@@ -113,7 +117,20 @@ def synth_episode(lines, workdir, lang="en"):
         emotion = line.get("emotion", "neutral")
 
         # ── GEMINI path (boss round-8: real emotion, natural breathing) ──
-        if gemini.have_key() and sid in config.GEMINI_VOICES:
+        # 12-min global budget: free-tier 429s can starve an episode, so
+        # after the budget runs out the rest of the lines go to edge-tts
+        # (an episode must ALWAYS complete and deliver).
+        global _GEMINI_T0
+        if (gemini.have_key() and sid in config.GEMINI_VOICES
+                and not _GEMINI_SPENT):
+            if _GEMINI_T0 is None:
+                _GEMINI_T0 = time.time()
+            elif time.time() - _GEMINI_T0 > 720:
+                if not _GEMINI_SPENT:
+                    print("[tts] gemini budget spent (12 min) — edge-tts "
+                          "for remaining lines")
+                    globals()["_GEMINI_SPENT"] = True
+                _GEMINI_SPENT = True
             style = (f"You are {char['name']}, "
                      f"{config.GEMINI_PERSONA.get(sid, 'a lively character')}. "
                      f"{config.GEMINI_STYLE.get(emotion, config.GEMINI_STYLE['neutral'])}. "
