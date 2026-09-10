@@ -1,0 +1,35 @@
+name: pool-refresh
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 3 * * 0"  # weekly Sunday refresh (keeps pool varied)
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: sudo apt-get -qq install -y ffmpeg
+      - name: Build story-matched HD pool from Pixabay
+        env:
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+        run: python3 scripts/refresh_pool.py
+      - name: Swap release assets (out with the NASA 2007s)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for A in $(gh release view bg-archive --json assets -q '.assets[].name' 2>/dev/null | grep '^pool_'); do
+            gh release delete-asset bg-archive "$A" --yes || true
+          done
+          if ls pool_out/pool_*.mp4 >/dev/null 2>&1; then
+            gh release upload bg-archive pool_out/pool_*.mp4 --clobber
+          else
+            echo "!! pool build produced nothing — keeping existing assets" >&2
+            exit 1
+          fi

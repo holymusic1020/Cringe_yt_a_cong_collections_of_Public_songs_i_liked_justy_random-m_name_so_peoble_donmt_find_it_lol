@@ -171,12 +171,15 @@ def render(workdir, out_path):
         flicker = (f"lt(mod(t,{R['talk_flicker_period_s']}),"
                    f"{R['talk_flicker_on_s']})")
         blink = f"lt(mod(t,{R['blink_period_s']}),{R['blink_dur_s']})"
+        # BOSS SPEC v2: robot is the MAIN character — ALWAYS on screen.
+        # idle: gentle bob + occasional blink; talking: antenna vibration
+        # + jaw-bob tempo. Stickers live bottom-right now, no collisions.
         passes.append((ROBOT_DIR / "robot.png", R["w"], R["x"], y_expr,
-                       f"if({talk},if({flicker},0,if({blink},0,1)),0)"))
+                       f"if({blink},0,if({talk},if({flicker},0,1),1))"))
         passes.append((ROBOT_DIR / "robot_antenna.png", R["w"], R["x"], y_expr,
                        f"if({talk},if({flicker},if({blink},0,1),0),0)"))
         passes.append((ROBOT_DIR / "robot_blink.png", R["w"], R["x"], y_expr,
-                       f"if({talk},if({blink},1,0),0)"))
+                       f"if({blink},1,0)"))
 
     for i, (png, w, x, y_expr, enable) in enumerate(passes):
         nxt = workdir / f"tmp_stk{i}.mp4"

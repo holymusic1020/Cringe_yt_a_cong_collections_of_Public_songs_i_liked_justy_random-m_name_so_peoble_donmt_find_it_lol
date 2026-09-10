@@ -48,7 +48,7 @@ def _cut_cover(src, duration, dst):
     log(f"cut {duration:.0f}s @ {start:.0f}s offset -> {dst.name}")
 
 
-def _bg_yt_clip(energy, duration, workdir, used_names):
+def _bg_yt_clip(energy, duration, workdir, used_names, hints=None):
     """BOSS SPEC (copyright-safe transform): pull a MIDDLE segment of a real
     YouTube video, MUTE it, and transform (mirror + zoom + speed + color
     shift) so Content ID can't match it. Video-only download (no audio
@@ -59,8 +59,11 @@ def _bg_yt_clip(energy, duration, workdir, used_names):
     cookies — so we retry across candidates AND the tv/ios player clients,
     which historically skip the PO-token check."""
     cat = config.BG_ENERGY_MAP.get(energy, "satisfying")
-    queries = config.YT_BG_SEARCHES.get(cat, config.YT_BG_SEARCHES["satisfying"])
-    q = random.choice(queries)
+    if hints:
+        q = random.choice(hints) + " compilation"
+    else:
+        queries = config.YT_BG_SEARCHES.get(cat, config.YT_BG_SEARCHES["satisfying"])
+        q = random.choice(queries)
     info = _run(["yt-dlp", "-J", f"ytsearch6:{q}", "--no-playlist"], timeout=180)
     entries = [e for e in (json.loads(info.stdout).get("entries") or [])
                if e and (e.get("duration") or 0) > 600]
@@ -110,7 +113,7 @@ def _bg_yt_clip(energy, duration, workdir, used_names):
     raise RuntimeError(f"yt_clip: all candidates failed ({last_err})")
 
 
-def _bg_pool(energy, duration, workdir, used_names):
+def _bg_pool(energy, duration, workdir, used_names, hints=None):
     """REAL-VIDEO pool fallback: pre-transformed NASA public-domain clips
     (aurora timelapses / rocket views) stored as GitHub release assets,
     fetched into assets/bg_pool/ by the render workflow. Live YouTube
@@ -146,7 +149,7 @@ def _bg_pool(energy, duration, workdir, used_names):
     return dst, None  # public-domain footage — no credit line needed
 
 
-def _bg_pixabay_video(energy, duration, workdir, used_names):
+def _bg_pixabay_video(energy, duration, workdir, used_names, hints=None):
     """Pixabay stock footage (Content License: free use, no attribution,
     alteration required — we mirror/zoom/grade/speed-shift, so compliant).
     Same boss-spec transform as yt_clip: muted, hflip, 1.09 zoom, color
@@ -156,8 +159,11 @@ def _bg_pixabay_video(energy, duration, workdir, used_names):
     if not key:
         raise RuntimeError("no PIXABAY_API_KEY")
     category = config.BG_ENERGY_MAP.get(energy, "satisfying")
-    queries = config.PIXABAY_QUERIES.get(category,
-                                         config.PIXABAY_QUERIES["satisfying"])
+    if hints:  # story-matched backgrounds (boss: bg must match the vibe)
+        queries = list(hints)
+    else:
+        queries = config.PIXABAY_QUERIES.get(category,
+                                             config.PIXABAY_QUERIES["satisfying"])
     query = random.choice(queries)
     url = ("https://pixabay.com/api/videos/?key=" + key
            + "&q=" + urllib.request.quote(query)
@@ -178,11 +184,17 @@ def _bg_pixabay_video(energy, duration, workdir, used_names):
             raise
     hits = [h for h in data.get("hits", [])
             if h.get("videos") and h.get("tags") not in used_names]
+    # HD gate (boss: no more 140p-looking bgs) + popularity ranking
+    hd = [h for h in hits
+          if (h.get("videos", {}).get("large", {}).get("height", 0) >= 1080
+              or h.get("videos", {}).get("medium", {}).get("height", 0) >= 1080)]
+    hits = hd or hits
+    hits.sort(key=lambda h: -(h.get("downloads") or 0))
     if not hits:
         raise RuntimeError("pixabay: no results")
-    # prefer clips long enough for a middle-segment cut
-    long_hits = [h for h in hits if (h.get("duration") or 0) >= duration + 8]
-    pick = random.choice(long_hits or hits)
+    top = hits[:15]  # popular = usually well-shot footage
+    long_hits = [h for h in top if (h.get("duration") or 0) >= duration + 8]
+    pick = random.choice(long_hits or top)
     vids = pick["videos"]
     files = [vids[k] for k in ("large", "medium", "small", "tiny") if k in vids]
     best = next((f for f in files if f.get("height", 0) >= 1080),
@@ -216,7 +228,7 @@ def _bg_pixabay_video(energy, duration, workdir, used_names):
     return dst, None  # Pixabay Content License — no credit line required
 
 
-def _bg_pexels_video(energy, duration, workdir, used_names):
+def _bg_pexels_video(energy, duration, workdir, used_names, hints=None):
     key = os.environ.get("PEXELS_API_KEY", "").strip()
     if not key:
         raise RuntimeError("no PEXELS_API_KEY")
@@ -245,7 +257,7 @@ def _bg_pexels_video(energy, duration, workdir, used_names):
     return raw, f"Background footage: {v['user']['name']} via Pexels"
 
 
-def _bg_nocopyright_gameplay(energy, duration, workdir, used_names):
+def _bg_nocopyright_gameplay(energy, duration, workdir, used_names, hints=None):
     src = random.choice(config.NOCOPYRIGHT_SOURCES)
     raw = workdir / "bg_raw.mp4"
     # list-then-download (playbook §4): probe duration first, pick a valid window
@@ -271,7 +283,7 @@ def _bg_nocopyright_gameplay(energy, duration, workdir, used_names):
     return raw, config.BG_CREDIT["nocopyright_gameplay"].format(credit=src["credit"])
 
 
-def _bg_generated_image(energy, duration, workdir, used_names):
+def _bg_generated_image(energy, duration, workdir, used_names, hints=None):
     plates = sorted((config.ASSETS / "bg").glob("*.png"))
     if not plates:
         raise RuntimeError("no generated bg plates")
@@ -296,7 +308,7 @@ def _bg_generated_image(energy, duration, workdir, used_names):
     return dst, None
 
 
-def fetch_bg(energy, duration, workdir):
+def fetch_bg(energy, duration, workdir, hints=None):
     """Returns (bg_video_path, credit_line_or_None). Tries providers in order."""
     workdir = Path(workdir)
     workdir.mkdir(parents=True, exist_ok=True)
@@ -305,7 +317,8 @@ def fetch_bg(energy, duration, workdir):
         try:
             if provider == "generated_image":
                 return _bg_generated_image(energy, duration, workdir, used)
-            raw, credit = globals()[f"_bg_{provider}"](energy, duration, workdir, used)
+            raw, credit = globals()[f"_bg_{provider}"](energy, duration,
+                                                       workdir, used, hints)
             if provider in ("yt_clip", "pixabay_video", "pool"):
                 return raw, credit  # already final (transformed + exact cut)
             dst = workdir / "bg.mp4"

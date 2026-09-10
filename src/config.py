@@ -64,6 +64,48 @@ LANG_SWAPS = {
            "mira": "en-US-AvaMultilingualNeural", "narrator": "hi-IN-SwaraNeural"},
 }
 
+# ── Gemini TTS (emotion engine) — prebuilt voices + personas + styles ──
+GEMINI_VOICES = {
+    "narrator": "Charon", "nix": "Puck", "lubna": "Kore", "rafiq": "Orion",
+    "tuli": "Leda", "milli": "Aoede", "nani": "Kore", "dada": "Charon",
+    "bruno": "Fenrir", "huda": "Kore", "joy": "Puck", "ding": "Ichor",
+    "mira": "Aoede", "jamal": "Fenrir", "phupu": "Aoede", "riku": "Puck",
+    "kamal": "Orion", "mim": "Leda", "choto": "Fenrir", "sam": "Aoede",
+    "preity": "Leda", "ruiz": "Orion", "osman": "Charon",
+}
+GEMINI_PERSONA = {
+    "narrator": "a dry, witty storyteller who savors dramatic pauses",
+    "nix": "an excitable school kid telling an unbelievable story to friends",
+    "lubna": "a strong-willed mother, sharp tongue, soft heart",
+    "rafiq": "a tired but dignified father",
+    "kamal": "a 55-year-old math teacher, twenty years at the same school",
+    "huda": "a strict school principal — calm authority that turns ice-cold",
+    "bruno": "the school bully, all swagger and no substance",
+    "joy": "the most loyal friend in school, heart on his sleeve",
+    "ding": "a paranoid conspiracy theorist teenager",
+    "mira": "the smartest student in school, allergic to nonsense",
+    "jamal": "a show-off uncle freshly back from Dubai",
+    "phupu": "the neighborhood gossip queen aunt",
+    "riku": "a gaming-obsessed teenager",
+    "mim": "a teasing, artistic classmate",
+    "choto": "a small-time canteen owner always one scheme away from riches",
+    "milli": "the cutest little sister ever",
+    "nani": "a loving grandmother",
+    "dada": "a wise grandfather",
+    "tuli": "a bubbly teenage girl",
+}
+GEMINI_STYLE = {
+    "neutral": "Speak naturally, conversational, real feeling",
+    "angry": "FURIOUS — sharp, loud, gritted teeth",
+    "shock": "Stunned disbelief — gasp, stretched words",
+    "sad": "Heavy heart — quiet, trailing off",
+    "excited": "High energy — fast, gleeful",
+    "smug": "Savor it — teasing, a smirk you can hear",
+    "whisper": "Urgent whisper — leaning in, conspiratorial",
+    "panic": "PANIC — breathless, words tumbling out",
+    "deadpan": "Flat, dry, unimpressed — perfect comic timing",
+}
+
 # ── Emotion engine: per-line emotion shifts rate/pitch on top of base voice ─
 # (kept moderate — big pitch swings make male voices sound female, boss bug report)
 EMOTIONS = {
@@ -81,7 +123,7 @@ EMOTIONS = {
 # ── Layout (1080x1920): captions TOP multi-line, sticker BIG bottom-left ────
 LAYOUT = dict(
     sticker_w=560,              # character stickers
-    sticker_x=24,               # true bottom-left
+    sticker_x=496,          # bottom-RIGHT (robot owns bottom-left, always on)               # true bottom-left
     sticker_bottom_gap=44,      # small gap under, no dead space
     caption_font=74,
     caption_align=8,            # top-center

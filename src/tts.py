@@ -17,6 +17,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import config
 import edge_tts
+import gtts as gemini
 
 TICK = 1e7  # edge-tts offsets are 100ns ticks
 GAP_S = 0.28  # breathing room between speakers
@@ -38,6 +39,20 @@ def _dur(path):
 def _silence(dur, path):
     _run(["ffmpeg", "-y", "-f", "lavfi", "-i", "anullsrc=r=24000:cl=mono",
           "-t", f"{dur:.2f}", "-b:a", "48k", str(path)])
+
+
+def _fade_edges(path, ms=35):
+    """35ms fade in/out so [beat]-joined segments breathe instead of
+    hard-cutting (boss: 'speech keeps stopping, no natural feeling')."""
+    d = _dur(path)
+    if d <= (ms / 1000) * 2.5:
+        return path
+    tmp = str(path) + ".faded.mp3"
+    _run(["ffmpeg", "-y", "-i", str(path),
+          "-af", f"afade=t=in:d={ms/1000},afade=t=out:st={d - ms/1000:.3f}:d={ms/1000}",
+          "-b:a", "48k", tmp])
+    Path(tmp).replace(path)
+    return path
 
 
 def _shift(base, delta, unit, clamp):
@@ -95,6 +110,44 @@ def synth_episode(lines, workdir, lang="en"):
         print(f"[tts] line {i + 1:02d} {sid:<8} -> {voice} "
               f"emo={line.get('emotion', 'neutral')}")
         raw = line["text"]
+        emotion = line.get("emotion", "neutral")
+
+        # ── GEMINI path (boss round-8: real emotion, natural breathing) ──
+        if gemini.have_key() and sid in config.GEMINI_VOICES:
+            style = (f"You are {char['name']}, "
+                     f"{config.GEMINI_PERSONA.get(sid, 'a lively character')}. "
+                     f"{config.GEMINI_STYLE.get(emotion, config.GEMINI_STYLE['neutral'])}. "
+                     "Perform this line for an animated story video. Breathe "
+                     "naturally; pause where the punctuation says so. Say "
+                     "ONLY the line, nothing else.")
+            text_g = raw.replace("[beat]", "…")
+            gmp3 = workdir / f"line_{i:02d}_g.mp3"
+            print(f"[tts] line {i + 1:02d} {sid:<8} -> GEMINI "
+                  f"{config.GEMINI_VOICES[sid]} emo={emotion}")
+            if gemini.synth(text_g, config.GEMINI_VOICES[sid], style, gmp3):
+                d = _dur(gmp3)
+                toks = text_g.replace("…", " … ").split()
+                toks = [w for w in toks if w != "…"]
+                tot = sum(len(w) + 1 for w in toks) or 1
+                cpos, line_words = 0.0, []
+                for w in toks:
+                    ws = cpos / tot * d
+                    we = min(d, (cpos + len(w)) / tot * d)
+                    line_words.append({"w": w,
+                                       "start": round(t_cursor + ws, 3),
+                                       "end": round(t_cursor + we, 3)})
+                    cpos += len(w) + 1
+                per_line.append([gmp3])
+                timeline.append({
+                    "speaker": sid, "name": char["name"],
+                    "text": raw.replace("[beat] ", "").replace("[beat]", ""),
+                    "start": round(t_cursor, 3), "end": round(t_cursor + d, 3),
+                    "words": line_words,
+                })
+                t_cursor += d + GAP_S
+                continue
+            print(f"[tts] line {i + 1:02d} {sid:<8} gemini failed -> edge")
+
         segs = [s.strip() for s in raw.split("[beat]") if s.strip()]
         line_words, seg_cursor, entries = [], 0.0, []
         for k, seg in enumerate(segs):
@@ -102,6 +155,7 @@ def synth_episode(lines, workdir, lang="en"):
             fallback = swaps.get("narrator") or config.CAST["narrator"]["voice"]
             words = asyncio.run(_synth_line(seg, voice, rate, pitch, mp3,
                                            fallback_voice=fallback))
+            _fade_edges(mp3)
             d = _dur(mp3)
             line_words += [{"w": w["w"],
                             "start": round(t_cursor + seg_cursor + w["start"], 3),
@@ -110,7 +164,7 @@ def synth_episode(lines, workdir, lang="en"):
             entries.append(mp3)
             seg_cursor += d
             if k < len(segs) - 1:  # [beat] = humanizing mid-sentence pause
-                gap = random.uniform(0.28, 0.48)
+                gap = random.uniform(0.22, 0.36)
                 sil = workdir / f"beat_{i:02d}_{k:02d}.mp3"
                 _silence(gap, sil)
                 entries.append(sil)

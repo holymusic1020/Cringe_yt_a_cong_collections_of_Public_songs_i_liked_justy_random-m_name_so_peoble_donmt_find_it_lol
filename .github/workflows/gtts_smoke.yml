@@ -1,0 +1,51 @@
+name: gtts-smoke
+on:
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: sudo apt-get -qq install -y ffmpeg
+      - name: Synthesize 2 styled lines (key never printed)
+        env:
+          GEMINI_API_KEY_1: ${{ secrets.GEMINI_API_KEY_1 }}
+        run: |
+          python3 - <<'EOF'
+          import sys, time
+          sys.path.insert(0, "src")
+          import gtts
+          from pathlib import Path
+          Path("/tmp/g").mkdir(exist_ok=True)
+          t0 = time.time()
+          ok1 = gtts.synth(
+              "Twenty years I taught this school… ONE paper! One paper and I am finished!",
+              "Orion",
+              "You are Kamal, a 55-year-old math teacher, twenty years at the same school. "
+              "PANIC — breathless, words tumbling out. Perform this line for an animated "
+              "story video. Breathe naturally; pause where the punctuation says so. Say ONLY the line.",
+              Path("/tmp/g/kamal.mp3"))
+          d1 = time.time() - t0
+          t0 = time.time()
+          ok2 = gtts.synth(
+              "Step aside, step aside… bully privilege. I queued first, remember?",
+              "Fenrir",
+              "You are Bruno, the school bully, all swagger and no substance. "
+              "Savor it — teasing, a smirk you can hear. Perform this line for an animated "
+              "story video. Say ONLY the line.",
+              Path("/tmp/g/bruno.mp3"))
+          d2 = time.time() - t0
+          import subprocess
+          for n in ("kamal", "bruno"):
+              p = subprocess.run(["ffprobe", "-v", "error", "-show_entries",
+                                  "format=duration", "-of", "csv=p=0",
+                                  f"/tmp/g/{n}.mp3"], capture_output=True, text=True)
+              print(f"{n}: {p.stdout.strip()}s")
+          print(f"VERDICT: kamal={ok1} ({d1:.0f}s) bruno={ok2} ({d2:.0f}s)")
+          assert ok1 and ok2, "gemini synth failed"
+          EOF

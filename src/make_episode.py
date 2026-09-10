@@ -51,7 +51,8 @@ def main():
     build_ass(timeline, workdir / "captions.ass", endcard)
 
     bgvid, bgcredit = bg.fetch_bg(ep.get("energy", "mid"),
-                                  tl["total_s"] + 0.5, workdir / "bgwork")
+                                  tl["total_s"] + 0.5, workdir / "bgwork",
+                                  hints=ep.get("bg_hints"))
     shutil.copy(bgvid, workdir / "bg.mp4")
     shutil.copy(bgvid, workdir / "bg_source.mp4")  # QA v3 needs it (render deletes bg.mp4)
 

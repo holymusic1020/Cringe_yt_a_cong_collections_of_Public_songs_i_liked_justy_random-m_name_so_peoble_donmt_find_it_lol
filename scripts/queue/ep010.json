@@ -4,78 +4,79 @@
  "energy": "mid",
  "arc": "The Missing Exam Paper",
  "part": 3,
- "title": "The Name On The Key Tag 🤖 FINALE",
- "endcard": "FULL STORY — WATCH FROM EP.1",
+ "title": "The Loyal Thief 🤖 FINALE",
+ "endcard": "THE STORY CONTINUES — FOLLOW",
+ "bg_hints": [
+  "classroom",
+  "students studying",
+  "school chalkboard",
+  "exam paper"
+ ],
  "lines": [
   {
    "speaker": "narrator",
    "emotion": "deadpan",
-   "text": "The tag. One name. [beat] Not a thief's name. [beat] Not a teacher's name. [beat] 'JOY.'"
-  },
-  {
-   "speaker": "joy",
-   "emotion": "panic",
-   "text": "…Okay. OKAY! It was me! [beat] But you don't know WHY. [beat] Nobody asked WHY!"
+   "text": "The tag. One name. Not a stranger. Not a teacher. 'JOY.' The most loyal kid in school… walked into the staff room at 2 a.m."
   },
   {
    "speaker": "nix",
    "emotion": "sad",
-   "text": "Bro… [beat] you're the loyal one. [beat] That's your whole THING."
-  },
-  {
-   "speaker": "joy",
-   "emotion": "angry",
-   "text": "EXACTLY! [beat] Three weeks ago I heard them in the office. [beat] Fail half the class… [beat] charge re-exam fees. TWICE."
-  },
-  {
-   "speaker": "mira",
-   "emotion": "deadpan",
-   "text": "The budget meeting. [beat] The school needed money. [beat] The exam was the weapon."
+   "text": "No. NO. Bro, say something. Tell me you were sleepwalking. Tell me ANYTHING."
   },
   {
    "speaker": "joy",
    "emotion": "whisper",
-   "text": "I didn't steal answers. [beat] I stole the PAPER. [beat] No paper… no mass fail… [beat] no fees."
-  },
-  {
-   "speaker": "kamal",
-   "emotion": "sad",
-   "text": "And I thought I lost my job over a folder… [beat] when the folder was protecting MY students."
-  },
-  {
-   "speaker": "huda",
-   "emotion": "angry",
-   "text": "That plan was NOT mine. [beat] The BOARD proposed it. [beat] And the board… [beat] answers to me. Tonight."
-  },
-  {
-   "speaker": "phupu",
-   "emotion": "excited",
-   "text": "PLOT TWIST! The thief is the HERO! [beat] The principal is FURIOUS! [beat] I have never been so alive!"
-  },
-  {
-   "speaker": "ding",
-   "emotion": "deadpan",
-   "text": "So the REAL conspiracy… [beat] was upstairs the whole time. [beat] I'm never wrong. [beat] Just early."
-  },
-  {
-   "speaker": "huda",
-   "emotion": "neutral",
-   "text": "New exam. Fair exam. Written where everyone can SEE it. [beat] And Joy…"
+   "text": "I did it. I took the paper. But you don't know WHY. Nobody ever asked why."
   },
   {
    "speaker": "joy",
-   "emotion": "smug",
-   "text": "I know. Detention. [beat] For life. [beat] …Worth it."
+   "emotion": "angry",
+   "text": "Three weeks ago I heard them in the office. The board wants to fail HALF the class. Re-exam fees. Charged TWICE. Our parents… they can't pay that."
   },
   {
-   "speaker": "nix",
-   "emotion": "excited",
-   "text": "Follow for the next story — [beat] because if a samosa can start a war… [beat] imagine what a report card does."
+   "speaker": "phupu",
+   "emotion": "shock",
+   "text": "A conspiracy ABOVE the principal?! I have told six versions of this story and ALL of them were too small!"
+  },
+  {
+   "speaker": "joy",
+   "emotion": "whisper",
+   "text": "No paper… no mass fail. No mass fail… no fees. I didn't steal answers. I stole the weapon."
   },
   {
    "speaker": "narrator",
    "emotion": "deadpan",
-   "text": "The paper was never the mystery. [beat] The question was always… [beat] who's actually loyal to WHO."
+   "text": "Silence. The kind of silence that happens when a school realizes… the thief was protecting them."
+  },
+  {
+   "speaker": "huda",
+   "emotion": "angry",
+   "text": "That plan was NEVER mine. The board proposed it. And tonight… the board answers to ME."
+  },
+  {
+   "speaker": "kamal",
+   "emotion": "sad",
+   "text": "Then someone explain the impossible. The tag on the spare key… is written in MY handwriting. And I never wrote it."
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "And there it was. The twist inside the twist. Kamal heard the board's plan too. Kamal couldn't be seen helping. So Kamal… left the key where a loyal kid would find it."
+  },
+  {
+   "speaker": "joy",
+   "emotion": "smug",
+   "text": "Detention for life? …Worth it."
+  },
+  {
+   "speaker": "huda",
+   "emotion": "neutral",
+   "text": "New exam. Written in the open, where everyone can see it. And Joy — your detention starts… after the fair exam."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "Follow for the next story — because if a KEY can hide a hero… imagine what a report card hides."
   }
  ]
 }
