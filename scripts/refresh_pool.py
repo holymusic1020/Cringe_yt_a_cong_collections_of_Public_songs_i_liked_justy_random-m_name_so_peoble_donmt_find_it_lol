@@ -34,7 +34,7 @@ def best_url(query):
         v = h["videos"]
         f = next((v[k] for k in ("large", "medium")
                   if k in v and v[k].get("height", 0) >= 1080), None)
-        if f and (h.get("duration") or 0) >= 125:
+        if f and (h.get("duration") or 0) >= 5:  # short is fine — we loop
             return f["url"], h.get("duration")
     return None, 0
 
@@ -53,7 +53,8 @@ def main():
                 print(f"  search failed: {e}"); continue
             if not u:
                 continue
-            r = subprocess.run(["ffmpeg", "-y", "-nostdin", "-i", u,
+            r = subprocess.run(["ffmpeg", "-y", "-nostdin", "-stream_loop", "-1",
+                                "-i", u,
                 "-vf", (f"hflip,scale={int(w*1.09)}:{int(h*1.09)}:"
                         "force_original_aspect_ratio=increase,"
                         f"crop={w}:{h},eq=saturation=1.09:contrast=1.05,"

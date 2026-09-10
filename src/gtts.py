@@ -35,10 +35,22 @@ def _pcm_to_mp3(pcm_bytes, out_mp3):
 
 
 def synth(text, voice, style, out_mp3, deadline_s=600):
-    """One style-directed line -> mp3. Returns True on success."""
+    """One style-directed line -> mp3. Returns True on success.
+    Falls back to a bare 'Read this line' prompt if a style trips the API."""
+    prompts = []
+    if style:
+        prompts.append(f"{style}: {text}")
+    prompts.append(f"Read this line with natural feeling: {text}")
+    for pi, prompt in enumerate(prompts):
+        if _post(prompt, voice, out_mp3, deadline_s, label=f"p{pi}"):
+            return True
+    return False
+
+
+def _post(prompt, voice, out_mp3, deadline_s, label=""):
     key = os.environ["GEMINI_API_KEY_1"].strip()
     body = json.dumps({
-        "contents": [{"parts": [{"text": f"{style}: {text}"}]}],
+        "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {
             "responseModalities": ["AUDIO"],
             "speechConfig": {"voiceConfig": {
@@ -61,15 +73,24 @@ def synth(text, voice, style, out_mp3, deadline_s=600):
             # pacing so we never hammer the free tier
             time.sleep(MODEL_RPM_SAFETY)
             return True
-        except Exception as e:
-            msg = str(e)
-            retryable = ("429" in msg or "503" in msg or "500" in msg
-                         or "timed out" in msg.lower())
+        except urllib.error.HTTPError as e:
+            try:
+                detail = e.read().decode("utf-8", "replace")[:250]
+            except Exception:
+                detail = ""
+            msg = f"HTTP {e.code} {detail}"
+            if e.code == 400:
+                print(f"[gtts] {label} {voice}: 400 — {msg[:150]}")
+                return False  # try next prompt variant
+            retryable = e.code in (429, 500, 503)
             if retryable and time.time() - t_start < deadline_s:
                 wait = min(60, 15 * attempt)
-                print(f"[gtts] {voice} attempt {attempt} hit "
-                      f"'{msg[:60]}' — waiting {wait}s")
+                print(f"[gtts] {voice} attempt {attempt} rate-limited — "
+                      f"waiting {wait}s")
                 time.sleep(wait)
                 continue
-            print(f"[gtts] FAILED ({msg[:120]}) — falling back to edge-tts")
+            print(f"[gtts] {label} {voice} FAILED — {msg[:150]}")
+            return False
+        except Exception as e:
+            print(f"[gtts] {label} {voice} {type(e).__name__}: {str(e)[:120]}")
             return False
