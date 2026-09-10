@@ -8,75 +8,69 @@
  "endcard": "THE STORY CONTINUES — FOLLOW",
  "bg_hints": [
   "classroom",
-  "students studying",
   "school chalkboard",
-  "exam paper"
+  "students"
  ],
  "lines": [
   {
-   "speaker": "narrator",
-   "emotion": "deadpan",
-   "text": "The tag. One name. Not a stranger. Not a teacher. 'JOY.' The most loyal kid in school… walked into the staff room at 2 a.m."
+   "speaker": "joy",
+   "emotion": "panic",
+   "text": "FINE! It was me! [beat] I took the paper! [beat] But you don't know WHY!"
   },
   {
    "speaker": "nix",
-   "emotion": "sad",
-   "text": "No. NO. Bro, say something. Tell me you were sleepwalking. Tell me ANYTHING."
+   "emotion": "shock",
+   "text": "Bro… [beat] you're the LOYAL one. [beat] That's your whole thing!"
   },
   {
    "speaker": "joy",
    "emotion": "whisper",
-   "text": "I did it. I took the paper. But you don't know WHY. Nobody ever asked why."
-  },
-  {
-   "speaker": "joy",
-   "emotion": "angry",
-   "text": "Three weeks ago I heard them in the office. The board wants to fail HALF the class. Re-exam fees. Charged TWICE. Our parents… they can't pay that."
+   "text": "Three weeks ago I heard the board's plan. [beat] Fail HALF the class. [beat] Re-exam fees — charged TWICE."
   },
   {
    "speaker": "phupu",
    "emotion": "shock",
-   "text": "A conspiracy ABOVE the principal?! I have told six versions of this story and ALL of them were too small!"
+   "text": "A conspiracy ABOVE the principal?! [beat] I've told six versions of this story [beat] and ALL of them were too small!"
   },
   {
    "speaker": "joy",
    "emotion": "whisper",
-   "text": "No paper… no mass fail. No mass fail… no fees. I didn't steal answers. I stole the weapon."
+   "text": "No paper… no mass fail. [beat] No fail… no fees. [beat] I didn't steal answers. [beat] I stole the WEAPON."
   },
   {
    "speaker": "narrator",
    "emotion": "deadpan",
-   "text": "Silence. The kind of silence that happens when a school realizes… the thief was protecting them."
+   "text": "Silence. [beat] The kind where a whole school realizes… [beat] the thief was protecting them."
   },
   {
    "speaker": "huda",
    "emotion": "angry",
-   "text": "That plan was NEVER mine. The board proposed it. And tonight… the board answers to ME."
+   "text": "That plan was NEVER mine. [beat] The board proposed it. [beat] And tonight — the board answers to ME."
   },
   {
    "speaker": "kamal",
    "emotion": "sad",
-   "text": "Then someone explain the impossible. The tag on the spare key… is written in MY handwriting. And I never wrote it."
+   "text": "Then explain the impossible. [beat] The tag on that spare key… [beat] is written in MY handwriting. [beat] I never wrote it."
   },
   {
    "speaker": "narrator",
    "emotion": "deadpan",
-   "text": "And there it was. The twist inside the twist. Kamal heard the board's plan too. Kamal couldn't be seen helping. So Kamal… left the key where a loyal kid would find it."
-  },
-  {
-   "speaker": "joy",
-   "emotion": "smug",
-   "text": "Detention for life? …Worth it."
+   "text": "The twist inside the twist. [beat] Kamal heard the plan too. [beat] He couldn't be seen helping… [beat] so he left the key where a loyal kid would find it."
   },
   {
    "speaker": "huda",
    "emotion": "neutral",
-   "text": "New exam. Written in the open, where everyone can see it. And Joy — your detention starts… after the fair exam."
+   "text": "New exam. Written in the open. [beat] And Joy — [beat] your detention starts AFTER the fair exam."
+  },
+  {
+   "speaker": "joy",
+   "emotion": "smug",
+   "text": "Detention for life? [beat] …Worth it."
   },
   {
    "speaker": "nix",
    "emotion": "excited",
-   "text": "Follow for the next story — because if a KEY can hide a hero… imagine what a report card hides."
+   "text": "Follow for the next story! [beat] If a KEY can hide a hero… [beat] imagine what a report card hides."
   }
  ]
 }

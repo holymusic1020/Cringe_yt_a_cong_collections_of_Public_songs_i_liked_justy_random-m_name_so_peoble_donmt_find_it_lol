@@ -9,74 +9,78 @@
  "bg_hints": [
   "classroom",
   "students studying",
-  "school hallway",
-  "writing on paper"
+  "school hallway"
  ],
  "lines": [
   {
-   "speaker": "narrator",
-   "emotion": "deadpan",
-   "text": "2 A.M. One camera. One hoodie. And a door that was opened… with a KEY. Nobody broke in. Somebody let themselves in."
-  },
-  {
    "speaker": "riku",
    "emotion": "panic",
-   "text": "You think it's ME?! Bro, I was in ranked matches till 4 a.m.! Forty people watched me lose! FORTY WITNESSES!"
-  },
-  {
-   "speaker": "mira",
-   "emotion": "deadpan",
-   "text": "Checked his game log. He's clean. Painfully clean. He lost eleven times."
-  },
-  {
-   "speaker": "riku",
-   "emotion": "sad",
-   "text": "…You didn't have to say the number."
-  },
-  {
-   "speaker": "mim",
-   "emotion": "smug",
-   "text": "Okay, fine — I WAS at school that night. Painting in the art room. Alone. At 2 a.m. Don't judge my process."
-  },
-  {
-   "speaker": "mira",
-   "emotion": "neutral",
-   "text": "Her paint is blue. The dust on the staff-room window sill? White. Chalk. Mim never came near that room."
-  },
-  {
-   "speaker": "ding",
-   "emotion": "whisper",
-   "text": "So we're looking for someone with chalk on their shoes… and a key that shouldn't exist. This school has DEPTHS."
-  },
-  {
-   "speaker": "kamal",
-   "emotion": "sad",
-   "text": "Children, please. Only three keys open that door. Mine… the principal's… and the office spare."
-  },
-  {
-   "speaker": "nix",
-   "emotion": "excited",
-   "text": "Then it's simple! Check the spare hook! Key still there — a thief copied it. Key gone—"
-  },
-  {
-   "speaker": "joy",
-   "emotion": "whisper",
-   "text": "It's gone. The hook is empty. But the name tag is still hanging there."
+   "text": "BRO! BRO!! [beat] The math final is GONE! [beat] Like — GONE gone! [beat] Security-cameras-gone!"
   },
   {
    "speaker": "narrator",
    "emotion": "deadpan",
-   "text": "Every eye in that office turned to the little plastic tag. And the name written on it… stopped the whole investigation cold."
+   "text": "2 a.m. One camera. One hoodie. [beat] And a door opened… with a KEY. [beat] Nobody broke in last night."
   },
   {
    "speaker": "huda",
    "emotion": "angry",
-   "text": "Whoever's name this is — you have until morning. After that… I start expelling FIRST and asking questions LATER."
+   "text": "Everybody in my office. NOW. [beat] Or Monday's exam becomes HARDCORE MODE."
+  },
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "Why are you all looking at ME?! [beat] I was in ranked matches till 4 a.m.! [beat] FORTY witnesses!"
+  },
+  {
+   "speaker": "mira",
+   "emotion": "deadpan",
+   "text": "Checked. You're clean. [beat] You lost eleven times."
+  },
+  {
+   "speaker": "riku",
+   "emotion": "sad",
+   "text": "…You did NOT have to say the number."
+  },
+  {
+   "speaker": "mim",
+   "emotion": "smug",
+   "text": "Fine — I was at school that night. [beat] Painting. Alone. [beat] Don't judge my process."
+  },
+  {
+   "speaker": "mira",
+   "emotion": "neutral",
+   "text": "Her paint is blue. [beat] The staff-room dust? White. Chalk. [beat] She never went near that room."
+  },
+  {
+   "speaker": "ding",
+   "emotion": "whisper",
+   "text": "So we need chalk-dusted shoes… [beat] and a key that shouldn't exist. [beat] This school has DEPTHS."
+  },
+  {
+   "speaker": "kamal",
+   "emotion": "sad",
+   "text": "Children — only three keys open that door. [beat] Mine. The principal's. [beat] And the office spare."
   },
   {
    "speaker": "nix",
    "emotion": "excited",
-   "text": "Follow for the finale — because the name on that tag… made NO sense. Nobody saw it coming. NOBODY."
+   "text": "Then it's simple! Check the hook! [beat] Key there — someone copied it! [beat] Key gone—"
+  },
+  {
+   "speaker": "joy",
+   "emotion": "whisper",
+   "text": "It's gone. [beat] The hook is EMPTY. [beat] But the name tag… is still hanging there."
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "Every eye turned to that little tag. [beat] And the name on it… [beat] froze the whole school."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "Follow for the finale! [beat] That name made NO sense — [beat] NOBODY saw it coming!"
   }
  ]
 }
