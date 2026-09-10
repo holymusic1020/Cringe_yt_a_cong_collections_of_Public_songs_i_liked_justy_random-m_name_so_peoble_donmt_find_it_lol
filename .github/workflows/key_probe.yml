@@ -1,0 +1,16 @@
+name: key-probe
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Which TTS keys live in the vault? (presence only, never values)
+        env:
+          GEM: ${{ secrets.GEMINI_API_KEY_1 }}
+          GEM2: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          echo "GEMINI_API_KEY_1 present: $([ -n "$GEM" ] && echo YES || echo no)"
+          echo "GEMINI_API_KEY present: $([ -n "$GEM2" ] && echo YES || echo no)"
