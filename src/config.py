@@ -66,12 +66,14 @@ LANG_SWAPS = {
 
 # ── Gemini TTS (emotion engine) — prebuilt voices + personas + styles ──
 GEMINI_VOICES = {
-    "narrator": "Charon", "nix": "Puck", "lubna": "Kore", "rafiq": "Orion",
-    "tuli": "Leda", "milli": "Aoede", "nani": "Kore", "dada": "Charon",
-    "bruno": "Fenrir", "huda": "Kore", "joy": "Puck", "ding": "Ichor",
-    "mira": "Aoede", "jamal": "Fenrir", "phupu": "Aoede", "riku": "Puck",
-    "kamal": "Orion", "mim": "Leda", "choto": "Fenrir", "sam": "Aoede",
-    "preity": "Leda", "ruiz": "Orion", "osman": "Charon",
+    # 3 VERIFIED voices (matrix-tested 2026-09-10; Orion/Aoede/Kore/Fenrir/
+    # Ichor unreliable). Persona + emotion styles do the character work.
+    "narrator": "Charon", "nix": "Puck", "lubna": "Leda", "rafiq": "Charon",
+    "tuli": "Leda", "milli": "Leda", "nani": "Leda", "dada": "Charon",
+    "bruno": "Charon", "huda": "Charon", "joy": "Puck", "ding": "Charon",
+    "mira": "Leda", "jamal": "Charon", "phupu": "Leda", "riku": "Puck",
+    "kamal": "Charon", "mim": "Leda", "choto": "Charon", "sam": "Leda",
+    "preity": "Leda", "ruiz": "Charon", "osman": "Charon",
 }
 GEMINI_PERSONA = {
     "narrator": "a dry, witty storyteller who savors dramatic pauses",
