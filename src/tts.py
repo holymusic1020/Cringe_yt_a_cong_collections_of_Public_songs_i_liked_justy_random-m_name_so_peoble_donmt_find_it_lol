@@ -121,14 +121,16 @@ def synth_episode(lines, workdir, lang="en"):
         # after the budget runs out the rest of the lines go to edge-tts
         # (an episode must ALWAYS complete and deliver).
         global _GEMINI_T0, _GEMINI_SPENT
-        if (gemini.have_key() and sid in config.GEMINI_VOICES
-                and not _GEMINI_SPENT):
+        if gemini.have_key() and sid in config.GEMINI_VOICES:
             if _GEMINI_T0 is None:
                 _GEMINI_T0 = time.time()
             elif time.time() - _GEMINI_T0 > 720 and not _GEMINI_SPENT:
                 print("[tts] gemini budget spent (12 min) — edge-tts "
                       "for remaining lines")
                 _GEMINI_SPENT = True
+        _try_gemini = (gemini.have_key() and sid in config.GEMINI_VOICES
+                       and not _GEMINI_SPENT)
+        if _try_gemini:
             style = (f"You are {char['name']}, "
                      f"{config.GEMINI_PERSONA.get(sid, 'a lively character')}. "
                      f"{config.GEMINI_STYLE.get(emotion, config.GEMINI_STYLE['neutral'])}. "
@@ -139,7 +141,8 @@ def synth_episode(lines, workdir, lang="en"):
             gmp3 = workdir / f"line_{i:02d}_g.mp3"
             print(f"[tts] line {i + 1:02d} {sid:<8} -> GEMINI "
                   f"{config.GEMINI_VOICES[sid]} emo={emotion}")
-            if gemini.synth(text_g, config.GEMINI_VOICES[sid], style, gmp3):
+            if gemini.synth(text_g, config.GEMINI_VOICES[sid], style, gmp3,
+                            deadline_s=150):
                 d = _dur(gmp3)
                 toks = text_g.replace("…", " … ").split()
                 toks = [w for w in toks if w != "…"]

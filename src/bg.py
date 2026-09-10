@@ -124,8 +124,22 @@ def _bg_pool(energy, duration, workdir, used_names, hints=None):
     clips = sorted(pool.glob("*.mp4")) if pool.exists() else []
     if not clips:
         raise RuntimeError("bg pool empty (release fetch failed?)")
-    cat = config.BG_ENERGY_MAP.get(energy, "satisfying")
-    prefer = [c for c in clips if cat in c.stem] or clips
+    if hints:  # story-matched categories (school/food/working/city/…)
+        KEYWORDS = {"school": ("classroom", "student", "school", "exam", "chalk"),
+                    "food": ("food", "cooking", "kitchen", "samosa", "canteen"),
+                    "working": ("worker", "labor", "construction", "working", "job"),
+                    "city": ("city", "street", "traffic", "urban"),
+                    "satisfying": ("satisfying", "slime", "paint", "craft")}
+        want = set()
+        for h in hints:
+            hl = h.lower()
+            for catname, kws in KEYWORDS.items():
+                if any(k in hl for k in kws):
+                    want.add(catname)
+        prefer = [c for c in clips if any(w in c.stem for w in want)] or clips
+    else:
+        cat = config.BG_ENERGY_MAP.get(energy, "satisfying")
+        prefer = [c for c in clips if cat in c.stem] or clips
     pick = random.choice(prefer)
     dur = _probe_duration(pick)
     off = random.uniform(0, max(0.0, dur - duration - 1))
@@ -145,7 +159,7 @@ def _bg_pool(energy, duration, workdir, used_names, hints=None):
     _run(cmd)
     log(f"bg_pool: '{pick.name}' hue {hue:+d}"
         f"{' @' + str(int(off)) + 's' if dur >= duration + 2 else ' (looped)'}"
-        f" — NASA public domain, exact {duration:.0f}s cut")
+        f" — story-matched HD pool, exact {duration:.0f}s cut")
     return dst, None  # public-domain footage — no credit line needed
 
 
@@ -200,7 +214,16 @@ def _bg_pixabay_video(energy, duration, workdir, used_names, hints=None):
     best = next((f for f in files if f.get("height", 0) >= 1080),
                 next((f for f in files if f.get("height", 0) >= 720), files[0]))
     raw = workdir / "bg_raw.mp4"
-    urllib.request.urlretrieve(best["url"], raw)
+    try:
+        urllib.request.urlretrieve(best["url"], raw)
+    except Exception:  # CDN sometimes 403s the default UA — full browser UA
+        req = urllib.request.Request(
+            best["url"],
+            headers={"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) "
+                     "AppleWebKit/537.36 (KHTML, like Gecko) "
+                     "Chrome/120.0.0.0 Safari/537.36"})
+        with urllib.request.urlopen(req, timeout=120) as r, open(raw, "wb") as f:
+            f.write(r.read())
     used_names.add(pick.get("tags"))
     clip_dur = _probe_duration(raw)
     w, h, fps = config.SHORT["w"], config.SHORT["h"], config.SHORT["fps"]
