@@ -62,7 +62,9 @@ def pick_episode(st, want=None):
     dest = Path("/tmp/postwork"); dest.mkdir(parents=True, exist_ok=True)
     arts = gh_api("actions/artifacts?per_page=30")["artifacts"]
     arts = [a for a in arts if not a["expired"] and a["id"] > (st.get("last_artifact_id") or 0)]
-    arts.sort(key=lambda a: a["id"])  # FIFO
+    # explicit request -> NEWEST artifact for that stem (older re-renders of
+    # the same episode must never win); no request -> FIFO catch-up
+    arts.sort(key=lambda a: a["id"], reverse=bool(want))
     for a in arts:
         d = fetch_artifact(a, dest)
         mp4s = sorted(d.glob("*.mp4"))
