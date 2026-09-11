@@ -75,7 +75,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
                                  w_["w"].upper())
                 for w_ in chunk)
             events.append(f"Dialogue: 0,{_ts(start)},{_ts(end)},Kara,,0,0,0,,"
-                          f"{dot}{text.strip()}")
+                          f"{text.strip()}")
 
     # punchy end-card: yellow text + translucent dark box, ABOVE sticker zone
     # (boss bug report: it used to hide behind the sticker)
