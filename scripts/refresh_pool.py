@@ -21,7 +21,8 @@ CATS = {  # story-matched pool, never random
 }
 
 
-def best_url(query):
+def best_urls(query, n=2):
+    """Top-n HD clip urls for a query (variety: pool gets 2 per category)."""
     key = os.environ["PIXABAY_API_KEY"]
     url = ("https://pixabay.com/api/videos/?key=" + key + "&q="
            + urllib.request.quote(query)
@@ -30,41 +31,44 @@ def best_url(query):
     data = json.loads(urllib.request.urlopen(req, timeout=30).read())
     hits = [h for h in data.get("hits", []) if h.get("videos")]
     hits.sort(key=lambda h: -(h.get("downloads") or 0))
-    for h in hits[:10]:
+    out = []
+    for h in hits[:12]:
         v = h["videos"]
         f = next((v[k] for k in ("large", "medium")
                   if k in v and v[k].get("height", 0) >= 1080), None)
-        if f and (h.get("duration") or 0) >= 5:  # short is fine — we loop
-            return f["url"], h.get("duration")
-    return None, 0
+        if f and (h.get("duration") or 0) >= 5 and f["url"] not in out:
+            out.append(f["url"])
+        if len(out) >= n:
+            break
+    return out
 
 
 def main():
     out = Path("pool_out"); out.mkdir(exist_ok=True)
     w, h, fps = config.SHORT["w"], config.SHORT["h"], config.SHORT["fps"]
     for cat, queries in CATS.items():
-        dst = out / f"pool_{cat}.mp4"
         got = None
         for q in queries:
             print(f"[pool] {cat}: searching '{q}'…")
             try:
-                u, dur = best_url(q)
+                urls = best_urls(q, n=2)
             except Exception as e:
                 print(f"  search failed: {e}"); continue
-            if not u:
-                continue
-            r = subprocess.run(["ffmpeg", "-y", "-nostdin", "-stream_loop", "-1",
-                                "-i", u,
+            for ui, u in enumerate(urls):
+                dst = out / f"pool_{cat}_{ui + 1}.mp4"
+                r = subprocess.run(["ffmpeg", "-y", "-nostdin", "-stream_loop", "-1",
+                                    "-i", u,
                 "-vf", (f"hflip,scale={int(w*1.09)}:{int(h*1.09)}:"
                         "force_original_aspect_ratio=increase,"
                         f"crop={w}:{h},eq=saturation=1.09:contrast=1.05,"
                         f"hue=h=7,fps={fps},setpts=1.05*PTS"),
-                "-t", "118", "-an", "-c:v", "libx264",
-                "-preset", config.X264["preset"], "-crf", config.X264["crf"],
-                str(dst)], capture_output=True)
-            if r.returncode == 0 and dst.exists():
-                print(f"  -> pool_{cat}.mp4 OK ({dst.stat().st_size/1e6:.0f}MB)")
-                got = dst
+                    "-t", "118", "-an", "-c:v", "libx264",
+                    "-preset", config.X264["preset"], "-crf", config.X264["crf"],
+                    str(dst)], capture_output=True)
+                if r.returncode == 0 and dst.exists():
+                    print(f"  -> {dst.name} OK ({dst.stat().st_size/1e6:.0f}MB)")
+                    got = dst
+            if got:
                 break
         if not got:
             print(f"  !! no usable clip for {cat}")

@@ -62,13 +62,15 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     events = []
     for line in tl["lines"]:
         char = config.CAST[line["speaker"]]
-        dot = "" if char.get("narrator") else \
-            f"{{\\c{_ass_color(char['color'])}}}■{{\\c&HFFFFFF&}} "
+        # BOSS SPEC: speaker NAME in their color — "who is talking" must be
+        # readable even at a glance (round-10: 'difficult to understand
+        # who is saying what')
+        label = f"{{\\c{_ass_color(char['color'])}}}{char['name'].upper()}: {{\\c&HFFFFFF&}}"
         for chunk in _chunks(line):
             if not chunk:
                 continue
             start, end = chunk[0]["start"], chunk[-1]["end"]
-            text = "".join(
+            text = label + "".join(
                 "{\\k%d}%s " % (max(1, round((w_["end"] - w_["start"]) * 100)),
                                  w_["w"].upper())
                 for w_ in chunk)
