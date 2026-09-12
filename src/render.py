@@ -74,13 +74,17 @@ def bake_nametag(sid, out_path):
 
 def _slide_terms(windows, R):
     """ffmpeg expr terms: eased slide-in offset decaying to 0 after slide_s.
+    Each term is GATED on gte(t, t0) — without the gate, FUTURE windows'
+    terms explode (320px * pow(~33, 2) = ~41 MILLION px) and push the
+    sticker/robot completely off-screen during all earlier lines. That was
+    the vanishing-sticker bug (round 11, dmesg-grade forensics).
     NOTE: plain commas — argv is passed without a shell, and escaped commas
-    made the expr parser silently mis-evaluate (the vanishing-sticker bug)."""
+    made the expr parser silently mis-evaluate."""
     s, dur = R["slide_px"], R["slide_s"]
     terms = []
     for t0, _ in windows:
         terms.append(
-            f"{s}*pow(max(0,1-min(1,(t-{t0:.2f})/{dur})),2)")
+            f"{s}*gte(t,{t0:.2f})*pow(max(0,1-min(1,(t-{t0:.2f})/{dur})),2)")
     return terms
 
 

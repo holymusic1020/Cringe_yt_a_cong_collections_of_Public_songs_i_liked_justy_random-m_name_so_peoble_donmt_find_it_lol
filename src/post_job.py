@@ -151,15 +151,30 @@ def main():
     meta["privacy"] = "unlisted"  # constitution: unlisted first
     vid = yt.upload(mp4, meta)
 
-    live = yt.verify(vid)
+    live = yt.verify(vid, wait_s=180)
     print(f"[post] live verify: {live['title']} | {live['duration']} | "
           f"{live['privacy']} @ {live['channel']}")
     assert live["channel"] == ch["title"], "channel mismatch?!"
 
-    yt.set_privacy(vid, "public")
-    live2 = yt.verify(vid)
     url = f"https://youtu.be/{vid}"
-    print(f"[post] PUBLIC ✅ {url} ({live2['privacy']})")
+    # publish + PROVE public (privacy changes lag too — verify loop, and
+    # never abort the run after a successful upload)
+    import time as _t
+    for attempt in range(4):
+        try:
+            yt.set_privacy(vid, "public")
+            _t.sleep(20)
+            live2 = yt.verify(vid, wait_s=60)
+            if live2["privacy"] == "public":
+                print(f"[post] PUBLIC ✅ {url} (verified public)")
+                break
+            print(f"[post] privacy still {live2['privacy']} — retrying")
+        except Exception as e:
+            print(f"[post] publish attempt {attempt + 1} failed: {e}")
+            _t.sleep(30)
+    else:
+        print(f"[post] ⚠ {url} uploaded but NOT confirmed public — "
+              f"flip manually via yt_manage public")
 
     st["posted"].append({"stem": mp4.stem, "video_id": vid,
                          "title": meta["title"],

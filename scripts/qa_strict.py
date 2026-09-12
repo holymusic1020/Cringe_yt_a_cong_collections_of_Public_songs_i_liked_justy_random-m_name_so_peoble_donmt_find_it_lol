@@ -19,8 +19,11 @@ VIDEO = Path(sys.argv[1])
 TL = json.loads(Path(sys.argv[2]).read_text())
 BG = Path(sys.argv[3]) if len(sys.argv) > 3 else \
     VIDEO.parent / f"{VIDEO.stem}_bg.mp4"
-ZONE = (24, 700, 700, 1900)   # sticker/robot zone (below caption area)
-THRESH = 0.02                  # 2% strong-diff => sticker present
+# stickers live bottom-RIGHT (x 496-1056), robot bottom-LEFT (x 24-624) —
+# separate zones or the always-on robot false-passes every sticker check
+STICKER_ZONE = (500, 900, 1060, 1900)
+ROBOT_ZONE = (24, 900, 700, 1900)
+THRESH = 0.02                  # 2% strong-diff => present
 
 
 def grab(src, t, name):
@@ -29,8 +32,8 @@ def grab(src, t, name):
     return Image.open(name).convert("RGB")
 
 
-def strong_diff(a, b):
-    d = ImageChops.difference(a.crop(ZONE), b.crop(ZONE)).convert("L")
+def strong_diff(a, b, zone):
+    d = ImageChops.difference(a.crop(zone), b.crop(zone)).convert("L")
     px = list(d.getdata())
     return sum(1 for v in px if v > 40) / len(px)
 
@@ -43,25 +46,41 @@ def main():
     lines = {l["speaker"]: l for l in TL["lines"]}
     failures = []
 
-    def check(sid, label):
+    def check(sid, label, zone):
+        # sample BOTH the line start (+0.6s, catches slide/enable bugs that
+        # hide early lines) and the middle — the strongest frame counts
         l = lines[sid]
-        mid = (l["start"] + l["end"]) / 2
-        frame = grab(VIDEO, mid, "/tmp/qa_frame.png")
-        if have_bg:
-            base = grab(BG, mid, "/tmp/qa_base.png")
-        else:
-            base = ref
-        frac = strong_diff(frame, base)
-        ok = frac > THRESH
-        print(f"[qa] {label} {sid}: diff {frac*100:.1f}% {'PASS' if ok else 'FAIL'}")
+        best = 0.0
+        for t in (l["start"] + 0.6, (l["start"] + l["end"]) / 2):
+            if t >= l["end"]:
+                continue
+            frame = grab(VIDEO, t, "/tmp/qa_frame.png")
+            base = grab(BG, t, "/tmp/qa_base.png") if have_bg else ref
+            best = max(best, strong_diff(frame, base, zone))
+        ok = best > THRESH
+        print(f"[qa] {label} {sid}: diff {best*100:.1f}% {'PASS' if ok else 'FAIL'}")
         if not ok:
             failures.append(sid)
 
     for sid in {l["speaker"] for l in TL["lines"]}:
         if sid in config.HAS_STICKER:
-            check(sid, "sticker")
+            check(sid, "sticker", STICKER_ZONE)
     if config.ROBOT["sid"] in lines:
-        check(config.ROBOT["sid"], "robot")
+        # robot must be on screen during a NON-narrator line too (always-on)
+        other = next((l for l in TL["lines"]
+                      if l["speaker"] != config.ROBOT["sid"]), None)
+        if other:
+            frame = grab(VIDEO, (other["start"] + other["end"]) / 2,
+                         "/tmp/qa_frame.png")
+            base = (grab(BG, (other["start"] + other["end"]) / 2, "/tmp/qa_base.png")
+                    if have_bg else ref)
+            frac = strong_diff(frame, base, ROBOT_ZONE)
+            ok = frac > THRESH
+            print(f"[qa] robot (during {other['speaker']}): "
+                  f"{frac*100:.1f}% {'PASS' if ok else 'FAIL'}")
+            if not ok:
+                failures.append("robot-always-on")
+        check(config.ROBOT["sid"], "robot", ROBOT_ZONE)
 
     # karaoke: sample several caption frames (a [beat] pause can leave the
     # sampled frame mid-gap) and judge the strongest frame

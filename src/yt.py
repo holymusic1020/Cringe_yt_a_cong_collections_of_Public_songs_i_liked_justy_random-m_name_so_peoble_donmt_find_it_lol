@@ -90,15 +90,25 @@ class YT:
         print(f"[yt] uploaded -> https://youtu.be/{vid}")
         return vid
 
-    def verify(self, video_id):
-        """Live verification — rule #1: not verified means broken."""
-        r = requests.get(f"{API}/videos", params={
-            "part": "snippet,status,contentDetails", "id": video_id},
-            headers={"Authorization": f"Bearer {self.token}"}, timeout=30)
-        r.raise_for_status()
-        items = r.json().get("items", [])
-        if not items:
-            raise RuntimeError(f"video {video_id} not found live!")
+    def verify(self, video_id, wait_s=0):
+        """Live verification — rule #1: not verified means broken.
+        wait_s > 0 = retry loop: YouTube index/propagation can lag minutes
+        after upload (a lag must NEVER abort the publish step)."""
+        import time as _t
+        deadline = _t.time() + wait_s
+        while True:
+            r = requests.get(f"{API}/videos", params={
+                "part": "snippet,status,contentDetails", "id": video_id},
+                headers={"Authorization": f"Bearer {self.token}"}, timeout=30)
+            r.raise_for_status()
+            items = r.json().get("items", [])
+            if items:
+                break
+            if _t.time() >= deadline:
+                raise RuntimeError(f"video {video_id} not found live!")
+            print(f"[yt] not indexed yet — waiting 15s…")
+            _t.sleep(15)
+        v = items[0]
         v = items[0]
         return {"title": v["snippet"]["title"],
                 "channel": v["snippet"]["channelTitle"],
