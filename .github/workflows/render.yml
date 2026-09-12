@@ -65,16 +65,16 @@ jobs:
         run: |
           SCRIPT="${{ inputs.script }}"
           if [ -n "$SCRIPT" ]; then
-            python3 src/make_episode.py "scripts/queue/$SCRIPT"
+            python3 src/make_episode2.py "scripts/queue/$SCRIPT"
           else
-            python3 src/make_episode.py
+            python3 src/make_episode2.py
           fi
 
       - name: Strict QA (per-window sticker/robot/karaoke proof)
         run: |
           for f in output/*_timeline.json; do
             vid="${f%_timeline.json}.mp4"
-            python3 scripts/qa_strict.py "$vid" "$f"
+            python3 scripts/audit_video.py "$vid" "$f" "${vid%.mp4}_bg.mp4"
           done
 
       - name: Vault it (90-day artifact = render-ahead buffer)

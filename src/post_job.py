@@ -136,8 +136,9 @@ def main():
 
     # SAFETY GATE: frame-diff QA on the exact file before it touches YouTube
     qa = subprocess.run([sys.executable,
-                         str(config.ROOT / "scripts" / "qa_strict.py"),
-                         str(mp4), str(mp4.parent / f"{mp4.stem}_timeline.json")],
+                         str(config.ROOT / "scripts" / "audit_video.py"),
+                         str(mp4), str(mp4.parent / f"{mp4.stem}_timeline.json"),
+                         str(mp4.parent / f"{mp4.stem}_bg.mp4")],
                         capture_output=True, text=True)
     print(qa.stdout)
     if qa.returncode != 0:
