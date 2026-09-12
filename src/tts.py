@@ -22,6 +22,7 @@ import gtts as gemini
 
 _GEMINI_T0 = None
 _GEMINI_SPENT = False
+_GEMINI_FAILS = 0
 
 TICK = 1e7  # edge-tts offsets are 100ns ticks
 GAP_S = 0.28  # breathing room between speakers
@@ -120,7 +121,7 @@ def synth_episode(lines, workdir, lang="en"):
         # 12-min global budget: free-tier 429s can starve an episode, so
         # after the budget runs out the rest of the lines go to edge-tts
         # (an episode must ALWAYS complete and deliver).
-        global _GEMINI_T0, _GEMINI_SPENT
+        global _GEMINI_T0, _GEMINI_SPENT, _GEMINI_FAILS
         if gemini.have_key() and sid in config.GEMINI_VOICES:
             if _GEMINI_T0 is None:
                 _GEMINI_T0 = time.time()
@@ -165,6 +166,12 @@ def synth_episode(lines, workdir, lang="en"):
                 t_cursor += d + GAP_S
                 continue
             print(f"[tts] line {i + 1:02d} {sid:<8} gemini failed -> edge")
+            global _GEMINI_FAILS
+            _GEMINI_FAILS += 1
+            if _GEMINI_FAILS >= 3:  # quota dead — stop wasting minutes
+                print("[tts] gemini 3 consecutive fails — circuit broken "
+                      "for this episode")
+                _GEMINI_SPENT = True
 
         segs = [s.strip() for s in raw.split("[beat]") if s.strip()]
         line_words, seg_cursor, entries = [], 0.0, []
