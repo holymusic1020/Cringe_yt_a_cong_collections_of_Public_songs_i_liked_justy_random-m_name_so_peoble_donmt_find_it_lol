@@ -1,0 +1,81 @@
+{
+ "lang": "hi",
+ "topic": "apartment water bill mystery",
+ "energy": "mid",
+ "arc": "पानी का बिल",
+ "part": 1,
+ "title": "पूरी बिल्डिंग का पानी का बिल क्यों गायब? 💧🤖",
+ "endcard": "अगली कहानी: रात का टैंकर",
+ "bg_hints": [
+  "city street",
+  "construction workers",
+  "water"
+ ],
+ "lines": [
+  {
+   "speaker": "tuli",
+   "emotion": "shock",
+   "text": "अरे वाह! [beat] इस महीने पानी का बिल आया ही नहीं! [beat] किसी को नहीं आया!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "किसी को भी नहीं?! [beat] पूरी बिल्डिंग में? [beat] ये तो है ही नहीं सकता!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "बिल गायब। [beat] मीटर चालू। [beat] पानी आ रहा था। [beat] लेकिन बिल — [beat] शून्य।"
+  },
+  {
+   "speaker": "ding",
+   "emotion": "whisper",
+   "text": "मुफ़्त पानी कोई नहीं देता। [beat] या तो गड़बड़ है… [beat] या कोई गड़बड़खोड़ है।"
+  },
+  {
+   "speaker": "mira",
+   "emotion": "neutral",
+   "text": "सीढ़ियों की ओर देखो। [beat] हर सुबह पानी के निशान — [beat] छत तक जाते हैं। [beat] ऊपर टंकी है।"
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "whisper",
+   "text": "रात को छत से बाल्टियों की आवाज़ आती है… [beat] मैंने सुनी है!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "बाल्टियाँ?! [beat] छत पर?! [beat] आज रात हम छत पर चढ़ेंगे। [beat] मैं मरने से पहले जानना चाहता हूँ!"
+  },
+  {
+   "speaker": "dada",
+   "emotion": "sad",
+   "text": "अरे बच्चों… [beat] नीचे आओ। [beat] ये मैं हूँ। [beat] हर रात टंकी भरता हूँ।"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "दादा?! [beat] तुम? [beat] पर बिल कौन भरता है?"
+  },
+  {
+   "speaker": "dada",
+   "emotion": "smug",
+   "text": "मेरी पेंशन से। [beat] इस बिल्डिंग में तीन घर ऐसे हैं जो बिल नहीं दे सकते। [beat] उन्हें पता भी न चले… [beat] इसलिए सबका बिल। [beat] चुपचाप।"
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "sad",
+   "text": "और हम सोचते थे… [beat] मुफ़्त पानी। [beat] ये तो दादा का पानी था।"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "अगले महीने बिल आया — [beat] सबसे। [beat] हर घर से थोड़ा-थोड़ा। [beat] और दादा की पेंशन… [beat] पहली बार सिर्फ़ दादा के लिए खर्च हुई।"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "दादा हीरो निकले! [beat] फॉलो करो — [beat] अगली कहानी: रात का टैंकर!"
+  }
+ ]
+}

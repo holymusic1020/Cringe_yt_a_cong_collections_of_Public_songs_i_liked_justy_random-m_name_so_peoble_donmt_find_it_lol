@@ -1,0 +1,81 @@
+{
+ "lang": "en",
+ "topic": "family midnight secret",
+ "energy": "low",
+ "arc": "The Midnight Scooter",
+ "part": 1,
+ "title": "Someone Rides Dad's Scooter At 2 A.M. 🤖",
+ "endcard": "PART 2: THE HELMET CAM",
+ "bg_hints": [
+  "city street night",
+  "night city",
+  "scooter"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "whisper",
+   "text": "Guys. [beat] Dad's scooter. [beat] Garage. [beat] 2 a.m. [beat] GONE."
+  },
+  {
+   "speaker": "joy",
+   "emotion": "shock",
+   "text": "GONE?! [beat] Bro, your dad sleeps like a brick! [beat] Who's riding it?!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "whisper",
+   "text": "That's the thing. [beat] The scooter comes BACK at 4 a.m. [beat] With a FULL tank."
+  },
+  {
+   "speaker": "ding",
+   "emotion": "whisper",
+   "text": "Full tank. [beat] Ghost riders pay for fuel. [beat] I've said this for YEARS."
+  },
+  {
+   "speaker": "mira",
+   "emotion": "neutral",
+   "text": "Focus. [beat] Dad's slippers — mud on them every morning. [beat] There's construction by the river road."
+  },
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "The river road?! [beat] That's where the FOOD CARTS park at night! [beat] I know the egg-roll guy there!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "So they followed the mud. [beat] Three kids. One bicycle. [beat] 2 a.m."
+  },
+  {
+   "speaker": "joy",
+   "emotion": "shock",
+   "text": "WAIT. [beat] Is that— [beat] that's NIX'S DAD! [beat] Why is he carrying FOOD CARTS?!"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "whisper",
+   "text": "Nix?! [beat] Go home. [beat] It's late, beta."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Dad… [beat] every night? [beat] You help the cart guys EVERY night?"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "sad",
+   "text": "The flood took their carts. [beat] They have children too. [beat] A man doesn't need applause for this. [beat] Go home."
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "The kids went home. [beat] The scooter came back at 4. [beat] And nobody ever told Rafiq… [beat] they'd started leaving breakfast orders for the cart guys on it."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "My dad's a secret hero! [beat] Follow for part two — [beat] because next week… [beat] the helmet cam sees EVERYTHING."
+  }
+ ]
+}

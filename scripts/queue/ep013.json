@@ -1,0 +1,71 @@
+{
+ "lang": "bn",
+ "topic": "rickshaw fare mystery",
+ "energy": "mid",
+ "arc": "রিকশার ভাড়া রহস্য",
+ "part": 1,
+ "title": "সবার ভাড়া কেন ফেরত দেয় রিকশাওয়ালা? 🤖",
+ "endcard": "পরের গল্প: মিটারের ভেতরের ক্যামেরা",
+ "bg_hints": [
+  "city street",
+  "traffic",
+  "busy street"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "মা! [beat] ওসমান চাচা আবার ভাড়া ফেরত দিয়ে গেলেন! [beat] পুরো টাকা!"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "shock",
+   "text": "কী বললি? [beat] প্রতিদিন? [beat] এই তো সেদিনও ফেরত দিলেন!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "শহরের সবচেয়ে পুরনো রিকশাওয়ালা। [beat] আর এখন — [beat] সবার ভাড়া ফেরত। [beat] রহস্য আছে।"
+  },
+  {
+   "speaker": "ding",
+   "emotion": "whisper",
+   "text": "ফেরত মানে অপরাধবোধ। [beat] ভাড়ায় কিছু লুকাচ্ছে। [beat] আমি অনেকদিন ধরে বলছি।"
+  },
+  {
+   "speaker": "mira",
+   "emotion": "neutral",
+   "text": "তর্ক বাদ। [beat] হিসাব আছে। [beat] যাদের ভাড়া ফেরত পায় — [beat] সবাই হাসপাতাল থেকে আসা রোগীর সঙ্গী।"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "হাসপাতাল? [beat] চাচা কি হাসপাতালে যান… [beat] রোগীদের ফিরিয়ে আনতে?"
+  },
+  {
+   "speaker": "osman",
+   "emotion": "sad",
+   "text": "পাগল ছেলে। [beat] যারা রাতে হাসপাতালে আসে — [beat] তাদের কেউ ফিরে নিতে আসে না। [beat] বাবা আমাকে একা ফেলে গিয়েছিলেন। [beat] সেই থেকে…"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "sad",
+   "text": "ওসমান ভাই… [beat] এত বছর… [beat] কাউকে বললেন না?"
+  },
+  {
+   "speaker": "osman",
+   "emotion": "smug",
+   "text": "বলব কী মা? [beat] ভাড়া না নিলে কেউ তো আমার রিকশায় ওঠেই না! [beat] আগে ভাড়া নিই… [beat] পরে ফেরত দিই।"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "শহরের মানুষ জানতে পারল। [beat] এখন হাসপাতালের সামনে [beat] দুটো রিকশা লাইন — [beat] সবাই বিনা ভাড়ায় চালায়।"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "ফলো করো! [beat] পরের গল্পে — [beat] মিটারের ভেতর একটা ক্যামেরা!"
+  }
+ ]
+}

@@ -1,0 +1,76 @@
+{
+ "lang": "en",
+ "topic": "tutoring scam",
+ "energy": "mid",
+ "arc": "The Fee Refund Scam",
+ "part": 1,
+ "title": "The Tuition Teacher Who Refunded EVERYTHING 🤖",
+ "endcard": "NEXT: THE RECIPE NOTEBOOK",
+ "bg_hints": [
+  "classroom",
+  "students studying",
+  "writing"
+ ],
+ "lines": [
+  {
+   "speaker": "mim",
+   "emotion": "shock",
+   "text": "STOP. [beat] Miss Preity refunded my ENTIRE month's fee. [beat] In CASH. [beat] With a note."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Refunded?! [beat] Teachers GIVE money now?! [beat] What did the note say?!"
+  },
+  {
+   "speaker": "mim",
+   "emotion": "whisper",
+   "text": "'You deserved better lessons. [beat] I'm not fit to take your money.'"
+  },
+  {
+   "speaker": "ding",
+   "emotion": "whisper",
+   "text": "A teacher quitting in shame? [beat] No no no. [beat] This is a SETUP. [beat] Nobody returns money!"
+  },
+  {
+   "speaker": "mira",
+   "emotion": "neutral",
+   "text": "She's been pale all month. [beat] Falling asleep in class. [beat] And her teaching got WORSE before it got weird."
+  },
+  {
+   "speaker": "preity",
+   "emotion": "sad",
+   "text": "Children… [beat] I have to tell you myself. [beat] There's a new coaching center. [beat] They offered me triple salary… [beat] to teach badly on purpose."
+  },
+  {
+   "speaker": "huda",
+   "emotion": "angry",
+   "text": "SAY THAT NAME AGAIN. [beat] LOUDER. [beat] For my notes."
+  },
+  {
+   "speaker": "preity",
+   "emotion": "neutral",
+   "text": "I recorded their offer. [beat] Every word. [beat] I taught badly for ONE week — then I couldn't look at your faces anymore. [beat] So I quit. [beat] And refunded."
+  },
+  {
+   "speaker": "phupu",
+   "emotion": "excited",
+   "text": "A SPY TEACHER! [beat] An UNDERCOVER HERO TEACHER! [beat] I'm calling every parent I know! [beat] TWICE!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "smug",
+   "text": "That coaching center's license… [beat] was signed by my office. [beat] Was. [beat] Past tense. [beat] As of this morning."
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "The center shut down by Friday. [beat] Miss Preity got her students back. [beat] And a raise — [beat] donated by the parents, one coin at a time."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "The note was a RESIGNATION letter! [beat] Follow — next story: [beat] a recipe notebook that ruined a wedding!"
+  }
+ ]
+}
