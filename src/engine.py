@@ -109,8 +109,8 @@ def build_overlays(tl):
     base_en = f"(1-{blink})*(1-{talk}*{flicker})"
     ant_en = f"{talk}*{flicker}*(1-{blink})"
     blink_en = blink
-    _validate("y[robot]", y, samples, y0 - BOB["px"] - 2,
-              y0 + BOB["px"] + SLIDE["px"] + 2)
+    _validate("y[robot]", y, samples, y0 - BOB["px"] - JAW["px"] - 2,
+              y0 + BOB["px"] + JAW["px"] + SLIDE["px"] + 2)
     for nm, ex in (("base", base_en), ("antenna", ant_en), ("blink", blink_en)):
         _validate(f"en[robot-{nm}]", ex, samples, -0.1, 1.1)
     # robot must be visible (some frame) at every sample: base+ant+blink == 1
@@ -129,8 +129,9 @@ def build_overlays(tl):
 
 
 def _ffmpeg(overlays, bg, caps, voice, out, total, scale=1.0, t_limit=None,
-            threads=2):
-    """Build + run the ONE-PASS render command."""
+            threads=2, ass=True, audio=True, crf=None):
+    """Build one render command (or one STAGE of a chunked render:
+    ass=False/audio=True->False/crf=12 for intermediate stages)."""
     H, W = config.SHORT["h"], config.SHORT["w"]
     if scale != 1.0:
         W, H = int(W * scale), int(H * scale)
@@ -143,9 +144,10 @@ def _ffmpeg(overlays, bg, caps, voice, out, total, scale=1.0, t_limit=None,
         span = total if o.get("until") is None else min(o["until"] + 1.5, total)
         if t_limit is not None:
             span = min(span, t_limit + 0.5)
-        cmd += ["-loop", "1", "-r", str(config.SHORT["fps"]),
+        cmd += ["-loop", "1", "-r", "1",
                 "-t", f"{span:.2f}", "-i", o["png"]]
-    cmd += ["-i", str(voice)]
+    if audio:
+        cmd += ["-i", str(voice)]
     parts = []
     if scale != 1.0:
         # true half-res graph: downscale the canvas FIRST so every overlay
@@ -166,16 +168,21 @@ def _ffmpeg(overlays, bg, caps, voice, out, total, scale=1.0, t_limit=None,
                      f"{prev}[s{i}]overlay=x={x}:y='{y}':"
                      f"enable='{o['en']}':eval=frame{nxt}")
         prev = nxt
-    parts.append(f"{prev}scale={W}:{H},"
-                 f"ass=filename='{caps}':fontsdir='{config.ASSETS / 'fonts'}',"
-                 f"format=yuv420p[vout]")
-    cmd += ["-filter_complex", ";".join(parts),
-            "-map", "[vout]", "-map", f"{len(overlays) + 1}:a",
-            "-c:a", "aac", "-ar", "44100", "-b:a", "128k",
-            "-c:v", "libx264", "-preset", config.X264["preset"],
-            "-threads", str(threads), "-crf", config.X264["crf"],
-            "-r", str(config.SHORT["fps"]),
-            "-movflags", "+faststart"]
+    if ass:
+        parts.append(f"{prev}scale={W}:{H},"
+                     f"ass=filename='{caps}':fontsdir='{config.ASSETS / 'fonts'}',"
+                     f"format=yuv420p[vout]")
+    else:
+        parts.append(f"{prev}format=yuv420p[vout]")
+    cmd += ["-filter_complex", ";".join(parts), "-map", "[vout]"]
+    if audio:
+        cmd += ["-map", f"{len(overlays) + 1}:a",
+                "-c:a", "aac", "-ar", "44100", "-b:a", "128k"]
+    cmd += ["-c:v", "libx264", "-preset", config.X264["preset"],
+            "-threads", str(threads), "-crf", crf or config.X264["crf"],
+            "-r", str(config.SHORT["fps"])]
+    if ass:
+        cmd += ["-movflags", "+faststart"]
     if t_limit:
         cmd += ["-t", f"{t_limit:.2f}"]
     cmd += ["-shortest", str(out)]
@@ -251,11 +258,34 @@ def render(workdir, out_path):
                  workdir / "voice.mp3", workdir, first)
     print("[engine] smoke render PASSED (sticker+robot visible in band)")
     t0 = time.time()
-    cmd = _ffmpeg(overlays, workdir / "bg.mp4", workdir / "captions.ass",
-                  workdir / "voice.mp3", out_path, total)
-    p = subprocess.run(cmd, capture_output=True, text=True)
-    assert p.returncode == 0, f"render failed rc={p.returncode}: {p.stderr[-800:]}"
-    print(f"[engine] one-pass render done in {time.time() - t0:.0f}s "
+    bg, caps = workdir / "bg.mp4", workdir / "captions.ass"
+    voice = workdir / "voice.mp3"
+    CHUNK = 4  # 2GB-sandbox law (measured): 5 inputs/stage healthy, 7 deadlocks
+    if len(overlays) <= CHUNK + 2:
+        cmd = _ffmpeg(overlays, bg, caps, voice, out_path, total)
+        p = subprocess.run(cmd, capture_output=True, text=True)
+        assert p.returncode == 0, f"render failed rc={p.returncode}: {p.stderr[-800:]}"
+    else:
+        # stage the SAME overlay chain in chunks: visually lossless crf-12
+        # intermediates, expressions/layout identical every stage
+        groups = [overlays[i:i + CHUNK]
+                  for i in range(0, len(overlays), CHUNK)]
+        for si, grp in enumerate(groups):
+            last = si == len(groups) - 1
+            src = bg if si == 0 else workdir / f"stage_{si}.mp4"
+            dst = out_path if last else workdir / f"stage_{si + 1}.mp4"
+            cmd = _ffmpeg(grp, src, caps if last else None,
+                          voice if last else None, dst, total,
+                          ass=last, audio=last, crf=None if last else "12")
+            t1 = time.time()
+            p = subprocess.run(cmd, capture_output=True, text=True)
+            assert p.returncode == 0, (f"stage {si + 1}/{len(groups)} failed "
+                                       f"rc={p.returncode}: {p.stderr[-800:]}")
+            print(f"[engine] stage {si + 1}/{len(groups)} "
+                  f"({len(grp)} overlays) done in {time.time() - t1:.0f}s")
+            if si > 0:
+                (workdir / f"stage_{si}.mp4").unlink(missing_ok=True)
+    print(f"[engine] render done in {time.time() - t0:.0f}s "
           f"-> {out_path.name} ({total:.1f}s, {len(overlays)} overlays)")
 
 

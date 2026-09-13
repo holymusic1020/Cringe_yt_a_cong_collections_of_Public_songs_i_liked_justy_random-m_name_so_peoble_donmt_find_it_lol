@@ -78,8 +78,18 @@ def build_bg(hints, duration, workdir):
     lst = workdir / "bglist.txt"
     lst.write_text("".join(f"file '{s}'\n" for s in segs))
     dst = workdir / "bg.mp4"
+    # RE-ENCODE the concat (NOT -c copy): pool clips carry different
+    # colorspace tags, and the mid-stream parameter change at a segment
+    # boundary deadlocks overlay-heavy filtergraphs (stall at 44.2s, runs
+    # g/h). One uniform encode = single continuous stream, no reconfigure.
     subprocess.run(["ffmpeg", "-y", "-nostdin", "-f", "concat", "-safe", "0",
-                    "-i", str(lst), "-c", "copy", str(dst)],
+                    "-i", str(lst),
+                    "-vf", "format=yuv420p,setsar=1",
+                    "-c:v", "libx264", "-preset", config.X264["preset"],
+                    "-crf", "18", "-threads", "2",
+                    "-colorspace", "bt709", "-color_primaries", "bt709",
+                    "-color_trc", "bt709", "-color_range", "tv",
+                    "-an", str(dst)],
                    capture_output=True, check=True)
     for s in segs:
         s.unlink(missing_ok=True)

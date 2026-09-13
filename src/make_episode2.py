@@ -34,20 +34,36 @@ def main():
     out = Path(sys.argv[2]) if len(sys.argv) > 2 else \
         config.ROOT / "output" / f"{script.stem}.mp4"
     ep = json.loads(script.read_text())
-    workdir = config.ROOT / ".work" / f"{script.stem}_{int(time.time())}"
-    workdir.mkdir(parents=True, exist_ok=True)
     t0 = time.time()
+    # RESUME: a workdir that already has voice+captions+bg skips TTS/bg
+    # (crashed renders must not re-pay 4 minutes of network TTS)
+    workdir = None
+    need = ("voice.mp3", "timeline.json", "captions.ass", "bg.mp4", "bg_source.mp4")
+    for c in sorted((config.ROOT / ".work").glob(f"{script.stem}_*"), reverse=True):
+        if all((c / f).exists() for f in need):
+            workdir = c
+            break
+    resume = workdir is not None
+    if not resume:
+        workdir = config.ROOT / ".work" / f"{script.stem}_{int(time.time())}"
+        workdir.mkdir(parents=True, exist_ok=True)
 
-    voice, timeline = synth_episode(ep["lines"], workdir, ep.get("lang", "en"))
-    tl = json.loads(Path(timeline).read_text())
-    print(f"[make] voiceover {tl['total_s']:.0f}s")
+    if resume:
+        tl = json.loads((workdir / "timeline.json").read_text())
+        voice = str(workdir / "voice.mp3")
+        print(f"[make] RESUME {workdir.name}: voiceover {tl['total_s']:.0f}s "
+              f"+ captions + multi-clip bg already built")
+    else:
+        voice, timeline = synth_episode(ep["lines"], workdir, ep.get("lang", "en"))
+        tl = json.loads(Path(timeline).read_text())
+        print(f"[make] voiceover {tl['total_s']:.0f}s")
 
-    endcard = ep.get("endcard", "PART 2 TOMORROW")
-    build_ass(timeline, workdir / "captions.ass", endcard)
+        endcard = ep.get("endcard", "PART 2 TOMORROW")
+        build_ass(timeline, workdir / "captions.ass", endcard)
 
-    bg = build_bg(ep.get("bg_hints"), tl["total_s"] + 0.5, workdir / "bgwork")
-    shutil.copy(bg, workdir / "bg.mp4")
-    shutil.copy(bg, workdir / "bg_source.mp4")
+        bg = build_bg(ep.get("bg_hints"), tl["total_s"] + 0.5, workdir / "bgwork")
+        shutil.copy(bg, workdir / "bg.mp4")
+        shutil.copy(bg, workdir / "bg_source.mp4")
 
     out.parent.mkdir(parents=True, exist_ok=True)
     engine.render(workdir, out)
