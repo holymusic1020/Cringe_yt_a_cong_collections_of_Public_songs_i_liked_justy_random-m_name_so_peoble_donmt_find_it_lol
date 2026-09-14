@@ -51,21 +51,36 @@ def main():
         se = diff(f_e, b_e, STICKER_ZONE)
         sm = diff(f_m, b_m, STICKER_ZONE)
         rm = diff(f_m, b_m, ROBOT_ZONE)
-        ok = (max(se, sm) > THRESH if is_char else True) and rm > THRESH
+        is_nar = l["speaker"] == config.ROBOT["sid"]
+        if is_char:
+            # speaker-exclusive law: the speaker's sticker AND nothing else
+            ok = max(se, sm) > THRESH and rm < 0.05
+        elif is_nar:
+            ok = rm > THRESH and max(se, sm) < 0.05
+        else:
+            ok = True
         if not ok:
             fails.append(l["speaker"])
         print(f"{l['speaker']:10s} {l['start']:5.1f}-{l['end']:5.1f} "
               f"{se * 100:7.1f}% {sm * 100:7.1f}% {rm * 100:7.1f}%  "
               f"{'OK' if ok else '*** FAIL ***'}")
-    # karaoke + name labels in the caption band
+    # karaoke + name labels in the caption band — sample SEVERAL points
+    # across the first line: a single mid-point can land in a [beat] gap
+    # between caption events and false-fail with white=0
     l0 = TL["lines"][0]
-    f = grab(VIDEO, (l0["start"] + l0["end"]) / 2)
+    f = grab(VIDEO, l0["start"] + 0.4)
     W, H = f.size
-    band = f.crop((int(0.08 * W), int(0.14 * H), int(0.92 * W), int(0.55 * H)))
-    px = list(band.getdata())
-    white = sum(1 for r, g, b in px if r > 235 and g > 235 and b > 235)
-    gray = sum(1 for r, g, b in px
-               if 140 < r < 215 and abs(r - g) < 30 and abs(g - b) < 30)
+    box = (int(0.08 * W), int(0.14 * H), int(0.92 * W), int(0.55 * H))
+    white = gray = 0
+    span = max(0.8, l0["end"] - l0["start"])
+    for frac in (0.05, 0.2, 0.35, 0.5, 0.65, 0.8, 0.95):
+        f = grab(VIDEO, l0["start"] + span * frac)
+        px = list(f.crop(box).getdata())
+        white = max(white, sum(1 for r, g, b in px
+                               if r > 235 and g > 235 and b > 235))
+        gray = max(gray, sum(1 for r, g, b in px
+                             if 140 < r < 215 and abs(r - g) < 30
+                             and abs(g - b) < 30))
     kap_ok = white > 300 and gray > 80
     print(f"[audit] karaoke/labels: white={white} gray={gray} "
           f"{'OK' if kap_ok else 'FAIL'}")

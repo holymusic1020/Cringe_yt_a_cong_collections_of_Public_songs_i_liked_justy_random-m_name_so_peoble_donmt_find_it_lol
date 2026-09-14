@@ -94,7 +94,7 @@ def build_overlays(tl):
                          "y": y, "en": en, "who": sid,
                          "until": max(e for _, e in w)})
 
-    # robot (bottom-left, ALWAYS on): base / antenna-vibrate / blink
+    # robot (bottom-left, narrator-only): base / antenna-vibrate / blink
     rwins = wins.get(R["sid"], [])
     talk = enable_windows(rwins) if rwins else "0"
     talk = f"gt({talk},0.5)" if rwins else "0"
@@ -106,9 +106,11 @@ def build_overlays(tl):
     y = (f"{y0}+{BOB['px']}*sin(2*PI*t/{BOB['period']})"
          f"+{JAW['px']}*sin(2*PI*t/{JAW['period']})*({talk})"
          + slide_terms(rwins))
-    base_en = f"(1-{blink})*(1-{talk}*{flicker})"
+    # speaker-exclusive law (boss round-13): ONLY the current speaker is
+    # on screen. Robot == narrator: visible during narrator windows ONLY.
+    base_en = f"{talk}*(1-{blink})*(1-{flicker})"
     ant_en = f"{talk}*{flicker}*(1-{blink})"
-    blink_en = blink
+    blink_en = f"{talk}*{blink}"
     _validate("y[robot]", y, samples, y0 - BOB["px"] - JAW["px"] - 2,
               y0 + BOB["px"] + JAW["px"] + SLIDE["px"] + 2)
     for nm, ex in (("base", base_en), ("antenna", ant_en), ("blink", blink_en)):
@@ -116,7 +118,11 @@ def build_overlays(tl):
     # robot must be visible (some frame) at every sample: base+ant+blink == 1
     for t in samples:
         tot = (_eval(base_en, t) + _eval(ant_en, t) + _eval(blink_en, t))
-        assert 0.9 < tot < 1.1, f"robot frame gap at t={t}: {tot}"
+        inside = any(s <= t <= e for s, e in rwins)
+        if inside:
+            assert 0.9 < tot < 1.1, f"robot frame gap at t={t}: {tot}"
+        else:
+            assert tot < 0.1, f"robot visible while another speaks at t={t}: {tot}"
     overlays.append({"png": str(rpng), "x": ROBOT["x"], "w": ROBOT["w"],
                      "y": y, "en": base_en, "who": "robot"})
     overlays.append({"png": str(config.ASSETS / "robot_keyed" / "robot_antenna.png"),
@@ -240,8 +246,13 @@ def smoke_render(overlays, bg, caps, voice, workdir, first_line):
         bgr = bgr.resize(sm.size)
     s = _zone_changed(sm, bgr, (STICKER["x"], 900, STICKER["x"] + STICKER["w"], 1520))
     r = _zone_changed(sm, bgr, (ROBOT["x"], 900, ROBOT["x"] + ROBOT["w"], 1520))
-    assert s > 0.015, f"smoke: sticker not visible at t={mid} ({s * 100:.1f}% changed)"
-    assert r > 0.015, f"smoke: robot not visible at t={mid} ({r * 100:.1f}% changed)"
+    if first_line["speaker"] == config.ROBOT["sid"]:
+        assert r > 0.015, f"smoke: robot not visible at t={mid} ({r * 100:.1f}%)"
+        assert s < 0.05, f"smoke: sticker up during narrator line t={mid} ({s * 100:.1f}%)"
+    else:
+        assert s > 0.015, f"smoke: sticker not visible at t={mid} ({s * 100:.1f}%)"
+        assert r < 0.05, (f"smoke: robot up during character line t={mid} "
+                          f"({r * 100:.1f}%) — speaker-exclusive law")
     out.unlink(missing_ok=True)
     return True
 
