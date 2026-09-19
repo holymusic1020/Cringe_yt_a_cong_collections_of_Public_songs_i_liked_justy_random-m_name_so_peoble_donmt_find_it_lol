@@ -61,9 +61,14 @@ def pick_episode(st, want=None):
     """Returns (mp4, meta) — FIFO unposted artifact, or the requested stem."""
     dest = Path("/tmp/postwork"); dest.mkdir(parents=True, exist_ok=True)
     arts = gh_api("actions/artifacts?per_page=30")["artifacts"]
-    arts = [a for a in arts if not a["expired"] and a["id"] > (st.get("last_artifact_id") or 0)]
-    # explicit request -> NEWEST artifact for that stem (older re-renders of
-    # the same episode must never win); no request -> FIFO catch-up
+    # explicit request -> NEWEST artifact for that stem, ignoring the FIFO
+    # watermark (posting ep009 must not hide ep010's older v2 artifact);
+    # no request -> FIFO catch-up above the watermark
+    if want:
+        arts = [a for a in arts if not a["expired"]]
+    else:
+        arts = [a for a in arts if not a["expired"]
+                and a["id"] > (st.get("last_artifact_id") or 0)]
     arts.sort(key=lambda a: a["id"], reverse=bool(want))
     for a in arts:
         d = fetch_artifact(a, dest)
