@@ -127,12 +127,38 @@ OUTPUT: pure JSON only, no markdown fences, exactly this shape:
   "lines": [{{"speaker": "riku", "emotion": "panic", "text": "..."}}]}}"""
 
 
+_MODEL = None
+
+
+def _pick_model(key):
+    """Discover a usable text model from Google's live list — model names
+    change; the Scribe must never die of a rename (lifetime law)."""
+    global _MODEL
+    if _MODEL:
+        return _MODEL
+    url = ("https://generativelanguage.googleapis.com/v1beta/models?key=" + key
+           + "&pageSize=100")
+    with urllib.request.urlopen(url, timeout=60) as r:
+        models = [m["name"].split("/")[-1]
+                  for m in json.loads(r.read()).get("models", [])
+                  if "generateContent" in m.get("supportedGenerationMethods", ["generateContent"])]
+    bad = ("tts", "image", "native", "lite", "thinking", "embedding", "audio", "vision")
+    good = [m for m in models
+            if "flash" in m and not any(b in m for b in bad)]
+    pref = sorted(good, key=lambda m: (m.startswith("gemini-2"), len(m)), reverse=True)
+    fallback = ["gemini-flash-latest", "gemini-2.0-flash"]
+    _MODEL = (pref + fallback)[0]
+    print(f"[scribe] model: {_MODEL}")
+    return _MODEL
+
+
 def _gemini(prompt):
     key = os.environ.get("GEMINI_API_KEY_1", "").strip()
     if not key:
         raise RuntimeError("no GEMINI_API_KEY_1")
+    model = _pick_model(key)
     url = ("https://generativelanguage.googleapis.com/v1beta/models/"
-           "gemini-2.5-flash:generateContent?key=" + key)
+           f"{model}:generateContent?key=" + key)
     body = json.dumps({"contents": [{"parts": [{"text": prompt}]}],
                        "generationConfig": {"temperature": 1.05}})
     req = urllib.request.Request(url, data=body.encode(),
