@@ -1,0 +1,75 @@
+{
+ "title": "Nani's Secret Revealed",
+ "topic": "family secrets",
+ "arc": "The Midnight Scooter",
+ "part": 3,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: THE STREET RACE",
+ "bg_hints": [
+  "dark city streets",
+  "neon garage"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "SHE’S NOT [beat] SLEEPING, RIKU! LOOK AT THE LIVE [beat] GPS DATA!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "The laptop's frozen! [beat] If Nani catches us [beat] digging in her closet, we are totally dead meat!"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "whisper",
+   "text": "You boys [beat] were never supposed [beat] to find the leather racing jacket."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "Nani?! [beat] Why are you wearing [beat] combat boots and a helmet at 2 AM?"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "smug",
+   "text": "Dada [beat] thinks I’m at late-night bingo, [beat] but bingo doesn't pay for the nitro boost."
+  },
+  {
+   "speaker": "riku",
+   "emotion": "shock",
+   "text": "Nitro boost?! [beat] You’re the Midnight Rider [beat] who’s been gapping the highway patrol?"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "deadpan",
+   "text": "The police [beat] are slow, [beat] and your uncle’s scooter [beat] needed a real pilot."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "This is insane! [beat] Riku, we have to record this [beat] and go viral!"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "angry",
+   "text": "You’ll record [beat] nothing if you want [beat] to keep your eyebrows, Nix."
+  },
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "Wait, [beat] what is that red siren? [beat] Nani, did you lead them back to our house?"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "panic",
+   "text": "Hide the laptop! [beat] Mr. Haque [beat] isn't just a neighbor, [beat] he's the rival racer boss!"
+  },
+  {
+   "speaker": "mr_haque",
+   "emotion": "angry",
+   "text": "I KNOW YOU’RE IN THERE, [beat] RIDER! GIVE BACK [beat] MY GOLDEN TROPHY!"
+  }
+ ]
+}
