@@ -127,45 +127,57 @@ OUTPUT: pure JSON only, no markdown fences, exactly this shape:
   "lines": [{{"speaker": "riku", "emotion": "panic", "text": "..."}}]}}"""
 
 
-_MODEL = None
+_WORKS = None  # (api_version, model) that answered — cached per run
 
 
-def _pick_model(key):
-    """Discover a usable text model from Google's live list — model names
-    change; the Scribe must never die of a rename (lifetime law)."""
-    global _MODEL
-    if _MODEL:
-        return _MODEL
+def _candidates(key):
+    """Ranked text-model candidates from Google's live list + static
+    fallbacks. Model names AND api-version aliases drift (gemini-2.5-flash
+    listed under v1beta but 404s there — resolved via v1); the Scribe tries
+    them all and remembers what works. Never dies of a rename."""
     url = ("https://generativelanguage.googleapis.com/v1beta/models?key=" + key
            + "&pageSize=100")
-    with urllib.request.urlopen(url, timeout=60) as r:
-        models = [m["name"].split("/")[-1]
-                  for m in json.loads(r.read()).get("models", [])
-                  if "generateContent" in m.get("supportedGenerationMethods", ["generateContent"])]
-    bad = ("tts", "image", "native", "lite", "thinking", "embedding", "audio", "vision")
+    models = []
+    try:
+        with urllib.request.urlopen(url, timeout=60) as r:
+            models = [m["name"].split("/")[-1]
+                      for m in json.loads(r.read()).get("models", [])
+                      if "generateContent" in m.get("supportedGenerationMethods",
+                                                    ["generateContent"])]
+    except Exception as e:
+        print(f"[scribe] model list failed ({e}) — using static fallbacks")
+    bad = ("tts", "image", "native", "lite", "thinking", "embedding", "audio",
+           "vision", "exp", "aide")
     good = [m for m in models
             if "flash" in m and not any(b in m for b in bad)]
-    pref = sorted(good, key=lambda m: (m.startswith("gemini-2"), len(m)), reverse=True)
-    fallback = ["gemini-flash-latest", "gemini-2.0-flash"]
-    _MODEL = (pref + fallback)[0]
-    print(f"[scribe] model: {_MODEL}")
-    return _MODEL
+    ranked = sorted(good, key=lambda m: (m.startswith("gemini-2"), len(m)),
+                    reverse=True)
+    return (ranked + ["gemini-flash-latest", "gemini-2.0-flash"])[:4]
 
 
 def _gemini(prompt):
     key = os.environ.get("GEMINI_API_KEY_1", "").strip()
     if not key:
         raise RuntimeError("no GEMINI_API_KEY_1")
-    model = _pick_model(key)
-    url = ("https://generativelanguage.googleapis.com/v1beta/models/"
-           f"{model}:generateContent?key=" + key)
+    global _WORKS
     body = json.dumps({"contents": [{"parts": [{"text": prompt}]}],
                        "generationConfig": {"temperature": 1.05}})
-    req = urllib.request.Request(url, data=body.encode(),
-                                 headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=120) as r:
-        d = json.loads(r.read())
-    return d["candidates"][0]["content"]["parts"][0]["text"]
+    tries = [_WORKS] if _WORKS else         [(v, m) for v in ("v1beta", "v1") for m in _candidates(key)]
+    last = "no attempt"
+    for ver, model in tries:
+        url = (f"https://generativelanguage.googleapis.com/{ver}/models/"
+               f"{model}:generateContent?key=" + key)
+        req = urllib.request.Request(url, data=body.encode(),
+                                     headers={"Content-Type": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=120) as r:
+                d = json.loads(r.read())
+            _WORKS = (ver, model)
+            return d["candidates"][0]["content"]["parts"][0]["text"]
+        except urllib.error.HTTPError as e:
+            last = f"{ver}/{model}: {e.code} {e.read()[:160]!r}"
+            print(f"[scribe] {last}")
+    raise RuntimeError(f"no working Gemini endpoint ({last})")
 
 
 def _validate(ep, existing_titles):
