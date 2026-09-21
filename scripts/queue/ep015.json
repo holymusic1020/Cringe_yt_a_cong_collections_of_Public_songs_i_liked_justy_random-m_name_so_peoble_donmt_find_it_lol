@@ -1,0 +1,76 @@
+{
+ "title": "The Helmet Cam Sees Everything",
+ "topic": "suspicion",
+ "arc": "The Midnight Scooter",
+ "part": 2,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 3: NANI'S SECRET REVEALED",
+ "bg_hints": [
+  "neon street lights",
+  "scooter dashboard",
+  "glowing computer screen"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "JOY! [beat] Get over here and look at the helmet cam footage right now!"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "angry",
+   "text": "Nix, [beat] you little snitch, [beat] hand over that memory card right now!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "Why so nervous, Dad? [beat] Unless your hero work [beat] involves something illegal?"
+  },
+  {
+   "speaker": "joy",
+   "emotion": "shock",
+   "text": "Wait, [beat] look at the GPS log! [beat] The scooter stayed in the garage the whole night!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "But the engine was [beat] literally smoking at dawn! [beat] How is that possible?"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "angry",
+   "text": "Rafiq, [beat] if you’re letting that creep Mr. Haque [beat] use our bike again..."
+  },
+  {
+   "speaker": "mr_haque",
+   "emotion": "panic",
+   "text": "I'm innocent, you nosy lady! [beat] I haven't touched a scooter in years!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "The file is finally opening! [beat] Look at the reflection in the helmet mirror!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "The footage [beat] reveals a mystery [beat] that money can't buy."
+  },
+  {
+   "speaker": "milli",
+   "emotion": "shock",
+   "text": "Is that... [beat] my math teacher Mr. Kamal [beat] standing in our driveway?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "He's handing [beat] a giant bag of stolen test papers [beat] to... NANI?!"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "panic",
+   "text": "Nix, [beat] shut the laptop [beat] before she turns around and sees us!"
+  }
+ ]
+}
