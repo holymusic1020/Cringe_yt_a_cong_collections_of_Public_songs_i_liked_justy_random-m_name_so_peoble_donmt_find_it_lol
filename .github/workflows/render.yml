@@ -12,7 +12,7 @@ on:
         type: string
         default: ""
   schedule:
-    - cron: "33 1,13 * * *" # 2x/day, off-peak, keeps vault >=1 ahead
+    - cron: "33 1,7,13,19 * * *" # 4x/day: GitHub drops/delays crons; serialized + no-op when caught up
 
 permissions:
   contents: write   # queue .done commits (conveyor advance)

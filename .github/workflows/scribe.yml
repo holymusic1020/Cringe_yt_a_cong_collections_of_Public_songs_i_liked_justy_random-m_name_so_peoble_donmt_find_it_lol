@@ -1,0 +1,39 @@
+name: scribe
+
+# THE AI WRITER (round-14: full-lifetime automation). Keeps the episode
+# queue >= 4 deep. Language law (5 EN / 1 BN / 1 HI per 7) is planned here
+# deterministically; Gemini fills the story. Hard validation — garbage is
+# never committed. 2x/day for redundancy (idempotent: exits when queue full).
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "50 0,12 * * *"   # 00:50 + 12:50 UTC, ahead of render slots
+
+permissions:
+  contents: write   # commits new epNNN.json scripts
+
+concurrency:
+  group: scribe
+  cancel-in-progress: false
+
+jobs:
+  write:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GEMINI_API_KEY_1: ${{ secrets.GEMINI_API_KEY_1 }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -q requests
+
+      - name: Top up the episode queue (AI writer)
+        run: python3 src/scribe.py

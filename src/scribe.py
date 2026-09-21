@@ -1,0 +1,240 @@
+"""THE SCRIBE — autonomous episode writer (round-14: full-lifetime automation).
+
+Runs on GH Actions (scribe.yml, 2x/day). Keeps the queue >= KEEP episodes
+deep: asks Gemini to write a new episode following EVERY channel law,
+validates it hard, and commits only what passes. The conveyor (render ->
+vault -> daily post) can then run unattended forever.
+
+Language law is decided HERE, deterministically: every window of 7 episodes
+must hold 5 EN + 1 BN + 1 HI. A queued BN/HI slot always outranks an open
+arc continuation (the arc simply waits for the next EN slot).
+
+Failure policy: never commit garbage, never go red — alert Telegram and
+retry next run. A dry queue for one day beats a bad episode forever.
+"""
+import json, os, re, subprocess, sys, time, urllib.request
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import config
+import tg
+
+QUEUE = config.ROOT / "scripts" / "queue"
+KEEP = 4          # generate while unrendered depth < this
+MAX_PER_RUN = 2   # gentle on the free tier
+EMOTIONS = {"angry", "deadpan", "excited", "neutral", "panic", "sad",
+            "shock", "smug", "whisper"}
+BG_CATS = {"school": ("classroom", "school", "student", "exam", "chalk", "hallway"),
+           "food": ("food", "cooking", "kitchen", "canteen", "street food", "samosa"),
+           "working": ("worker", "labor", "construction", "job", "build", "office"),
+           "city": ("city", "street", "traffic", "night", "urban", "scooter", "market"),
+           "satisfying": ("satisfying", "slime", "paint", "craft", "soap", "sand")}
+
+
+def _scripts():
+    """All real episode scripts, ordered by number."""
+    out = []
+    for p in QUEUE.glob("ep*.json"):
+        m = re.fullmatch(r"ep(\d+)\.json", p.name)
+        if m:
+            out.append((int(m.group(1)), p))
+    return sorted(out)
+
+
+def _depth():
+    return sum(1 for _, p in _scripts() if not p.with_suffix(".done").exists())
+
+
+def _next_lang():
+    """5 EN / 1 BN / 1 HI in every 7 — deterministic from queue history."""
+    langs = [json.loads(p.read_text()).get("lang", "en") for _, p in _scripts()[-6:]]
+    if "bn" not in langs:
+        return "bn"
+    if "hi" not in langs:
+        return "hi"
+    return "en"
+
+
+LANG_NAME = {"en": "English", "bn": "Bengali (Bangla)", "hi": "Hindi"}
+
+
+def _cast_line():
+    parts = []
+    for sid, c in config.CAST.items():
+        if c.get("narrator"):
+            continue
+        parts.append(f"{sid} ({c.get('role', '?')})")
+    return ", ".join(parts)
+
+
+def _arc_context(lang):
+    """Continue an open arc only when the newest script matches the planned
+    language and its endcard promises more; else start a new story."""
+    scripts = _scripts()
+    if not scripts:
+        return "Start a fresh 2-3 part story arc.", None
+    _, newest = scripts[-1]
+    ep = json.loads(newest.read_text())
+    if ep.get("lang", "en") != lang:
+        return "Start a fresh 2-3 part story arc (different vibe from recent eps).", None
+    end = (ep.get("endcard") or "").upper()
+    prev = (f"The last episode was '{ep['title']}' (arc '{ep.get('arc')}', "
+            f"part {ep.get('part', 1)}). Its end-card promised: \"{ep.get('endcard')}\". "
+            f"Final spoken line: \"{ep['lines'][-1]['text'][:140]}\".")
+    if "FINALE" in end:
+        return (f"{prev} Write the FINALE of this arc: full resolution, the twist "
+                f"explained, satisfying ending. part={ep.get('part', 1) + 1}, "
+                f"arc='{ep.get('arc')}'.", ep)
+    if "PART" in end or "TOMORROW" in end:
+        return (f"{prev} Write the NEXT PART of this arc: escalate the stakes, "
+                f"end mid-tension on another cliffhanger. part="
+                f"{ep.get('part', 1) + 1}, arc='{ep.get('arc')}'.", ep)
+    return "Start a fresh 2-3 part story arc (different vibe from recent eps).", None
+
+
+def _prompt(lang, arc_directive):
+    return f"""You write scripts for "Nix Speech Fav" — a YouTube Shorts channel
+of animated multi-character story episodes (Zack-D.-Films style: hook in the
+first second, fast pace, twist endings, relatable everyday drama).
+
+CAST (fixed universe, use these speaker ids): {_cast_line()}
+Also available: narrator (the robot host — speaks little, deadpan glue).
+
+LANGUAGE: write every line in {LANG_NAME[lang]}.
+
+STORY LAWS (all mandatory):
+- FIRST line is a CHARACTER (never narrator) shouting a hook that grabs in 1 second.
+- 11 to 14 lines total. Each line 15-160 characters.
+- Sprinkle "[beat]" inside lines for dramatic pauses (at least 8 total) — edge-tts turns them into real pauses.
+- Topics: all of life — school, family, money, neighbors, tech, suspicion,
+  mildly-naughty mischief. NEVER extreme, never gore, never politics.
+- Insults must SOUND like insults. Emotions: {', '.join(sorted(EMOTIONS))}.
+- {arc_directive}
+- endcard: short all-caps card for the last seconds (e.g. "PART 3 TOMORROW" or "FINALE: <the reveal>").
+- bg_hints: 2-3 short phrases matching ONE of: school / food / working / city / satisfying.
+- energy: "low", "mid" or "high".
+
+OUTPUT: pure JSON only, no markdown fences, exactly this shape:
+{{"title": "...", "topic": "...", "arc": "...", "part": 1, "lang": "{lang}",
+  "energy": "high", "endcard": "...", "bg_hints": ["...", "..."],
+  "lines": [{{"speaker": "riku", "emotion": "panic", "text": "..."}}]}}"""
+
+
+def _gemini(prompt):
+    key = os.environ.get("GEMINI_API_KEY_1", "").strip()
+    if not key:
+        raise RuntimeError("no GEMINI_API_KEY_1")
+    url = ("https://generativelanguage.googleapis.com/v1beta/models/"
+           "gemini-2.5-flash:generateContent?key=" + key)
+    body = json.dumps({"contents": [{"parts": [{"text": prompt}]}],
+                       "generationConfig": {"temperature": 1.05}})
+    req = urllib.request.Request(url, data=body.encode(),
+                                 headers={"Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=120) as r:
+        d = json.loads(r.read())
+    return d["candidates"][0]["content"]["parts"][0]["text"]
+
+
+def _validate(ep, existing_titles):
+    def bad(msg):
+        return ValueError(msg)
+    for k in ("title", "topic", "arc", "lang", "energy", "endcard",
+              "bg_hints", "lines", "part"):
+        if k not in ep:
+            raise bad(f"missing field {k}")
+    if not (20 <= len(ep["title"]) <= 95):
+        raise bad("title length")
+    if ep["title"] in existing_titles:
+        raise bad("duplicate title")
+    if ep["lang"] not in ("en", "bn", "hi"):
+        raise bad("lang")
+    if ep["energy"] not in ("low", "mid", "high"):
+        raise bad("energy")
+    lines = ep["lines"]
+    if not (11 <= len(lines) <= 14):
+        raise bad(f"{len(lines)} lines")
+    if lines[0]["speaker"] == "narrator":
+        raise bad("opens with narrator (hook law)")
+    beats = 0
+    for l in lines:
+        if l["speaker"] not in config.CAST:
+            raise bad(f"unknown speaker {l['speaker']}")
+        if l["emotion"] not in EMOTIONS:
+            raise bad(f"unknown emotion {l['emotion']}")
+        if not (15 <= len(l["text"]) <= 160):
+            raise bad("line length")
+        beats += l["text"].count("[beat]")
+    if beats < 8:
+        raise bad(f"only {beats} [beat]s (need >=8)")
+    hints = " ".join(ep["bg_hints"]).lower()
+    if not ep["bg_hints"] or not any(k in hints for cat in BG_CATS.values() for k in cat):
+        raise bad("bg_hints match no category")
+    # language script sanity
+    text = " ".join(l["text"] for l in lines)
+    if ep["lang"] == "bn":
+        assert_ok = sum(1 for ch in text if "\u0980" <= ch <= "\u09FF") > len(text) * 0.4
+    elif ep["lang"] == "hi":
+        assert_ok = sum(1 for ch in text if "\u0900" <= ch <= "\u097F") > len(text) * 0.4
+    else:
+        assert_ok = sum(1 for ch in text if ch.isascii() or ch in "…—") > len(text) * 0.9
+    if not assert_ok:
+        raise bad(f"text is not {ep['lang']}")
+    return True
+
+
+def _commit(path):
+    for cmd in (["git", "config", "user.name", "nixfav-engine"],
+                ["git", "config", "user.email", "engine@users.noreply.github.com"]):
+        subprocess.run(cmd, check=True)
+    subprocess.run(["git", "add", str(path)], check=True)
+    subprocess.run(["git", "commit", "-m",
+                    f"scribe: {path.stem} written by AI [skip ci]"], check=True)
+    p = subprocess.run(["git", "push"])
+    if p.returncode != 0:
+        subprocess.run(["git", "pull", "--rebase", "origin",
+                        os.environ.get("GITHUB_REF_NAME", "main")], check=False)
+        subprocess.run(["git", "push"], check=True)
+
+
+def main():
+    made = 0
+    while _depth() < KEEP and made < MAX_PER_RUN:
+        lang = _next_lang()
+        arc_directive, prev = _arc_context(lang)
+        prompt = _prompt(lang, arc_directive)
+        ep = None
+        for attempt in (1, 2):
+            try:
+                raw = _gemini(prompt)
+                raw = re.sub(r"^```(json)?|```$", "", raw.strip(), flags=re.M).strip()
+                cand = json.loads(raw)
+                titles = {json.loads(p.read_text())["title"] for _, p in _scripts()}
+                _validate(cand, titles)
+                ep = cand
+                break
+            except Exception as e:
+                print(f"[scribe] attempt {attempt} rejected: {e}")
+                time.sleep(20)
+        if ep is None:
+            tg.send_message("✍️ Scribe: generation failed validation twice — "
+                            "queue not topped up this run. Depth now "
+                            f"{_depth()}. Will retry next run.")
+            break
+        num = (_scripts()[-1][0] + 1) if _scripts() else 1
+        path = QUEUE / f"ep{num:03d}.json"
+        path.write_text(json.dumps(ep, indent=1, ensure_ascii=False) + "\n")
+        try:
+            _commit(path)
+        except Exception as e:
+            path.unlink(missing_ok=True)
+            subprocess.run(["git", "reset", "--hard", "HEAD"], check=False)
+            print(f"[scribe] commit failed: {e}")
+            break
+        print(f"[scribe] WROTE {path.name}: {ep['title']} ({ep['lang']}, "
+              f"{len(ep['lines'])} lines, arc '{ep['arc']}' part {ep['part']})")
+        made += 1
+    print(f"[scribe] done — queue depth {_depth()} (target >= {KEEP}), wrote {made}")
+
+
+if __name__ == "__main__":
+    main()

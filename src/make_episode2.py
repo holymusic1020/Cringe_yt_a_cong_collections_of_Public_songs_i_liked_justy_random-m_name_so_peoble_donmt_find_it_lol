@@ -30,7 +30,14 @@ def pick_script():
 
 
 def main():
-    script = Path(sys.argv[1]) if len(sys.argv) > 1 else pick_script()
+    if len(sys.argv) > 1:
+        script = Path(sys.argv[1])
+    else:
+        try:
+            script = pick_script()
+        except RuntimeError:
+            print("[make] queue empty — conveyor caught up, nothing to render")
+            sys.exit(0)
     out = Path(sys.argv[2]) if len(sys.argv) > 2 else \
         config.ROOT / "output" / f"{script.stem}.mp4"
     ep = json.loads(script.read_text())

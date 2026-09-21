@@ -15,7 +15,8 @@ on:
         type: boolean
         default: false
   schedule:
-    - cron: "0 15 * * *"   # daily 21:00 Dhaka — boss round-13 law: every
+    - cron: "0 15,17,19,21 * * *"   # 21:00 Dhaka + retries — window-guarded
+                           # so only the first slot each day posts
                            # video goes public daily; post_job's 15-19h
                            # window still guards against double-posting
 
