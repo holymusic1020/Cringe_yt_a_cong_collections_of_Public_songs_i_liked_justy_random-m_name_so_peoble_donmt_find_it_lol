@@ -68,27 +68,34 @@ def _cast_line():
 
 
 def _arc_context(lang):
-    """Continue an open arc only when the newest script matches the planned
-    language and its endcard promises more; else start a new story."""
+    """Find the newest UNRESOLVED promise in queue history (an endcard that
+    promises a next part/FINALE which no later same-arc script delivered) and
+    continue THAT arc — viewer promises must be kept. Language must match."""
     scripts = _scripts()
-    if not scripts:
-        return "Start a fresh 2-3 part story arc.", None
-    _, newest = scripts[-1]
-    ep = json.loads(newest.read_text())
-    if ep.get("lang", "en") != lang:
-        return "Start a fresh 2-3 part story arc (different vibe from recent eps).", None
-    end = (ep.get("endcard") or "").upper()
-    prev = (f"The last episode was '{ep['title']}' (arc '{ep.get('arc')}', "
-            f"part {ep.get('part', 1)}). Its end-card promised: \"{ep.get('endcard')}\". "
-            f"Final spoken line: \"{ep['lines'][-1]['text'][:140]}\".")
-    if "FINALE" in end:
-        return (f"{prev} Write the FINALE of this arc: full resolution, the twist "
-                f"explained, satisfying ending. part={ep.get('part', 1) + 1}, "
-                f"arc='{ep.get('arc')}'.", ep)
-    if "PART" in end or "TOMORROW" in end:
+    eps = [(n, json.loads(p.read_text())) for n, p in scripts]
+    for i in range(len(eps) - 1, -1, -1):
+        n, ep = eps[i]
+        if ep.get("lang", "en") != lang:
+            continue
+        end = (ep.get("endcard") or "").upper()
+        if not ("FINALE" in end or "PART" in end or "TOMORROW" in end):
+            continue
+        arc = ep.get("arc")
+        resolved = any(later.get("arc") == arc and later.get("part", 1) > ep.get("part", 1)
+                       for _, later in eps[i + 1:])
+        if resolved:
+            continue
+        prev = (f"An earlier episode '{ep['title']}' (arc '{arc}', part "
+                f"{ep.get('part', 1)}) ended on the card \"{ep.get('endcard')}\" "
+                f"and the channel still owes viewers that episode. Its final "
+                f"spoken line: \"{ep['lines'][-1]['text'][:140]}\".")
+        if "FINALE" in end:
+            return (f"{prev} Write the promised FINALE of this arc: full "
+                    f"resolution, the twist explained, satisfying ending. "
+                    f"part={ep.get('part', 1) + 1}, arc='{arc}'.", ep)
         return (f"{prev} Write the NEXT PART of this arc: escalate the stakes, "
                 f"end mid-tension on another cliffhanger. part="
-                f"{ep.get('part', 1) + 1}, arc='{ep.get('arc')}'.", ep)
+                f"{ep.get('part', 1) + 1}, arc='{arc}'.", ep)
     return "Start a fresh 2-3 part story arc (different vibe from recent eps).", None
 
 
