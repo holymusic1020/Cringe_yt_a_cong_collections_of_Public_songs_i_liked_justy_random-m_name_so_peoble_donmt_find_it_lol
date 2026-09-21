@@ -14,6 +14,10 @@ on:
         description: "ignore the cadence window"
         type: boolean
         default: false
+  schedule:
+    - cron: "0 15 * * *"   # daily 21:00 Dhaka — boss round-13 law: every
+                           # video goes public daily; post_job's 15-19h
+                           # window still guards against double-posting
 
 permissions:
   contents: write   # state commits

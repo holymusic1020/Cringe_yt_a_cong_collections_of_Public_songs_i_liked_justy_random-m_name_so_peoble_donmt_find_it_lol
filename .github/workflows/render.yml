@@ -15,7 +15,7 @@ on:
     - cron: "33 1,13 * * *" # 2x/day, off-peak, keeps vault >=1 ahead
 
 permissions:
-  contents: read
+  contents: write   # queue .done commits (conveyor advance)
 
 concurrency:
   # scheduled runs serialize together; manual dispatches run free in parallel
@@ -76,6 +76,20 @@ jobs:
             vid="${f%_timeline.json}.mp4"
             python3 scripts/audit_video.py "$vid" "$f" "${vid%.mp4}_bg.mp4"
           done
+
+      - name: Commit queue progress (.done markers)
+        # Without this the conveyor re-renders the same episode forever —
+        # ep010 was re-rendered 3x while ep011+ waited (found Sep 21).
+        run: |
+          git config user.name "nixfav-engine"
+          git config user.email "engine@users.noreply.github.com"
+          if [ -n "$(git status --porcelain scripts/queue)" ]; then
+            git add scripts/queue/*.done
+            git commit -m "queue: $(git diff --cached --name-only | head -1 | xargs basename) rendered [skip ci]" || true
+            git push || (git pull --rebase && git push)
+          else
+            echo "no new .done markers (explicit re-render?)"
+          fi
 
       - name: Vault it (90-day artifact = render-ahead buffer)
         uses: actions/upload-artifact@v4
