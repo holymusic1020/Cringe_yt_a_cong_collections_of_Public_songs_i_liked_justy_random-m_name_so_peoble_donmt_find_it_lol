@@ -1,0 +1,70 @@
+{
+ "title": "Nani's Secret Stunt Life",
+ "topic": "Family drama resolution",
+ "arc": "The Midnight Scooter",
+ "part": 5,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: NANI THE GOAT",
+ "bg_hints": [
+  "city",
+  "satisfying"
+ ],
+ "lines": [
+  {
+   "speaker": "phupu",
+   "emotion": "shock",
+   "text": "THAT OLD SCOOTER [beat] BELONGS IN A MUSEUM, NOT [beat] ON THE STREETS AT MIDNIGHT!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "Tell that to the woman [beat] who just left your [beat] gossip in the dust, Phupu!"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "excited",
+   "text": "Museum? Please! I was the [beat] lead stunt rider for the [beat] 1970 city circus!"
+  },
+  {
+   "speaker": "phupu",
+   "emotion": "panic",
+   "text": "You’re lying! You’re just a [beat] brittle old lady who [beat] should be knitting socks!"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "angry",
+   "text": "Listen here, you [beat] walking megaphone! While you were [beat] busy snooping, I was winning trophies!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Wait, Nani, so the [beat] secret deliveries were just [beat] you practicing your wheelies?"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "deadpan",
+   "text": "Exactly. And delivering [beat] fresh cookies to the [beat] orphanage before sunrise."
+  },
+  {
+   "speaker": "phupu",
+   "emotion": "sad",
+   "text": "But... but I called the [beat] police on a legendary [beat] circus queen? I’m ruined!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "The whole neighborhood [beat] saw you chasing [beat] a grandmother, you nosy busybody!"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "whisper",
+   "text": "Don't worry, Phupu. I’ll let you [beat] borrow the helmet [beat] once you learn to shut your mouth."
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "The legend of the [beat] midnight scooter queen [beat] lives on forever."
+  }
+ ]
+}
