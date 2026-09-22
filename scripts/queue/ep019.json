@@ -1,0 +1,76 @@
+{
+ "title": "Nani's Secret Stunt Life: The Finale",
+ "topic": "Family Secret",
+ "arc": "The Midnight Scooter",
+ "part": 6,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: NANI THE GOAT",
+ "bg_hints": [
+  "city night",
+  "working hard",
+  "satisfying reveal"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "NANI! [beat] STOP THE SCOOTER RIGHT NOW!"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "smug",
+   "text": "Busted! [beat] I guess my racing days [beat] are finally over."
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "shock",
+   "text": "Mom?! [beat] We thought you were joining a [beat] geriatric biker gang!"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "deadpan",
+   "text": "Please! [beat] Those kids can't even [beat] handle a turn at forty."
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "angry",
+   "text": "Then why the mask? [beat] Why the midnight [beat] stealth missions?"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "excited",
+   "text": "Look at my phone [beat] you fools! [beat] Five-star rating on Dash-Dash!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Wait... [beat] You've been working as a [beat] delivery driver at eighty?"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "angry",
+   "text": "Nix needed a [beat] gaming setup, and your [beat] dad is too cheap!"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "panic",
+   "text": "Hey! [beat] I was waiting for [beat] a seasonal sale!"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "excited",
+   "text": "Too late! [beat] Behold the triple-monitor [beat] beast of a PC!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "sad",
+   "text": "Nani... [beat] You're literally [beat] the greatest of all time."
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "And so, [beat] the legend of the midnight queen [beat] reached its finish line."
+  }
+ ]
+}
