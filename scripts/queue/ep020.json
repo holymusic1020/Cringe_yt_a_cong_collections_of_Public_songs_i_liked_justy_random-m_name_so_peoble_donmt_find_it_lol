@@ -1,0 +1,80 @@
+{
+ "title": "দাদার বিটকয়েন রহস্য",
+ "topic": "tech suspicion",
+ "arc": "The Hidden Fortune",
+ "part": 1,
+ "lang": "bn",
+ "energy": "high",
+ "endcard": "PART 2: THE PASSWORD",
+ "bg_hints": [
+  "city",
+  "satisfying"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "দাঁড়া! [beat] এই ভাঙা ফোনের ভেতরে [beat] এক কোটি টাকার বিটকয়েন আসলো কোত্থেকে?!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "excited",
+   "text": "নিক্স! তুই কি পাগল হয়েছিস? [beat] এটা তো দাদার সেই বিশ বছর আগের হারানো ফোন!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "চুপ কর রিকু! [beat] যদি একবার এই পাসওয়ার্ডটা খুলে ফেলি, [beat] আমাদের কপাল খুলে যাবে!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "কিন্তু পাসওয়ার্ড তো কেউ জানে না! [beat] যদি ভুল দিই, সব ডেটা চিরতরে ডিলিট হয়ে যাবে!"
+  },
+  {
+   "speaker": "dada",
+   "emotion": "deadpan",
+   "text": "ওরে ফাজিল নাতিরা! [beat] আমার ঘরে ঢুকে তোরা আবার কী চুরি-চামারি করছিস?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "না না দাদা! [beat] আমরা তো জাস্ট আপনার পুরনো ফোনটা... [beat] একটু পরিষ্কার করছিলাম!"
+  },
+  {
+   "speaker": "dada",
+   "emotion": "smug",
+   "text": "পরিষ্কার নাকি বিটকয়েন? [beat] ওই ফোনের পাসওয়ার্ড এই দুনিয়ার আর কেউ জানে না।"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "whisper",
+   "text": "দাদা মনে হয় সব বুঝে ফেলেছে! [beat] চল এখান থেকে পালাই, নাহলে খবর আছে!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "পালাবি কেন? [beat] দাদা, পাসওয়ার্ডটা বলে দিন না! [beat] যা পাবো আমরা আধা-আধি ভাগ করে নেব!"
+  },
+  {
+   "speaker": "dada",
+   "emotion": "neutral",
+   "text": "আধা-আধি? [beat] ওই ফোনের ভেতর যা আছে, সেটা তোর বাপের সম্পত্তিও না।"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "মানে? [beat] এর ভেতরে কি বিটকয়েন নেই? [beat] তবে এটা কিসের একাউন্ট?"
+  },
+  {
+   "speaker": "dada",
+   "emotion": "smug",
+   "text": "আসল রহস্য জানতে হলে [beat] আগে আমার আলমারির চাবিটা খুঁজে বের কর!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "রহস্য আরও গভীর হচ্ছে! [beat] পাসওয়ার্ড কি খুঁজে পাবে নিক্স? [beat] দেখুন পরের পর্বে।"
+  }
+ ]
+}
