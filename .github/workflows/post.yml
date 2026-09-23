@@ -58,8 +58,8 @@ jobs:
 
       - name: Post one episode (cadence window respected)
         env:
-          EPISODE: ${{ inputs.episode || '' }}
-          FORCE: ${{ inputs.force || '' }}
+          EPISODE: ${{ inputs.episode }}
+          FORCE: ${{ inputs.force }}
         run: |
           # inputs come via ENV — bare ${{ }} in shell breaks on scheduled
           # runs (empty force -> ' && ...' syntax error; found Sep 23:
