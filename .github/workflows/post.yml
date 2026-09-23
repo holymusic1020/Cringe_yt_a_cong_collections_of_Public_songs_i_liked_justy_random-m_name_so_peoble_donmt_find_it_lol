@@ -15,8 +15,9 @@ on:
         type: boolean
         default: false
   schedule:
-    - cron: "0 15,17,19,21 * * *"   # 21:00 Dhaka + retries — window-guarded
-                           # so only the first slot each day posts
+    - cron: "7 15,17,19,21,23 * * *"   # 21:07 Dhaka + retries; off-minute
+                           # (GitHub drops/delays busy :00 crons); window-guarded
+                           # so only the first open slot each day posts
                            # video goes public daily; post_job's 15-19h
                            # window still guards against double-posting
 
@@ -56,8 +57,14 @@ jobs:
         run: python3 src/preflight.py
 
       - name: Post one episode (cadence window respected)
+        env:
+          EPISODE: ${{ inputs.episode || '' }}
+          FORCE: ${{ inputs.force || '' }}
         run: |
+          # inputs come via ENV — bare ${{ }} in shell breaks on scheduled
+          # runs (empty force -> ' && ...' syntax error; found Sep 23:
+          # every scheduled post died in 27s since the cron was added)
           ARGS=""
-          [ -n "${{ inputs.episode }}" ] && ARGS="--episode ${{ inputs.episode }}"
-          ${{ inputs.force }} && ARGS="$ARGS --force" || true
+          if [ -n "$EPISODE" ]; then ARGS="--episode $EPISODE"; fi
+          if [ "$FORCE" = "true" ]; then ARGS="$ARGS --force"; fi
           python3 src/post_job.py $ARGS
