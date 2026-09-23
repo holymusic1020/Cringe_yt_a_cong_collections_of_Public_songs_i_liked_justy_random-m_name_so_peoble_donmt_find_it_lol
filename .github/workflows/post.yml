@@ -61,9 +61,9 @@ jobs:
           EPISODE: ${{ inputs.episode }}
           FORCE: ${{ inputs.force }}
         run: |
-          # inputs come via ENV — bare ${{ }} in shell breaks on scheduled
-          # runs (empty force -> ' && ...' syntax error; found Sep 23:
-          # every scheduled post died in 27s since the cron was added)
+          # inputs come via ENV — bare GH expressions inlined into shell
+          # break on scheduled runs (empty force -> leading && syntax error;
+          # found Sep 23: every scheduled post died in 27s since cron added)
           ARGS=""
           if [ -n "$EPISODE" ]; then ARGS="--episode $EPISODE"; fi
           if [ "$FORCE" = "true" ]; then ARGS="$ARGS --force"; fi
