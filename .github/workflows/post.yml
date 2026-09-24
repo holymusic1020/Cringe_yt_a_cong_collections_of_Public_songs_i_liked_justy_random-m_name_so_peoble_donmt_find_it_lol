@@ -15,9 +15,13 @@ on:
         type: boolean
         default: false
   schedule:
-    - cron: "7 15,17,19,21,23 * * *"   # 21:07 Dhaka + retries; off-minute
-                           # (GitHub drops/delays busy :00 crons); window-guarded
-                           # so only the first open slot each day posts
+    # GitHub cron is chronically 1-3h late and sometimes drops slots
+    # entirely (found Sep 24: the 21:07 Dhaka slot never fired). So: check
+    # every 30 min through the Dhaka evening — the window-guard makes all
+    # but the first check no-ops, so the daily post lands 21:07-21:37 Dhaka
+    # even when individual crons vanish. Morning slot = safety catch-up.
+    - cron: "7,37 14-20 * * *"
+    - cron: "19 3 * * *"
                            # video goes public daily; post_job's 15-19h
                            # window still guards against double-posting
 
