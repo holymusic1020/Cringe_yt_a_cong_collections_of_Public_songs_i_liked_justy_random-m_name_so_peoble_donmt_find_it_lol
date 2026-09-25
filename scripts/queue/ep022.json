@@ -1,0 +1,75 @@
+{
+ "title": "Grandma's Stunt Double Life Revealed! 🛵",
+ "topic": "family secrets and stunts",
+ "arc": "The Midnight Scooter",
+ "part": 7,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: NANI THE GOAT",
+ "bg_hints": [
+  "city night lights",
+  "satisfied cheering crowd"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Nani, [beat] did you seriously just [beat] stick a landing on the neighbor's roof?!"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "smug",
+   "text": "Don't look so surprised, [beat] your grandmother [beat] has still got the juice for one last flight."
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "angry",
+   "text": "You've been using my [beat] savings account to buy [beat] premium racing fuel and nitro boosters!"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "panic",
+   "text": "Forget the fuel, [beat] she is wearing [beat] my favorite vintage leather jacket as a flight suit!"
+  },
+  {
+   "speaker": "mr_haque",
+   "emotion": "neutral",
+   "text": "She had to! [beat] The wind resistance [beat] at sixty miles per hour is no joke for a senior."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Wait, [beat] Mr. Haque, [beat] why are you holding a professional stopwatch and a checkered flag?"
+  },
+  {
+   "speaker": "mr_haque",
+   "emotion": "smug",
+   "text": "I am the official judge [beat] for the [beat] Underground Senior Circuit, and Nani just broke the record."
+  },
+  {
+   "speaker": "nani",
+   "emotion": "excited",
+   "text": "The prize money [beat] is fifty thousand, [beat] and it is going towards Nix’s college fund and a new PC."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "Suddenly [beat] I am totally okay [beat] with my grandma being a professional stunt driver."
+  },
+  {
+   "speaker": "dada",
+   "emotion": "whisper",
+   "text": "I am just glad [beat] she did not find out [beat] I was the one who sabotaged her brakes last week."
+  },
+  {
+   "speaker": "nani",
+   "emotion": "angry",
+   "text": "I heard that, [beat] you old [beat] jealous turtle! You are sleeping on the porch tonight!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "The midnight scooter [beat] may be parked, [beat] but the legend of the goat is forever."
+  }
+ ]
+}
