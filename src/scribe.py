@@ -123,7 +123,8 @@ TITLE: punchy, under 90 characters, hook-style, one emoji allowed.
 
 STORY LAWS (all mandatory):
 - FIRST line is a CHARACTER (never narrator) shouting a hook that grabs in 1 second.
-- 11 to 14 lines total. Each line 15-160 characters.
+- 12 to 14 lines total. Each line 60-160 characters — full dramatic
+  sentences, not quick quips. The finished episode must run ~100 seconds.
 - Sprinkle "[beat]" inside lines for dramatic pauses (at least 8 total) — edge-tts turns them into real pauses.
 - Topics: all of life — school, family, money, neighbors, tech, suspicion,
   mildly-naughty mischief. NEVER extreme, never gore, never politics.
@@ -209,7 +210,7 @@ def _validate(ep, existing_titles):
     if ep["energy"] not in ("low", "mid", "high"):
         raise bad("energy")
     lines = ep["lines"]
-    if not (11 <= len(lines) <= 14):
+    if not (12 <= len(lines) <= 14):
         raise bad(f"{len(lines)} lines")
     if lines[0]["speaker"] == "narrator":
         raise bad("opens with narrator (hook law)")
@@ -219,11 +220,16 @@ def _validate(ep, existing_titles):
             raise bad(f"unknown speaker {l['speaker']}")
         if l["emotion"] not in EMOTIONS:
             raise bad(f"unknown emotion {l['emotion']}")
-        if not (15 <= len(l["text"]) <= 160):
+        if not (60 <= len(l["text"]) <= 160):
             raise bad("line length")
         beats += l["text"].count("[beat]")
     if beats < 8:
         raise bad(f"only {beats} [beat]s (need >=8)")
+    chars = sum(len(l["text"]) for l in lines)
+    est_s = chars / 13 + beats * 0.38 + len(lines) * 0.28
+    if est_s < 92:
+        # boss law: episodes >= 90s (gemini-3 wrote a 73s episode Sep 25)
+        raise bad(f"estimated only {est_s:.0f}s runtime ({chars} chars)")
     hints = " ".join(ep["bg_hints"]).lower()
     if not ep["bg_hints"] or not any(k in hints for cat in BG_CATS.values() for k in cat):
         raise bad("bg_hints match no category")
