@@ -56,6 +56,17 @@ def _next_lang():
 
 
 LANG_NAME = {"en": "English", "bn": "Bengali (Bangla)", "hi": "Hindi"}
+LANG_DIRECTIVE = {
+    "en": "LANGUAGE: write everything in natural, everyday English.",
+    "bn": ("LANGUAGE: write EVERY line — and the title — in Bengali, Bangla "
+           "script (\u09ac\u09be\u0982\u09b2\u09be). NEVER romanize, never English sentences. "
+           "Modern loanwords (laptop, phone) allowed. An emoji in the title "
+           "is fine."),
+    "hi": ("LANGUAGE: write EVERY line — and the title — in Hindi, Devanagari "
+           "script (\u0939\u093f\u0902\u0926\u0940). NEVER romanize, never Hinglish, never English "
+           "sentences. Modern loanwords (laptop, phone) allowed. An emoji in "
+           "the title is fine."),
+}
 
 
 def _cast_line():
@@ -107,7 +118,8 @@ first second, fast pace, twist endings, relatable everyday drama).
 CAST (fixed universe, use these speaker ids): {_cast_line()}
 Also available: narrator (the robot host — speaks little, deadpan glue).
 
-LANGUAGE: write every line in {LANG_NAME[lang]}.
+{LANG_DIRECTIVE[lang]}
+TITLE: punchy, under 90 characters, hook-style, one emoji allowed.
 
 STORY LAWS (all mandatory):
 - FIRST line is a CHARACTER (never narrator) shouting a hook that grabs in 1 second.
@@ -173,6 +185,7 @@ def _gemini(prompt):
             with urllib.request.urlopen(req, timeout=120) as r:
                 d = json.loads(r.read())
             _WORKS = (ver, model)
+            print(f"[scribe] answered by {ver}/{model}")
             return d["candidates"][0]["content"]["parts"][0]["text"]
         except urllib.error.HTTPError as e:
             last = f"{ver}/{model}: {e.code} {e.read()[:160]!r}"
@@ -187,7 +200,7 @@ def _validate(ep, existing_titles):
               "bg_hints", "lines", "part"):
         if k not in ep:
             raise bad(f"missing field {k}")
-    if not (20 <= len(ep["title"]) <= 95):
+    if not (15 <= len(ep["title"]) <= 100):
         raise bad("title length")
     if ep["title"] in existing_titles:
         raise bad("duplicate title")
@@ -248,7 +261,7 @@ def main():
         arc_directive, prev = _arc_context(lang)
         prompt = _prompt(lang, arc_directive)
         ep = None
-        for attempt in (1, 2):
+        for attempt in (1, 2, 3):
             try:
                 raw = _gemini(prompt)
                 raw = re.sub(r"^```(json)?|```$", "", raw.strip(), flags=re.M).strip()

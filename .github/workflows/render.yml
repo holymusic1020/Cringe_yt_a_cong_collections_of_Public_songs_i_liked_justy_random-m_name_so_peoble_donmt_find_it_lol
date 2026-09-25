@@ -72,7 +72,16 @@ jobs:
 
       - name: Strict QA (per-window sticker/robot/karaoke proof)
         run: |
-          for f in output/*_timeline.json; do
+          # nullglob: an empty output/ must be a clean no-op, not a red run
+          # (unmatched globs pass the LITERAL pattern -> FileNotFoundError;
+          # found Sep 25: 4 green renders went red this way)
+          shopt -s nullglob
+          tls=(output/*_timeline.json)
+          if [ ${#tls[@]} -eq 0 ]; then
+            echo "nothing to audit — conveyor caught up (queue empty)"
+            exit 0
+          fi
+          for f in "${tls[@]}"; do
             vid="${f%_timeline.json}.mp4"
             python3 scripts/audit_video.py "$vid" "$f" "${vid%.mp4}_bg.mp4"
           done
