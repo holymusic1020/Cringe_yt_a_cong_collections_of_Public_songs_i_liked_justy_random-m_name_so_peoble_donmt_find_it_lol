@@ -1,0 +1,75 @@
+{
+ "title": "Nani's Secret Stunt Career Reveal! 🏆",
+ "topic": "family",
+ "arc": "The Midnight Scooter",
+ "part": 9,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: NANI THE GOAT",
+ "bg_hints": [
+  "neon city lights",
+  "engine roaring"
+ ],
+ "lines": [
+  {
+   "speaker": "lubna",
+   "emotion": "panic",
+   "text": "NANI! [beat] ARE YOU ACTUALLY [beat] THE MASKED SCOOTER DRIVER FROM THE VIRAL VIDEOS?!"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "smug",
+   "text": "I had to [beat] pay for Nix's tuition somehow, [beat] and bridge-jumping pays better than knitting!"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "shock",
+   "text": "Bridge-jumping?! [beat] Ma, you have osteoporosis! [beat] You could have been a pancake on the road!"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "deadpan",
+   "text": "The only thing [beat] getting flattened was the competition. [beat] I even signed a sponsorship deal today."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "Look at her phone! [beat] She’s got three million followers [beat] and a verified checkmark on her profile!"
+  },
+  {
+   "speaker": "phupu",
+   "emotion": "shock",
+   "text": "I knew [beat] she wasn't at the library. [beat] No library on earth smells like high-octane gasoline!"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "neutral",
+   "text": "The twist is, [beat] I’m not just a driver. [beat] I actually own the entire stunt company, Rafiq."
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "shock",
+   "text": "You [beat] OWN the company?! [beat] Does that mean we’re [beat] finally millionaires now?"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "smug",
+   "text": "WE [beat] are not millionaires. [beat] I am a millionaire. [beat] You still owe me for that dented fender, boy."
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "Nani traded her [beat] rocking chair for a racing seat, [beat] proving that age is just a number in the city."
+  },
+  {
+   "speaker": "milli",
+   "emotion": "excited",
+   "text": "Can I [beat] have a gold-plated [beat] scooter now, Nani?!"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "excited",
+   "text": "Get in the sidecar, [beat] Milli! [beat] We’re going to the Hollywood premiere!"
+  }
+ ]
+}
