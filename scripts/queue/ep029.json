@@ -1,0 +1,80 @@
+{
+ "title": "Grandma’s Illegal Street Racing Secret! 🏁",
+ "topic": "Family secrets and stunt racing",
+ "arc": "The Midnight Scooter",
+ "part": 12,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: THE STUNT QUEEN",
+ "bg_hints": [
+  "city",
+  "satisfying"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "Nani, stop the bike right now before we both end up flying [beat] off the edge of this bridge!"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "smug",
+   "text": "Pipe down Nix, I haven't missed a jump [beat] since the great underground street race of nineteen-eighty-four!"
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "shock",
+   "text": "You actually expect us to believe this? Grandma is a retired librarian [beat] who only knits sweaters and drinks tea!"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "excited",
+   "text": "That tea was just a cover, and these itchy sweaters [beat] are actually flame-retardant racing gear for the whole family!"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "deadpan",
+   "text": "Look at the trophy cabinet hidden behind the false wall in the basement [beat] if you think she is joking, kids."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Wait, so Dad knew all along that we were the direct descendants [beat] of the most legendary street racing crew in history?"
+  },
+  {
+   "speaker": "milli",
+   "emotion": "excited",
+   "text": "Every time she said she went to the grocery store [beat] she was actually setting speed records on the main highway!"
+  },
+  {
+   "speaker": "phupu",
+   "emotion": "smug",
+   "text": "I didn't want you to know because you can't even ride a skateboard [beat] without crying for a bandage and a hug!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "That is a total lie Auntie, I just have very sensitive knees [beat] and a very healthy respect for the laws of gravity!"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "excited",
+   "text": "Enough talking, the final race against the neighbor's secret gang [beat] starts in exactly five minutes at the warehouse!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "neutral",
+   "text": "If you actually win this Nani, I promise to never complain [beat] about your weird spicy lentil soup ever again!"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "smug",
+   "text": "Deal, now hold on tight Nix because I am about to show you [beat] why the city used to call me the Asphalt Queen!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "And that is how Nix discovered that his family tree [beat] was actually just one long line of adrenaline-fueled street racing legends."
+  }
+ ]
+}
