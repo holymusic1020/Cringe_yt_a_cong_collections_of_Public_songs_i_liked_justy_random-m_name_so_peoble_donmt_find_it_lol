@@ -1,0 +1,80 @@
+{
+ "title": "Nani's Secret Stunt Empire Revealed! 🏁",
+ "topic": "family secrets",
+ "arc": "The Midnight Scooter",
+ "part": 14,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: THE SCOOTER HEIR",
+ "bg_hints": [
+  "city traffic",
+  "neon lights"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "Nani, stop the scooter before the police see that illegal nitro tank [beat] sticking out of your shopping basket!"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "smug",
+   "text": "Nix, those aren't just groceries; they are high-octane stabilizers [beat] meant to win the Neighborhood Grand Prix tonight!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "shock",
+   "text": "I thought you were just a gamer, Nix, but you are actually riding [beat] with the legendary Stunt Queen of the suburbs!"
+  },
+  {
+   "speaker": "mr_haque",
+   "emotion": "angry",
+   "text": "Nobody beats my custom lawnmower engine, especially not an old lady [beat] carrying a bag of fresh ginger and organic milk!"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "excited",
+   "text": "Watch me drift through this intersection [beat] while I check my grocery list to make sure I did not forget the dozen eggs!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "The speedometer just hit eighty miles per hour [beat] and we are currently overtaking a literal sports car on the sidewalk!"
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "shock",
+   "text": "I knew Nani was fast at the buffet, but seeing her pull a wheelie [beat] on a vintage Vespa is something I will never unsee!"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "whisper",
+   "text": "The secret is in the wrist, Nix; never let them know [beat] that you are actually terrified of hitting a stray cat or a trash can!"
+  },
+  {
+   "speaker": "mr_haque",
+   "emotion": "sad",
+   "text": "How did a seventy-year-old woman [beat] just leave my turbo-charged mower in a cloud of jasmine-scented exhaust smoke?"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "angry",
+   "text": "Nani! I asked you to get milk thirty minutes ago [beat] and you have somehow managed to win a gold trophy and a street reputation!"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "smug",
+   "text": "The milk is still cold, Lubna, and Nix here is now my official [beat] head mechanic and secondary stunt coordinator for next week!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "I went out for a quick snack and came back as the official heir [beat] to the most dangerous scooter racing empire in the city!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "And so, the Stunt Queen retired her helmet [beat] until the next time the local grocery store announced a fifty percent flash sale."
+  }
+ ]
+}
