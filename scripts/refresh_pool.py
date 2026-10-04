@@ -69,6 +69,44 @@ def pexels_urls(query, n=2):
     return out
 
 
+def yt_cc_urls(query, n=2):
+    """Keyless last resort: YouTube search restricted to Creative Commons.
+    Downloads via yt-dlp (its JS runtime handles YT's checks) and returns
+    LOCAL FILE PATHS — the transform stage treats them like any source."""
+    import subprocess as sp
+    import tempfile
+    q = query + " b-roll"
+    r = sp.run(["yt-dlp", f"ytsearch{n * 4}:{q}",
+                "--match-filter", "license!~(?i)standard",
+                "--print", "%(id)s|%(height)s|%(duration)s|%(license)s",
+                "--no-warnings", "--skip-download"],
+               capture_output=True, text=True, timeout=180)
+    vids = []
+    for line in r.stdout.splitlines():
+        try:
+            vid, h, dur, lic = line.split("|", 3)
+        except ValueError:
+            continue
+        if not lic or "creative common" not in lic.lower():
+            continue
+        if int(h or 0) >= 1080 and 8 <= float(dur or 0) <= 600:
+            vids.append(f"https://www.youtube.com/watch?v={vid}")
+        if len(vids) >= n:
+            break
+    print(f"  yt-cc '{query}': {len(vids)} CC candidates")
+    out = []
+    for i, u in enumerate(vids):
+        dst = Path(tempfile.gettempdir()) / f"ytsrc_{abs(hash(u)) % 99999}.mp4"
+        d = sp.run(["yt-dlp", "-f", "bv*[height>=1080][ext=mp4]+ba/b[height>=1080]",
+                    "--merge-output-format", "mp4", "-o", str(dst),
+                    "--no-warnings", u], capture_output=True, text=True, timeout=300)
+        if d.returncode == 0 and dst.exists() and dst.stat().st_size > 1e6:
+            out.append(str(dst))
+        else:
+            print(f"  yt-cc download failed: {(d.stderr or '')[-160:].strip()}")
+    return out
+
+
 def main():
     out = Path("pool_out"); out.mkdir(exist_ok=True)
     w, h, fps = config.SHORT["w"], config.SHORT["h"], config.SHORT["fps"]
@@ -83,7 +121,11 @@ def main():
                 try:
                     urls = pexels_urls(q, n=2)
                 except Exception as e2:
-                    print(f"  pexels failed too: {e2}"); continue
+                    print(f"  pexels failed too ({e2}) — trying youtube-cc")
+                    try:
+                        urls = yt_cc_urls(q, n=2)
+                    except Exception as e3:
+                        print(f"  yt-cc failed too: {e3}"); continue
             for ui, u in enumerate(urls):
                 dst = out / f"pool_{cat}_{ui + 1}.mp4"
                 r = subprocess.run(["ffmpeg", "-y", "-nostdin", "-stream_loop", "-1",
