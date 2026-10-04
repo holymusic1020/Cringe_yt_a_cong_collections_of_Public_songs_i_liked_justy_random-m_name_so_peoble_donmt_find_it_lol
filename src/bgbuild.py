@@ -45,9 +45,15 @@ def build_bg(hints, duration, workdir):
     """3 segments from 3 different clips -> concat. Returns bg.mp4 path."""
     workdir = Path(workdir)
     workdir.mkdir(parents=True, exist_ok=True)
-    pool = sorted((config.ASSETS / "bg_pool").glob("*.mp4"))
-    if not pool:
-        raise RuntimeError("bg pool empty — run pool_refresh first")
+    pool = []
+    for p in sorted((config.ASSETS / "bg_pool").glob("*.mp4")):
+        if _probe_dur(p) >= 5:
+            pool.append(p)
+        else:
+            print(f"[bg] dropping broken clip: {p.name}")
+    if len(pool) < 3:
+        raise RuntimeError(f"bg pool unusable ({len(pool)} healthy clips) — "
+                           "run pool_refresh first")
     want = set()
     for h in (hints or []):
         hl = h.lower()

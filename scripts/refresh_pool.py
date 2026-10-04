@@ -43,6 +43,30 @@ def best_urls(query, n=2):
     return out
 
 
+def pexels_urls(query, n=2):
+    """Pexels fallback when Pixabay yields nothing (quota/key trouble)."""
+    key = os.environ.get("PEXELS_API_KEY", "").strip()
+    if not key:
+        return []
+    url = ("https://api.pexels.com/videos/search?query="
+           + urllib.parse.quote(query) + "&per_page=20&orientation=portrait")
+    req = urllib.request.Request(url, headers={"Authorization": key})
+    data = json.loads(urllib.request.urlopen(req, timeout=30).read())
+    out = []
+    for v in data.get("videos", []):
+        if (v.get("duration") or 0) < 5:
+            continue
+        files = [f for f in v.get("video_files", [])
+                 if f.get("height", 0) >= 1080 and f.get("file_type") == "video/mp4"]
+        if files:
+            f = sorted(files, key=lambda f: f["height"])[0]
+            if f["link"] not in out:
+                out.append(f["link"])
+        if len(out) >= n:
+            break
+    return out
+
+
 def main():
     out = Path("pool_out"); out.mkdir(exist_ok=True)
     w, h, fps = config.SHORT["w"], config.SHORT["h"], config.SHORT["fps"]
@@ -53,7 +77,11 @@ def main():
             try:
                 urls = best_urls(q, n=2)
             except Exception as e:
-                print(f"  search failed: {e}"); continue
+                print(f"  pixabay failed ({e}) — trying pexels")
+                try:
+                    urls = pexels_urls(q, n=2)
+                except Exception as e2:
+                    print(f"  pexels failed too: {e2}"); continue
             for ui, u in enumerate(urls):
                 dst = out / f"pool_{cat}_{ui + 1}.mp4"
                 r = subprocess.run(["ffmpeg", "-y", "-nostdin", "-stream_loop", "-1",
@@ -72,7 +100,14 @@ def main():
                 break
         if not got:
             print(f"  !! no usable clip for {cat}")
-    print("[pool] done:", sorted(f.name for f in out.glob('*.mp4')))
+    built = sorted(f.name for f in out.glob('*.mp4'))
+    print("[pool] done:", built)
+    if len(built) < 3:
+        # exit 0 with an empty pool = the Sep 27 wipe (workflow deleted the
+        # good assets because 'nothing was built' looked like success)
+        print("[pool] FATAL: fewer than 3 categories built — refusing "
+              "to let the swap touch the existing pool", file=sys.stderr)
+        sys.exit(1)
 
 
 if __name__ == "__main__":

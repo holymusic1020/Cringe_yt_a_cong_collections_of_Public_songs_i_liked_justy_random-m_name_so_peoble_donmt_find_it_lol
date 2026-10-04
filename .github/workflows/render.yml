@@ -57,9 +57,13 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           mkdir -p assets/bg_pool
-          gh release download bg-archive --repo "$GITHUB_REPOSITORY" --pattern "pool_*.mp4" --dir assets/bg_pool --clobber \
-            || echo "bg pool unavailable — providers will fall through"
+          gh release download bg-archive --repo "$GITHUB_REPOSITORY" --pattern "pool_*.mp4" --dir assets/bg_pool --clobber || true
           ls -la assets/bg_pool 2>/dev/null || true
+          n=$(ls assets/bg_pool/pool_*.mp4 2>/dev/null | wc -l)
+          if [ "$n" -lt 3 ]; then
+            echo "!! bg pool missing/insufficient ($n clips) — renders would fail. Run pool_refresh first." >&2
+            exit 1
+          fi
 
       - name: Render episode (queue FIFO)
         run: |

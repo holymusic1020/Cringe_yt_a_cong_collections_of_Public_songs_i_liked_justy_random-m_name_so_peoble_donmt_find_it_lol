@@ -20,16 +20,20 @@ jobs:
         env:
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
         run: python3 scripts/refresh_pool.py
-      - name: Swap release assets (out with the NASA 2007s)
+      - name: Swap release assets (UPLOAD FIRST, delete-after — the Sep 27
+              wipe deleted the whole pool then failed to upload anything)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          for A in $(gh release view bg-archive --json assets -q '.assets[].name' 2>/dev/null | grep '^pool_'); do
-            gh release delete-asset bg-archive "$A" --yes || true
-          done
-          if ls pool_out/pool_*.mp4 >/dev/null 2>&1; then
-            gh release upload bg-archive pool_out/pool_*.mp4 --clobber
-          else
-            echo "!! pool build produced nothing — keeping existing assets" >&2
+          built=$(ls pool_out/pool_*.mp4 2>/dev/null | wc -l)
+          if [ "$built" -lt 3 ]; then
+            echo "!! only $built clips built — ABORTING, existing pool untouched" >&2
             exit 1
           fi
+          gh release upload bg-archive pool_out/pool_*.mp4 --clobber
+          # only now remove stale assets that this build did not replace
+          keep=$(cd pool_out && ls pool_*.mp4)
+          for A in $(gh release view bg-archive --json assets -q '.assets[].name' | grep '^pool_'); do
+            echo "$keep" | grep -qx "$A" || gh release delete-asset bg-archive "$A" --yes || true
+          done
+          echo "final pool:"; gh release view bg-archive --json assets -q '.assets[].name' | grep '^pool_' 
