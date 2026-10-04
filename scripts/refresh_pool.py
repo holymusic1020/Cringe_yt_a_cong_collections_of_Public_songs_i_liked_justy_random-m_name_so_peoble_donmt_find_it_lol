@@ -47,19 +47,21 @@ def pexels_urls(query, n=2):
     """Pexels fallback when Pixabay yields nothing (quota/key trouble)."""
     key = os.environ.get("PEXELS_API_KEY", "").strip()
     if not key:
+        print("  pexels: NO KEY in env (workflow must pass PEXELS_API_KEY)")
         return []
     url = ("https://api.pexels.com/videos/search?query="
-           + urllib.parse.quote(query) + "&per_page=20&orientation=portrait")
+           + urllib.parse.quote(query) + "&per_page=30")
     req = urllib.request.Request(url, headers={"Authorization": key})
     data = json.loads(urllib.request.urlopen(req, timeout=30).read())
+    vids = [v for v in data.get("videos", []) if (v.get("duration") or 0) >= 5]
+    print(f"  pexels '{query}': {len(vids)} usable of {len(data.get('videos', []))} results")
     out = []
-    for v in data.get("videos", []):
-        if (v.get("duration") or 0) < 5:
-            continue
+    for v in vids:
         files = [f for f in v.get("video_files", [])
-                 if f.get("height", 0) >= 1080 and f.get("file_type") == "video/mp4"]
+                 if f.get("height", 0) >= 1080
+                 and (f.get("file_type") or "video/mp4") == "video/mp4"]
         if files:
-            f = sorted(files, key=lambda f: f["height"])[0]
+            f = sorted(files, key=lambda f: f["height"])[0]  # smallest >=1080
             if f["link"] not in out:
                 out.append(f["link"])
         if len(out) >= n:
@@ -93,9 +95,13 @@ def main():
                     "-t", "118", "-an", "-c:v", "libx264",
                     "-preset", config.X264["preset"], "-crf", config.X264["crf"],
                     str(dst)], capture_output=True)
-                if r.returncode == 0 and dst.exists():
+                if r.returncode == 0 and dst.exists() and dst.stat().st_size > 1e6:
                     print(f"  -> {dst.name} OK ({dst.stat().st_size/1e6:.0f}MB)")
                     got = dst
+                else:
+                    print(f"  !! ffmpeg failed for {u[:70]} rc={r.returncode}")
+                    if r.stderr:
+                        print("   ", r.stderr.decode(errors="replace")[-200:].strip())
             if got:
                 break
         if not got:

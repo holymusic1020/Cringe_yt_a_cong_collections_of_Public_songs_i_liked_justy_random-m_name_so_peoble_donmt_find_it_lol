@@ -19,6 +19,7 @@ jobs:
       - name: Build story-matched HD pool from Pixabay
         env:
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
         run: python3 scripts/refresh_pool.py
       - name: Swap release assets (UPLOAD FIRST, delete-after — the Sep 27
               wipe deleted the whole pool then failed to upload anything)
