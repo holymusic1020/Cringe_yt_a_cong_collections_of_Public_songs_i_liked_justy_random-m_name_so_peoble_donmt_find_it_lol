@@ -1,0 +1,80 @@
+{
+ "title": "Nix Is The Snack CEO 🍟",
+ "topic": "school",
+ "arc": "The Midnight Scooter",
+ "part": 19,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: THE SNACK CEO",
+ "bg_hints": [
+  "school",
+  "food"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "Put that sandwich down right now [beat] unless you want to get expelled by the guy who actually owns this kitchen!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "shock",
+   "text": "Nix, you are just a student with a rusty scooter [beat], you can't possibly claim ownership of the school's entire food supply!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "It started with a midnight craving [beat], but while everyone was sleeping, I signed an exclusive distribution deal with every vendor in town."
+  },
+  {
+   "speaker": "choto",
+   "emotion": "panic",
+   "text": "He’s telling the truth, Principal! If I don't follow his menu [beat], I don't get a single bag of chips or a bottle of soda for the next month!"
+  },
+  {
+   "speaker": "sam",
+   "emotion": "angry",
+   "text": "This has to be illegal [beat], nobody gives a teenager the keys to the kingdom just because he has a fast scooter and some spare cash!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "Shut your mouth, Sam! [beat] You're just mad because your VIP snack pass was revoked the moment you tried to snitch on my operation."
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "smug",
+   "text": "I told you the boy had a vision [beat]; he didn't just buy the snacks, he bought the logistics company that delivers them to your doorstep."
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "shock",
+   "text": "Nix, I thought you were just going out for a late-night burger [beat], not building a monopoly that has the principal shaking in her boots!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "sad",
+   "text": "There must be a price [beat], name it, because we cannot have a fourteen-year-old deciding who gets to eat lunch and who goes hungry."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "The price is simple: no more Saturday detentions [beat] and double portions of fries for every student who actually works for my delivery fleet."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "smug",
+   "text": "I’ll handle the heavy lifting, Boss! [beat] Just make sure nobody touches my stash of spicy wings while I’m on the clock or there will be trouble!"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "angry",
+   "text": "I don't care how many schools you own [beat], you are still coming home right now to finish your actual math homework, Mr. CEO!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "And that is how a midnight craving [beat] turned into a snack dynasty that ruled the streets and everyone’s stomach."
+  }
+ ]
+}
