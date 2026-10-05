@@ -1,0 +1,81 @@
+{
+ "title": "From Midnight Mystery to Snack CEO 🚚",
+ "topic": "The resolution of the neighborhood snack empire and the secret scooter deliveries.",
+ "arc": "The Midnight Scooter",
+ "part": 17,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: THE SNACK CEO",
+ "bg_hints": [
+  "city",
+  "food",
+  "satisfying"
+ ],
+ "lines": [
+  {
+   "speaker": "mr_haque",
+   "emotion": "shock",
+   "text": "Nix, the authorities are here, and they found the hidden stash of spicy chips [beat] hidden right behind my garden shed!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "Relax Mr. Haque [beat] those aren't authorities, that's just Ding and Joy coming to collect the final shipment of the season."
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "angry",
+   "text": "I knew you were up to something when I saw those scooter tracks [beat] leading straight to the grocery wholesaler at three AM!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "Mom, you call it a grocery wholesaler, but I call it the headquarters [beat] where the Nix Snack Dynasty was officially born last night."
+  },
+  {
+   "speaker": "sam",
+   "emotion": "panic",
+   "text": "I've been tracking your delivery routes for weeks [beat] and I am telling the principal you have turned the bus stop into a black market!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "deadpan",
+   "text": "Tell whoever you want, Sam [beat] because even the principal is on my subscription list for those imported ramen packs you can't find anywhere."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "angry",
+   "text": "I don't care about your little business, Nix [beat] give me all the chocolate bars or I'm turning your precious scooter into scrap metal!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "Actually Bruno, I just hired you [beat] check your locker, there is a uniform and a map of the north side deliveries waiting for you."
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "smug",
+   "text": "I have seen a lot of startups, but using a silent electric scooter [beat] to bypass the neighborhood curfew is actually quite brilliant, nephew."
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "shock",
+   "text": "He did not just bypass the curfew [beat] he negotiated a distribution deal with every teenager in a five-mile radius while we were sleeping."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "deadpan",
+   "text": "Being the Snack CEO isn't about the sugar [beat] it is about the logistics of craving when every other store in town is closed."
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "sad",
+   "text": "He is actually doing it [beat] the little brat turned a midnight hobby into a full-blown empire right under our noses."
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "And that is how Nix turned a midnight secret into a snack dynasty [beat] proving that the right wheels and a little hustle can rule the streets."
+  }
+ ]
+}
