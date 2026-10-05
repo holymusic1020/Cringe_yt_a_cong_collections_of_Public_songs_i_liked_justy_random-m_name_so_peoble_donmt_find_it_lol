@@ -1,0 +1,75 @@
+{
+ "title": "Nix Just Bought the Entire School 🍟",
+ "topic": "The resolution of the midnight delivery empire",
+ "arc": "The Midnight Scooter",
+ "part": 18,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: THE SNACK CEO",
+ "bg_hints": [
+  "working",
+  "city"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "I didn’t just deliver chips at midnight [beat] I built a snacking empire right under your noses while the whole world slept!"
+  },
+  {
+   "speaker": "choto",
+   "emotion": "shock",
+   "text": "Every single delivery truck on this block belongs to a teenager [beat] and Nix is the one signing my paychecks every Friday!"
+  },
+  {
+   "speaker": "sam",
+   "emotion": "panic",
+   "text": "He wasn't just sneaking out to ride his scooter [beat] he was mapping out every hungry customer in a three-block radius!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "shock",
+   "text": "I wanted to expel him for the midnight rule-breaking [beat] but then he showed me he actually owns the land the school is built on!"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "sad",
+   "text": "Now I have to wear this embarrassing pink uniform [beat] and deliver spicy wings to the kids I used to shove into lockers!"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "excited",
+   "text": "I thought my son was out getting into trouble [beat] but then he paid off our entire mortgage with a mountain of delivery tips!"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "smug",
+   "text": "My boy isn't a delinquent [beat] he’s a logistical mastermind who turned a rusty scooter into a massive fleet of delivery drones!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "angry",
+   "text": "He even hired me to code the ordering app [beat] though he still won't give me a discount on the extra-large Flamin' Hot bags!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "The secret was simple [beat] people get the most hungry when the shops are closed and my prices are at their absolute highest!"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "shock",
+   "text": "I offered him a million dollars to buy the whole brand [beat] but Nix told me he doesn't take investments from amateurs anymore!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "deadpan",
+   "text": "He even replaced the water fountains with soda dispensers [beat] and honestly the school budget has never looked better than this!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "And that is how a midnight craving [beat] turned into a snack dynasty that ruled the streets and everyone’s stomach."
+  }
+ ]
+}
