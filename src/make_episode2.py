@@ -29,17 +29,53 @@ def pick_script():
     return cands[0]
 
 
-def main():
-    if len(sys.argv) > 1:
-        script = Path(sys.argv[1])
-    else:
+def _quarantine(script, err):
+    """A refused episode must NEVER block the conveyor (Oct 15-18: one
+    hook-speaker-without-sticker froze every render for 4 days)."""
+    import traceback
+    rej = QUEUE / "rejected"
+    rej.mkdir(exist_ok=True)
+    dst = rej / script.name
+    i = 0
+    while dst.exists():
+        i += 1
+        dst = rej / f"{script.stem}_{i}.json"
+    try:
+        shutil.move(str(script), str(dst))
+        print(f"[make] *** QUARANTINED {script.name} -> rejected/")
+        traceback.print_exc()
         try:
-            script = pick_script()
-        except RuntimeError:
-            print("[make] queue empty — conveyor caught up, nothing to render")
-            sys.exit(0)
-    out = Path(sys.argv[2]) if len(sys.argv) > 2 else \
-        config.ROOT / "output" / f"{script.stem}.mp4"
+            tg.send_message(f"⚠️ Render REFUSED {script.name}: {str(err)[:180]}\n"
+                            "Episode moved to rejected/ — conveyor continues.")
+        except Exception:
+            pass
+    except Exception as move_err:
+        print(f"[make] quarantine move failed: {move_err}")
+
+
+def main():
+    explicit = len(sys.argv) > 1
+    while True:
+        if explicit:
+            script = Path(sys.argv[1])
+        else:
+            try:
+                script = pick_script()
+            except RuntimeError:
+                print("[make] queue empty — conveyor caught up, nothing to render")
+                sys.exit(0)
+        out = Path(sys.argv[2]) if len(sys.argv) > 2 else \
+            config.ROOT / "output" / f"{script.stem}.mp4"
+        try:
+            _render_one(script, out)
+            return
+        except Exception as e:
+            _quarantine(script, e)
+            if explicit:
+                sys.exit(1)
+
+
+def _render_one(script, out):
     ep = json.loads(script.read_text())
     t0 = time.time()
     # RESUME: a workdir that already has voice+captions+bg skips TTS/bg

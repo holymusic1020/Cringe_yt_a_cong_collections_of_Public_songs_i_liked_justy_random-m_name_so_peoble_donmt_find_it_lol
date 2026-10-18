@@ -70,9 +70,13 @@ LANG_DIRECTIVE = {
 
 
 def _cast_line():
+    """Only characters WITH sticker assets — a speaker without a sticker is
+    invisible on screen (speaker-exclusive law) and a stickerless HOOK
+    freezes the whole conveyor (Oct 15-18 incident)."""
     parts = []
+    st = config.ASSETS / "stickers"
     for sid, c in config.CAST.items():
-        if c.get("narrator"):
+        if c.get("narrator") or not (st / f"{sid}.png").exists():
             continue
         parts.append(f"{sid} ({c.get('role', '?')})")
     return ", ".join(parts)
@@ -215,9 +219,13 @@ def _validate(ep, existing_titles):
     if lines[0]["speaker"] == "narrator":
         raise bad("opens with narrator (hook law)")
     beats = 0
+    st = config.ASSETS / "stickers"
     for l in lines:
         if l["speaker"] not in config.CAST:
             raise bad(f"unknown speaker {l['speaker']}")
+        if l["speaker"] != "narrator" and not (st / f"{l['speaker']}.png").exists():
+            raise bad(f"speaker {l['speaker']} has no sticker — "
+                      "invisible on screen")
         if l["emotion"] not in EMOTIONS:
             raise bad(f"unknown emotion {l['emotion']}")
         if not (60 <= len(l["text"]) <= 160):
