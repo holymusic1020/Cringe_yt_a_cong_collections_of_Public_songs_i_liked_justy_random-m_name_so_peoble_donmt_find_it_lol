@@ -1,0 +1,81 @@
+{
+ "title": "HOW I BOUGHT THE SCHOOL VENDING MACHINES 🍫",
+ "topic": "The Midnight Scooter resolution",
+ "arc": "The Midnight Scooter",
+ "part": 21,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: THE SNACK KING",
+ "bg_hints": [
+  "food",
+  "satisfying",
+  "city"
+ ],
+ "lines": [
+  {
+   "speaker": "jamal",
+   "emotion": "panic",
+   "text": "Nix, why is there a literal mountain of gold-wrapped chocolate bars blocking my entire driveway and my luxury car right now?!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "That is not just chocolate, Uncle Jamal; [beat] that is the final shipment for the snack empire I built while you were all sleeping!"
+  },
+  {
+   "speaker": "phupu",
+   "emotion": "shock",
+   "text": "I knew those midnight scooter rides were suspicious, [beat] but I actually thought he was just stealing the neighbors' food deliveries!"
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "excited",
+   "text": "He actually used my secret spicy ramen recipe and turned it into a subscription service [beat] that literally every kid in the city signed up for!"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "deadpan",
+   "text": "I tried to bully him for his lunch money last month, [beat] but now I am actually on his payroll as the head of regional snack distribution!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "shock",
+   "text": "The school board was wondering why the cafeteria was empty, [beat] until we realized Nix bought the exclusive rights to every machine on campus!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "It turns out that when you combine a fast scooter with a hungry neighborhood, [beat] you do not just get crumbs, you get a total monopoly!"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "neutral",
+   "text": "I am proud of you, Nix, [beat] but we really need to discuss how you managed to launder three thousand dollars through your sister's lemonade stand!"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "angry",
+   "text": "Wait a minute, [beat] if Nix is the CEO, then why is our family garage filled with three tons of imported salt-and-vinegar chips right now?"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "excited",
+   "text": "Because he did not just build a business, [beat] he signed a deal to become the official supplier for the entire city's gaming tournament next week!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "They laughed at me for riding a scooter at 3 AM, [beat] but now I am the one signing the checks for everyone's brand new iPhones!"
+  },
+  {
+   "speaker": "mira",
+   "emotion": "whisper",
+   "text": "Nix, does this mean you can finally afford to take me on that fancy dinner date [beat] instead of just sharing a single bag of pretzels?"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "Nix turned a midnight craving into a commercial kingdom, proving that sometimes, [beat] the smallest crumbs lead to the biggest fortunes."
+  }
+ ]
+}
