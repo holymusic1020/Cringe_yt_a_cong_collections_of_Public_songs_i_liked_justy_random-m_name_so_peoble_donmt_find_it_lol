@@ -69,7 +69,17 @@ def pick_episode(st, want=None):
     else:
         arts = [a for a in arts if not a["expired"]
                 and a["id"] > (st.get("last_artifact_id") or 0)]
-    arts.sort(key=lambda a: a["id"], reverse=bool(want))
+    # FIFO by EPISODE NUMBER (ep036 < ep037 < ...), not artifact-upload
+    # order — 4 parallel renders finish in random order and ep038 posted
+    # before ep036/037 (Oct 18). Explicit --episode still prefers newest.
+    import re
+    def ep_num(a):
+        m = re.search(r"ep(\d+)", a["name"])
+        return int(m.group(1)) if m else 9999
+    if want:
+        arts.sort(key=lambda a: a["id"], reverse=True)
+    else:
+        arts.sort(key=ep_num)
     for a in arts:
         d = fetch_artifact(a, dest)
         mp4s = sorted(d.glob("*.mp4"))
