@@ -1,0 +1,85 @@
+{
+ "title": "THE SNACK KING'S REVENGE 👑",
+ "topic": "school justice",
+ "arc": "The Midnight Scooter",
+ "part": 23,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: KINDNESS IS CURRENCY",
+ "bg_hints": [
+  "school hallway",
+  "vending machine mechanics"
+ ],
+ "lines": [
+  {
+   "speaker": "bruno",
+   "emotion": "angry",
+   "text": "NIX, YOU CAN'T LOCK MY GYM BAG IN A VENDING MACHINE [beat] GIVE ME THE CODE OR I'M TEARING THIS WHOLE SCHOOL APART!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "It’s not just a vending machine, Bruno [beat] it’s the new school economy, and your sweaty sneakers are just collateral for my snack empire."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "angry",
+   "text": "I don't care about your empire [beat] unlock locker forty-two right now or I am going to throw this machine out of a window!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "shock",
+   "text": "Put that hammer down right now, Bruno [beat] because those machines were installed with my full permission and a signed contract."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "panic",
+   "text": "But he's charging us Nix-Coins just to get our own stuff back [beat] how is this even allowed in a public school building?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "It’s perfectly legal because you don't buy Nix-Coins with money [beat] you earn them by being a decent human being for once."
+  },
+  {
+   "speaker": "joy",
+   "emotion": "excited",
+   "text": "I just got a jumbo bag of chips [beat] and all it cost me was five minutes of tutoring a freshman in the library!"
+  },
+  {
+   "speaker": "ding",
+   "emotion": "smug",
+   "text": "I got a cold soda just for picking up the trash [beat] around the football field, which makes me richer than you'll ever be, Bruno."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "panic",
+   "text": "This is a scam [beat] I have zero coins because everyone says I'm a jerk, so I can't even get my shoes back to go home!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "deadpan",
+   "text": "That’s the beauty of the system [beat] if you want to eat or participate in sports, you have to stop being the school bully."
+  },
+  {
+   "speaker": "huda",
+   "emotion": "excited",
+   "text": "Detention rates have dropped eighty percent in just one week [beat] so Nix, I’m making this Snack King position a permanent student government office."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "sad",
+   "text": "Fine, I'll apologize to the nerds [beat] just give me the code so I can stop walking around the hallways in my socks!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "Sorry Bruno, but an apology is only worth half a Nix-Coin [beat] if you want those shoes, you better start scrubbing the cafeteria tables right now."
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "And that’s how the school bully became the head janitor's assistant [beat] proving that in Nix’s world, kindness is the only currency that actually matters."
+  }
+ ]
+}
