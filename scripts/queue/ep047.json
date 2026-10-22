@@ -1,0 +1,80 @@
+{
+ "title": "THE BULLY’S FINAL DEBT REVEALED! 🛴",
+ "topic": "school",
+ "arc": "The Midnight Scooter",
+ "part": 25,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: KINDNESS IS CURRENCY",
+ "bg_hints": [
+  "school hallway",
+  "cleaning and working"
+ ],
+ "lines": [
+  {
+   "speaker": "bruno",
+   "emotion": "angry",
+   "text": "STOP SCRUBBING THE FLOOR AND LOOK AT ME [beat] BEFORE I LOSE MY COOL COMPLETELY AND THROW THIS SOAPY BUCKET AT YOU!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "You should be thanking me Bruno [beat] because without this job you would be facing a permanent expulsion for that midnight scooter stunt."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "panic",
+   "text": "I only took that stupid scooter because my little brother was sick [beat] and I didn't have any other way to get to the pharmacy!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "deadpan",
+   "text": "A noble reason does not excuse the mud you tracked into the auditorium [beat] but Nix told me everything about your family's situation."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "neutral",
+   "text": "I even paid for the broken kickstand myself [beat] so you don't have to worry about the repair costs hanging over your head anymore."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "shock",
+   "text": "You paid for it [beat] even after I spent the last three years making your life a living nightmare in every single class we had?"
+  },
+  {
+   "speaker": "milli",
+   "emotion": "excited",
+   "text": "Nix says that holding a grudge is way too expensive [beat] and helping people is the only way to make sure the bullying finally stops!"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "sad",
+   "text": "I don't know what to say [beat] I guess I owe you more than just a clean floor for looking out for me when nobody else would."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "whisper",
+   "text": "Just consider it an investment in a better school [beat] and maybe try being the guy who protects people instead of the guy who scares them."
+  },
+  {
+   "speaker": "huda",
+   "emotion": "neutral",
+   "text": "If you work hard this week [beat] I might even consider letting you back onto the varsity football team for the spring season."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "sad",
+   "text": "I’ll have this place shining like a diamond by tomorrow morning [beat] and Nix, I’m truly sorry for being such a massive jerk to you."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "Don't mention it [beat] just make sure you don't miss a spot under the bleachers because the head janitor is very strict about his floors."
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "And that’s how the school bully became the head janitor's assistant [beat] proving that in Nix’s world, kindness is the only currency that always pays off."
+  }
+ ]
+}
