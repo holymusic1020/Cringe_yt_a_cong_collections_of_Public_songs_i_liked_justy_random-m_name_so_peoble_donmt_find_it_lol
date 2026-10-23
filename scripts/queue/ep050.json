@@ -1,0 +1,80 @@
+{
+ "title": "THE BULLY'S SECRET IS FINALLY OUT! 🛴",
+ "topic": "school",
+ "arc": "The Midnight Scooter",
+ "part": 27,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: KINDNESS IS CURRENCY",
+ "bg_hints": [
+  "school hallway",
+  "lockers"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Bruno, I know you stole my midnight scooter [beat] but instead of calling the police, I'm handing you these keys to my brand new locker!"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "angry",
+   "text": "You think giving me your locker makes us even [beat] after I spent weeks making your life a living nightmare in these dusty hallways?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "It’s not just a locker, Bruno; it’s the only place in this school [beat] where the security cameras have a massive blind spot for your secret stash."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "panic",
+   "text": "Wait, how did you find out about the vintage parts I've been hoarding [beat] to fix my grandmother’s old oxygen machine in the basement?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "neutral",
+   "text": "I saw you crying behind the gym last Tuesday [beat] and realized you weren't a monster, just a kid trying to save his family with zero options."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "shock",
+   "text": "So you didn't report the scooter theft [beat] even though you had the HD footage of me breaking the lock and riding it away into the dark?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "Reporting you would have ruined your life forever [beat] but helping you fix that machine means you actually owe me a massive favor now, tough guy."
+  },
+  {
+   "speaker": "huda",
+   "emotion": "neutral",
+   "text": "Nix, I heard there was a disturbance here [beat] regarding a stolen scooter, so why is Bruno standing there looking like he’s seen a ghost?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "Actually, Principal Huda, Bruno was just returning my scooter [beat] after he spent the entire night professionally tuning the engine for me as a surprise."
+  },
+  {
+   "speaker": "huda",
+   "emotion": "neutral",
+   "text": "That is remarkably generous of you, Bruno [beat] and since you’re being such a model citizen, I’ll cancel that detention you had scheduled for tomorrow."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "whisper",
+   "text": "I can’t believe you just lied to the Principal for me [beat] after I treated you like total garbage since the first day of freshman year."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "Consider the debt paid in full, Bruno [beat] but if I ever see you picking on another kid, those camera files are going straight to the cops."
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "And that is how Nix proved [beat] that in this world, kindness is the only currency that actually buys you a completely clean slate."
+  }
+ ]
+}
