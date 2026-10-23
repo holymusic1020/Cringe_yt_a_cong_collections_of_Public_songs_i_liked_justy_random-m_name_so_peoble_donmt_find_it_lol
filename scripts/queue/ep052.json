@@ -1,0 +1,75 @@
+{
+ "title": "HOW NIX FINALLY ENDED THE SCOOTER WAR! 🛴",
+ "topic": "School rivalry and resolution",
+ "arc": "The Midnight Scooter",
+ "part": 29,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: KINDNESS IS CURRENCY",
+ "bg_hints": [
+  "school hallway",
+  "city sunset"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "BRUNO, STOP RUNNING AND LOOK AT THIS RECEIPT BEFORE YOU REGRET EVERYTHING YOU HAVE DONE TO ME!"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "panic",
+   "text": "I told you I don't have your stupid money [beat] so just take the broken scooter and leave me alone before things get ugly!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "I didn't come here to take anything back from you [beat] I actually went to the repair shop this morning and paid off your entire outstanding balance."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "shock",
+   "text": "Wait, you actually paid for the engine I trashed last summer [beat] why would you ever do something that insane for someone who hates you?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "neutral",
+   "text": "Because watching you look over your shoulder every single day [beat] was starting to make even my own life feel like a heavy prison of grudges."
+  },
+  {
+   "speaker": "huda",
+   "emotion": "neutral",
+   "text": "I heard everything from the hallway [beat] and I must say I have never seen a student resolve a massive debt with such grace and maturity."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "sad",
+   "text": "I have spent months making your life a total nightmare [beat] and now you are the only reason the shop owner isn't calling my parents tonight."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "I don't want a fake apology or a public thank you [beat] I just want this cycle of trashing each other's property to finally end right here."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "neutral",
+   "text": "Consider the debt settled forever [beat] and if anyone else tries to mess with your new ride, they will have to deal with me first."
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "Nix realized that sometimes the best way to destroy an enemy [beat] is to simply turn them into someone who truly owes you a life-changing favor."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "neutral",
+   "text": "Everyone in the school hallway was staring at us [beat] but for the first time in years, the tension felt like it finally evaporated into thin air."
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "And that is how Nix proved [beat] that in this world, kindness is the only currency that actually buys you a completely clean slate."
+  }
+ ]
+}
