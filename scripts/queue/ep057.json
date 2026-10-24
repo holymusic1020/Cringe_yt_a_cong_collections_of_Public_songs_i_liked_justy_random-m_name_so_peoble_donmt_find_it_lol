@@ -1,0 +1,75 @@
+{
+ "title": "THE SCOOTER SCAM REVEALED! 🛴",
+ "topic": "The Midnight Scooter finale",
+ "arc": "The Midnight Scooter",
+ "part": 32,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: KINDNESS IS CURRENCY",
+ "bg_hints": [
+  "school hallway",
+  "city street"
+ ],
+ "lines": [
+  {
+   "speaker": "bruno",
+   "emotion": "angry",
+   "text": "HEY NIX, [beat] PREPARE TO GET EXPELLED FOR CRASHING MY SCOOTER INTO THE LAKE LAST NIGHT, YOU LOSER!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "That is funny, Bruno, [beat] because I was actually busy helping the elderly neighbor you almost ran over while you were joyriding."
+  },
+  {
+   "speaker": "huda",
+   "emotion": "neutral",
+   "text": "Nix is telling the truth, and [beat] Mrs. Higgins was so grateful that she brought in the security footage from her porch to thank him."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "panic",
+   "text": "Wait, security footage? [beat] That doesn't prove anything about my ride! You are just trying to deflect the blame onto me!"
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "shock",
+   "text": "Actually, it shows you [beat] taking a hammer to the frame because you wanted your parents to buy you the new pro-model for your birthday."
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "sad",
+   "text": "I am so disappointed in you, Bruno; [beat] I really thought you were a better kid than someone who would frame my son for your own greed."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "The best part is, [beat] I already told the repair shop to fix your old scooter using the spare parts I earned from helping the neighborhood."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "shock",
+   "text": "You... you fixed it? [beat] Even after I told everyone at school you were a thief and a coward? Why would you even do that?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "deadpan",
+   "text": "Because keeping a grudge [beat] is a lot more expensive than just being a decent human being for once in your life, you total idiot."
+  },
+  {
+   "speaker": "huda",
+   "emotion": "neutral",
+   "text": "Bruno, you will be serving detention [beat] for the next month, while Nix receives the Community Hero award at the next assembly."
+  },
+  {
+   "speaker": "milli",
+   "emotion": "excited",
+   "text": "I guess being nice actually pays off [beat] much better than having a rich uncle or a fancy new scooter, does it not, big brother?"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "And that is how Nix proved [beat] that in this world, kindness is the only currency that actually buys you a completely clean slate."
+  }
+ ]
+}
