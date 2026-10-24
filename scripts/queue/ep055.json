@@ -1,0 +1,75 @@
+{
+ "title": "THE TRUTH BEHIND THE BROKEN SCOOTER! 🛴",
+ "topic": "neighborhood drama",
+ "arc": "The Midnight Scooter",
+ "part": 31,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: KINDNESS IS CURRENCY",
+ "bg_hints": [
+  "school hallway",
+  "neighborhood street"
+ ],
+ "lines": [
+  {
+   "speaker": "bruno",
+   "emotion": "angry",
+   "text": "GIVE ME BACK MY SCOOTER NIX [beat] OR I AM TELLING THE PRINCIPAL YOU TRASHED IT BEYOND REPAIR RIGHT NOW!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "Go ahead and tell her Bruno! [beat] Because I didn't trash it, I spent the whole night at the shop fixing it for your little brother!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "shock",
+   "text": "Is this true Nix? [beat] Bruno’s brother was crying all morning because he thought his birthday gift was ruined by the rain and mud!"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "panic",
+   "text": "Wait, you actually stayed up all night [beat] just so my little brother wouldn't find out it was broken by the neighborhood dogs?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "neutral",
+   "text": "Yeah, I saw them knocking it over [beat] and I knew your dad would blame you, so I used my own savings to replace the bent handle bars."
+  },
+  {
+   "speaker": "milli",
+   "emotion": "excited",
+   "text": "My brother is a hero! [beat] He even used his lunch money for the entire week just to buy the custom neon stickers your brother wanted!"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "sad",
+   "text": "I spent the last month trying to get you expelled [beat] and you were out here saving my reputation with my family? I am a total jerk."
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "neutral",
+   "text": "I have never been prouder of you, Nix. [beat] You turned a neighborhood war into a lesson about looking out for each other even when it is hard."
+  },
+  {
+   "speaker": "huda",
+   "emotion": "deadpan",
+   "text": "Bruno, I think you owe Nix more than just an apology. [beat] The midnight scooter war officially ends today, thanks to Nix’s selflessness."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "I do not want your money, Bruno. [beat] Just promise me you will not bully the younger kids anymore and we are officially even for life."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "shock",
+   "text": "I promise, Nix. [beat] From now on, anyone who messes with you or the little kids has to deal with me first. You have my word."
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "And that is how Nix proved [beat] that in this world, kindness is the only currency that actually buys you a completely clean slate."
+  }
+ ]
+}
