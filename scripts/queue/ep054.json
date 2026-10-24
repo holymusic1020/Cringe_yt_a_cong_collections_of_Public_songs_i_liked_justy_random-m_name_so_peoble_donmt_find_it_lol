@@ -1,0 +1,80 @@
+{
+ "title": "THE SCARY REASON THE SCOOTER WAR ENDED! 🛴",
+ "topic": "The final resolution of the neighborhood scooter conflict.",
+ "arc": "The Midnight Scooter",
+ "part": 30,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: KINDNESS IS CURRENCY",
+ "bg_hints": [
+  "city streets at sunset",
+  "satisfying mechanical repair"
+ ],
+ "lines": [
+  {
+   "speaker": "bruno",
+   "emotion": "angry",
+   "text": "GET AWAY FROM MY STUFF NIX, I ALREADY TOLD YOU [beat] THIS NEIGHBORHOOD IS OFF LIMITS FOR YOUR CRAPPY LITTLE SCOOTER SQUAD!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "deadpan",
+   "text": "You think I am here to fight you Bruno, but you have got it all wrong [beat] because I just saw the eviction notice taped to your front door."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "shock",
+   "text": "How did you even see that, you little creep, [beat] and why do you even care if my family is getting kicked out of this dump anyway?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "neutral",
+   "text": "Because I am not a monster, and despite all the tires you slashed this month [beat] I am handing you the keys to my limited edition Midnight Scooter."
+  },
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "Nix, are you actually insane right now, that scooter is worth two thousand dollars [beat] and you are just giving it to the guy who ruined our summer?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "I am not giving it to him just to be nice, I am giving it to him [beat] so he can sell it and pay his dad’s overdue rent before tonight."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "sad",
+   "text": "I do not get it, I spent months making your life a living hell [beat] and now you are literally saving my family from sleeping on the street."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "whisper",
+   "text": "It is called a clean slate, Bruno, [beat] but if I ever see you bullying anyone again, I am coming for that scooter back with interest."
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "excited",
+   "text": "Nix, I can not believe you actually did it, [beat] the whole neighborhood is finally quiet for the first time since the scooter war began!"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "smug",
+   "text": "My son might be broke now, but he is the only person in this city [beat] who turned a blood-feud into a peace treaty with the biggest bully."
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "Most people use weapons to win a war, [beat] but Nix realized that sometimes, the most tactical move you can make is showing a little mercy."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "neutral",
+   "text": "Thanks Nix, I guess the war is officially over [beat] and I think I have finally learned what it actually means to be a real leader."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "And that is how Nix proved [beat] that in this world, kindness is the only currency that actually buys you a completely clean slate."
+  }
+ ]
+}
