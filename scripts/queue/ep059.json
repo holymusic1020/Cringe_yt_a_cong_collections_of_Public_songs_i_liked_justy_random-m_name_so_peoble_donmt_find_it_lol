@@ -1,0 +1,76 @@
+{
+ "title": "The Golden Scooter's Final Secret! 🛴",
+ "topic": "The resolution of the scooter theft accusation.",
+ "arc": "The Midnight Scooter",
+ "part": 34,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: KINDNESS IS CURRENCY",
+ "bg_hints": [
+  "busy city street",
+  "glistening chrome scooter",
+  "warm neighborhood sunset"
+ ],
+ "lines": [
+  {
+   "speaker": "bruno",
+   "emotion": "angry",
+   "text": "EVERYONE LOOK! NIX FINALLY ADMITTED [beat] HE STOLE THE GOLDEN SCOOTER!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "You really think I’m that stupid, Bruno? [beat] I didn't steal it, I intercepted it before you could sell it for parts!"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "angry",
+   "text": "My custom scooter was worth five thousand dollars! [beat] Nix, if you have it, you better start talking right now or I'm calling the cops!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "neutral",
+   "text": "Uncle Jamal, just look inside your garage. [beat] The scooter isn't gone, it's actually fully restored and better than when you bought it!"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "angry",
+   "text": "He’s lying! I saw him pushing it down the alley at midnight! [beat] He’s just a common thief trying to play the hero!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "I was pushing it to the repair shop [beat] because I saw you kicking it over and snapping the brake lines yesterday afternoon, Bruno!"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "shock",
+   "text": "Wait... the security footage shows Nix [beat] spending his entire allowance on new ceramic bearings and custom paint for my birthday?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "sad",
+   "text": "I didn't want to say anything, but seeing Bruno try to frame me [beat] forced my hand. I just wanted to do something nice for once."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "angry",
+   "text": "You're pathetic! Doing all that work for free? [beat] In this world, money is the only thing that matters, you loser!"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "smug",
+   "text": "Actually, Bruno, since Nix saved my scooter, I’m giving him the reward money [beat] and I'm letting him decide what happens to you."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "I’m not calling the police. [beat] I’m just making you clean every single scooter in the neighborhood for a whole month."
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "And that is how Nix proved [beat] that in this world, kindness is the only currency that actually buys you a completely clean slate."
+  }
+ ]
+}
