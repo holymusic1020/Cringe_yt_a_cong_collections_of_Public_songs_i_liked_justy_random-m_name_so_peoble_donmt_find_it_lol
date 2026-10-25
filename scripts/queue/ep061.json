@@ -1,0 +1,75 @@
+{
+ "title": "THE GOLDEN SCOOTER'S SECRET REVEALED! 🛴",
+ "topic": "resolution of the stolen scooter mystery",
+ "arc": "The Midnight Scooter",
+ "part": 35,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: KINDNESS IS CURRENCY",
+ "bg_hints": [
+  "city sunset",
+  "satisfying mechanical sounds"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "I KNOW YOU HAVE IT BRUNO [beat] I SAW THE GOLDEN REFLECTION PEAKING OUT FROM UNDER THAT OLD TARP IN YOUR GARAGE!"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "panic",
+   "text": "STAY BACK NIX [beat] YOU DON'T UNDERSTAND THE MESS MY FAMILY IS IN AND HOW MUCH WE DESPERATELY NEEDED THAT MONEY!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "YOU ARE A PATHETIC THIEF BRUNO [beat] AND YOU WERE GOING TO LET DING TAKE THE FALL JUST TO SAVE YOUR OWN REPUTATION!"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "sad",
+   "text": "MY DAD LOST HIS CONTRACT [beat] AND WE WERE GOING TO BE ON THE STREET BY MONDAY IF I DIDN'T FIND SOMETHING VALUABLE TO SELL!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "neutral",
+   "text": "YOU COULD HAVE JUST ASKED ME FOR HELP [beat] INSTEAD OF DESTROYING YOUR CHARACTER AND STEALING THE ONLY THING I TRULY LOVED!"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "whisper",
+   "text": "I WAS TOO EMBARRASSED TO ADMIT WE WERE TOTALLY BROKE [beat] AND NOW I'VE RUINED EVERYTHING BEYOND ANY CHANCE OF REPAIR!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "NOT QUITE EVERYTHING [beat] BECAUSE I ALREADY TOLD UNCLE JAMAL ABOUT YOUR SITUATION AND HE WANTS TO HIRE YOUR DAD IMMEDIATELY!"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "shock",
+   "text": "WHY WOULD YOU POSSIBLY HELP ME [beat] AFTER I LITERALLY STOLE FROM YOU AND LIED TO YOUR FACE EVERY SINGLE DAY AT SCHOOL?"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "excited",
+   "text": "NIX TOLD ME YOU WERE IN TROUBLE [beat] AND HE CONVINCED ME THAT A GOOD MANAGER IS MUCH HARDER TO FIND THAN A GOLD SCOOTER!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "deadpan",
+   "text": "KEEP THE SCOOTER BRUNO [beat] SELL IT AND PAY OFF YOUR BACK RENT SO YOUR FAMILY CAN FINALLY SLEEP PEACEFULLY AT NIGHT!"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "sad",
+   "text": "I DON'T DESERVE THIS AT ALL [beat] BUT I PROMISE TO SPEND THE REST OF MY LIFE PAYING BACK THIS UNBELIEVABLE DEBT OF HONOR!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "AND THAT IS HOW NIX PROVED [beat] THAT IN THIS WORLD KINDNESS IS THE ONLY CURRENCY THAT ACTUALLY BUYS YOU A COMPLETELY CLEAN SLATE!"
+  }
+ ]
+}
