@@ -1,0 +1,75 @@
+{
+ "title": "The Scooter Scandal Final Reveal! 🛴",
+ "topic": "The Scooter Scam Resolution",
+ "arc": "The Midnight Scooter",
+ "part": 33,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: KINDNESS IS CURRENCY",
+ "bg_hints": [
+  "city",
+  "satisfying"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "BRUNO, DON'T YOU DARE [beat] OPEN THAT GARAGE DOOR UNLESS YOU WANT THE WHOLE NEIGHBORHOOD TO SEE WHAT YOU REALLY DID!"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "smug",
+   "text": "I don't care about the money, Nix [beat] but my limited edition electric scooter doesn't just sprout wings and fly away by itself!"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "panic",
+   "text": "I’m telling you [beat] Nix is the one who took it, I saw him riding it behind the school like he owned the place yesterday!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "That's a lie because [beat] I was actually spending my entire weekend working at the repair shop just to fix the motor you fried, Bruno!"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "shock",
+   "text": "Nix, honey, why would you pay [beat] to fix a scooter that isn't even yours when we can barely afford your new school supplies?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "sad",
+   "text": "Because I saw Bruno try to sell it [beat] to pay for his dog’s surgery, but he accidentally broke the engine and panicked like a coward."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "shock",
+   "text": "I didn't think anyone saw me [beat] but why would you help me after all the times I treated you like absolute garbage at school?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "neutral",
+   "text": "Because I’m not a thief [beat] and I realized that seeing you lose your future over one desperate mistake wouldn’t make my life any better."
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "neutral",
+   "text": "So you used your own savings [beat] to fix my scooter just so this kid wouldn't go to juvenile hall for grand larceny? That's insane."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "Maybe [beat] but Uncle Jamal, look at the scooter now; it’s faster and cleaner than the day you bought it from the showroom."
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "excited",
+   "text": "You’ve got a real talent, kid [beat] and since you’ve technically paid for the damages, I’ll drop the charges against Bruno for good."
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "And that is how Nix proved [beat] that in this world, kindness is the only currency that actually buys you a completely clean slate."
+  }
+ ]
+}
