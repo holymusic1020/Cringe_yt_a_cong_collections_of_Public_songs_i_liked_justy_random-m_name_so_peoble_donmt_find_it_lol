@@ -1,0 +1,75 @@
+{
+ "title": "THE GOLDEN SCOOTER’S ULTIMATE TRUTH! 🛴",
+ "topic": "The mystery of the stolen scooter is finally solved with a heartwarming twist.",
+ "arc": "The Midnight Scooter",
+ "part": 36,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: KINDNESS IS CURRENCY",
+ "bg_hints": [
+  "school hallway",
+  "city sunset"
+ ],
+ "lines": [
+  {
+   "speaker": "bruno",
+   "emotion": "panic",
+   "text": "EVERYONE SHUT UP [beat] BECAUSE NIX JUST GAVE THE ENTIRE NEIGHBORHOOD’S MOST EXPENSIVE SCOOTER TO THE KID WHO BULLIES HIM EVERY SINGLE DAY!"
+  },
+  {
+   "speaker": "phupu",
+   "emotion": "smug",
+   "text": "I knew you were a loser Nix [beat] but handing over a thousand dollars worth of gold-plated metal is just beyond [beat] absolute stupidity!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "deadpan",
+   "text": "You think it is all about the money [beat] but while you were counting your imaginary profits [beat] I was busy making sure a family stayed afloat."
+  },
+  {
+   "speaker": "huda",
+   "emotion": "shock",
+   "text": "Wait a minute [beat] are you telling me that this entire time the stolen property was actually a secret donation [beat] to a family in a major crisis?"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "sad",
+   "text": "My mom lost her car and her job [beat] and Nix saw me crying behind the gym and just handed me the keys [beat] without asking for a single cent!"
+  },
+  {
+   "speaker": "phupu",
+   "emotion": "angry",
+   "text": "That is the most ridiculous story I have ever heard [beat] and I bet Nix is just hiding the cash [beat] in his dirty gym locker right now!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "Check every locker you want [beat] but you will only find old socks and the realization that you have never done [beat] a selfless thing in your life!"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "shock",
+   "text": "He didn't just give me a ride [beat] he gave me a reason to stop being a jerk to everyone [beat] and that is worth way more than some shiny paint!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "neutral",
+   "text": "In all my years as a principal [beat] I have never seen a student use such a valuable item [beat] to settle a debt of hatred with an act of grace."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "The scooter is gone [beat] but Bruno isn’t a bully anymore and the school records are finally wiped clean [beat] of all our past mistakes."
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "AND THAT IS HOW NIX PROVED [beat] THAT IN THIS WORLD KINDNESS IS THE ONLY CURRENCY THAT ACTUALLY BUYS YOU A COMPLETELY CLEAN SLATE!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "Now if someone could please help me find my old bike [beat] because walking home in these shoes [beat] is starting to feel like a real punishment!"
+  }
+ ]
+}
