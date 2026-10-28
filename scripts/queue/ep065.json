@@ -1,0 +1,80 @@
+{
+ "title": "THE GOLDEN SCOOTER'S FINAL SECRET! 🛵",
+ "topic": "The ultimate upgrade to the midnight scooter",
+ "arc": "The Midnight Scooter",
+ "part": 38,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: THE HERO OF MIDNIGHT",
+ "bg_hints": [
+  "city sunset",
+  "satisfying mechanical repair"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "WHERE IS THE GOLDEN TURBO? [beat] I'VE BEEN TINKERING ON THIS PIECE OF TRASH FOR THIRTY DAYS STRAIGHT AND IT'S STILL NOT EVEN MOVING!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "smug",
+   "text": "Nix, you absolute idiot, [beat] that scooter isn't golden because of some magic paint, it's golden because you’ve been using the wrong grease for weeks!"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "deadpan",
+   "text": "Actually, I've been watching you on the security cameras [beat] sneaking out every single night at midnight like some kind of weird grease-covered monkey."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "I wasn't stealing parts, Uncle Jamal! [beat] I was just borrowing the tools to fix those delivery bikes that keep breaking down in our messy alleyway."
+  },
+  {
+   "speaker": "phupu",
+   "emotion": "angry",
+   "text": "Borrowing? More like wasting your life [beat] fixing things for people who don't even know your name while your own ride looks like a literal dumpster fire."
+  },
+  {
+   "speaker": "mira",
+   "emotion": "neutral",
+   "text": "It’s not a dumpster fire, Nix. [beat] We all saw you working through the rain last Tuesday to fix the pizza guy's flat tire without asking for a single dime."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "sad",
+   "text": "Who cares about a tire? [beat] This scooter was supposed to be my ticket to the championships, but it won't even start! I've totally failed the mission!"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "excited",
+   "text": "That's because the 'Ultimate Upgrade' isn't under that hood, kid. [beat] Check the storage locker under the main workbench in the garage right now."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Wait... what is this? [beat] This isn't the old engine. This is a custom-built, titanium-grade hyper-drive with my name engraved right on the side!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "neutral",
+   "text": "Every neighbor you helped [beat] pitched in their spare change and parts to build you the fastest scooter this city has ever seen. You actually earned this."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "whisper",
+   "text": "I can't believe it... [beat] I thought I was just being a loser doing community service while everyone else was getting ahead of me in the championship."
+  },
+  {
+   "speaker": "mira",
+   "emotion": "smug",
+   "text": "Being a hero in the dark [beat] is the only reason you're standing next to a legend in the light today. Now get on that bike and win the trophy!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "Nix realized the best upgrades come [beat] when you stop looking at the speedometer and start looking at the people you help when nobody is watching you."
+  }
+ ]
+}
