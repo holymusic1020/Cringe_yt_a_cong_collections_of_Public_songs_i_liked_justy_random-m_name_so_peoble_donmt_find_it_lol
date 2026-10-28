@@ -1,0 +1,75 @@
+{
+ "title": "THE HERO OF MIDNIGHT REVEALED! 🛵",
+ "topic": "neighborhood secret",
+ "arc": "The Midnight Scooter",
+ "part": 39,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: THE HERO OF MIDNIGHT",
+ "bg_hints": [
+  "city",
+  "satisfying"
+ ],
+ "lines": [
+  {
+   "speaker": "jamal",
+   "emotion": "shock",
+   "text": "YOU ABSOLUTE FOOL, NIX, YOU DISMANTLED THE ENGINE OF THE GOLDEN SCOOTER AND THREW AWAY THE TURBO CHARGER!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "deadpan",
+   "text": "Relax Uncle Jamal, [beat] the engine was never the reason this scooter was the fastest thing on these dark streets at midnight."
+  },
+  {
+   "speaker": "phupu",
+   "emotion": "smug",
+   "text": "Oh please, [beat] I saw you sneaking out every night like a common thief, probably selling those golden parts for pocket money!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "I wasn't selling anything, [beat] I was making deliveries to the neighbors who were too sick or too old to leave their houses alone!"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "shock",
+   "text": "Nix, is that why your backpack is always full of fresh bread and [beat] emergency medicine from the local pharmacy every single evening?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "neutral",
+   "text": "The scooter didn't need a turbo charger [beat] because when you have a real purpose, the road ahead just seems to clear itself out for you."
+  },
+  {
+   "speaker": "joy",
+   "emotion": "excited",
+   "text": "It is true, Nix saved my family's dinner last week [beat] and he didn't even ask for a single cent in return for the help he gave us!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "Uncle Jamal, you spent thousands on chrome [beat] while I was spending my time learning exactly what this neighborhood actually needed from me."
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "sad",
+   "text": "I thought the gold paint made it special, [beat] but I realize now that I was just looking at a shiny machine while you were being a hero."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "neutral",
+   "text": "The best upgrades aren't mechanical, [beat] they happen in your heart when you stop racing against others and start finally racing for them."
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "Nix finally understood that being the Hero of Midnight [beat] meant his golden scooter was finally worth its weight in actual gold."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "Now that the secret is finally out, [beat] I think it is time we get everyone in the family a pair of wheels to help out!"
+  }
+ ]
+}
