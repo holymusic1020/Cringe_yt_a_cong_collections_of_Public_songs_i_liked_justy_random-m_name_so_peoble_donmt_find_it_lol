@@ -1,0 +1,85 @@
+{
+ "title": "THE SCOOTER SQUAD IS BORN! 🛵",
+ "topic": "The mystery rider is finally revealed and rewards the family.",
+ "arc": "The Midnight Scooter",
+ "part": 40,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: THE SCOOTER SQUAD",
+ "bg_hints": [
+  "city sunset",
+  "satisfying mechanical sounds"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "I BET YOU ALL THOUGHT I WAS JUST SNEAKING OUT TO CAUSE TROUBLE IN THE MIDDLE OF THE NIGHT!"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "shock",
+   "text": "Nix, we were worried sick about you! [beat] Seeing you on that scooter delivering medicine to Nani was one thing, but buying scooters for everyone?"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "shock",
+   "text": "Exactly, son! [beat] Where on earth did you get the money to buy an entire fleet of electric scooters for the whole family at once?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "Remember that Midnight Ghost delivery app everyone was talking about? [beat] Well, I was the one who coded it and did the first five hundred deliveries myself!"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "excited",
+   "text": "Wait, you are telling me you built a logistics empire while we were all asleep? [beat] That is actually impressive even by my high standards!"
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "smug",
+   "text": "So that is why you were always covered in grease and drinking energy drinks before breakfast! [beat] You are a total nerd, Nix, but I love the new wheels!"
+  },
+  {
+   "speaker": "milli",
+   "emotion": "excited",
+   "text": "I do not care about the app! [beat] Look at this pink one with the sparkly streamers! [beat] It even has a custom horn that sounds like a dragon!"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "excited",
+   "text": "My old knees feel twenty years younger on this motorized beast! [beat] I am going to race your grandfather to the grocery store right now!"
+  },
+  {
+   "speaker": "dada",
+   "emotion": "excited",
+   "text": "You are on, woman! [beat] But do not cry when I leave you in the dust with my turbo-charged midnight black edition scooter!"
+  },
+  {
+   "speaker": "phupu",
+   "emotion": "smug",
+   "text": "I suppose I should stop telling the neighbors that you were out joining a secret street gang! [beat] This is much better for the family reputation, you rascal."
+  },
+  {
+   "speaker": "riku",
+   "emotion": "excited",
+   "text": "This is literally like a real-life level up! [beat] Nix, you have to show me how you bypassed the speed limiter on these things tonight!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "The Midnight Scooter was just the beginning! [beat] Now that we are all mobile, the whole neighborhood belongs to our family squad!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "And so, the mystery of the midnight rider ended with a fleet of scooters and a very [beat] very confused neighborhood watch patrol."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "FIRST ONE TO THE PARK HAS TO PAY FOR LUNCH! [beat] LET IS GO BEFORE THE SUN SETS!"
+  }
+ ]
+}
