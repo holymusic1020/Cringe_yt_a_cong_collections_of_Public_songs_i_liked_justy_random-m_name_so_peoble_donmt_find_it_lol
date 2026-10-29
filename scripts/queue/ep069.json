@@ -1,0 +1,80 @@
+{
+ "title": "THE SECRET OF THE SCOOTERS 🛵",
+ "topic": "The mystery of the stolen scooters is finally revealed during a high-speed race.",
+ "arc": "The Midnight Scooter",
+ "part": 41,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: GARAGE DUTY",
+ "bg_hints": [
+  "city park",
+  "satisfying speed"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "I CAN NOT STOP THIS THING [beat] AND THE LAKE IS GETTING WAY TOO CLOSE FOR COMFORT AT THIS SPEED!"
+  },
+  {
+   "speaker": "joy",
+   "emotion": "excited",
+   "text": "DO NOT YOU DARE SLOW DOWN NOW NIX [beat] BECAUSE DING IS RIGHT ON YOUR TAIL AND HE WANTS THAT FREE LUNCH!"
+  },
+  {
+   "speaker": "ding",
+   "emotion": "smug",
+   "text": "I AM WINNING THIS RACE [beat] AND YOU GUYS ARE DEFINITELY BUYING ME THE BIGGEST PIZZA IN THE ENTIRE CITY TODAY!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "WAIT [beat] WHY IS PRINCIPAL HUDA STANDING IN THE MIDDLE OF THE PARK WITH A CLIPBOARD AND A POLICE WHISTLE?"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "angry",
+   "text": "STOP RIGHT THERE EVERY SINGLE ONE OF YOU [beat] UNLESS YOU WANT TO EXPLAIN WHY YOU ARE RIDING THE TECH LAB PROTOTYPES!"
+  },
+  {
+   "speaker": "joy",
+   "emotion": "shock",
+   "text": "EXPERIMENTAL PROTOTYPES [beat] WE FOUND THESE ABANDONED IN THE SCHOOL BASEMENT NEAR THE JANITOR CLOSET LAST NIGHT!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "angry",
+   "text": "THOSE WERE CONFISCATED FROM BRUNO [beat] AND THEY HAVE GPS TRACKERS THAT ALARMED THE SECOND YOU CROSSED THE PARK GATE!"
+  },
+  {
+   "speaker": "ding",
+   "emotion": "panic",
+   "text": "SO WE ARE NOT GETTING LUNCH [beat] WE ARE GETTING EXPELLED FOR SOMETHING WE THOUGHT WAS JUST A COOL FIND?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "HOLD ON [beat] LOOK AT THE BOTTOM OF THE SCOOTER FRAME [beat] THERE IS A STAMP THAT SAYS PROPERTY OF RAFIQ!"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "smug",
+   "text": "I HAVE BEEN LOOKING FOR MY VINTAGE COLLECTION EVERYWHERE [beat] HUDA [beat] WHY DID YOU CONFISCATE MY PRIVATE PROPERTY FROM MY SON?"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "shock",
+   "text": "I HAD NO IDEA THEY BELONGED TO YOU RAFIQ [beat] I ASSUMED THEY WERE ILLEGAL IMPORTS FROM THE WAY BRUNO WAS SPRINTING!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "SO SINCE DAD OWNED THEM ALL ALONG [beat] DOES THAT MEAN HE IS THE ONE WHO HAS TO PAY FOR OUR LUNCH?"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "deadpan",
+   "text": "NICE TRY NIX [beat] BUT SINCE YOU NEARLY BROKE THE BRAKES [beat] YOU ARE ALL SPENDING THE WEEKEND CLEANING MY GARAGE!"
+  }
+ ]
+}
