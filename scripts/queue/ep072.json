@@ -1,0 +1,80 @@
+{
+ "title": "THE SECRET ENGINE UPGRADE! 🛵",
+ "topic": "scooter racing and family secrets",
+ "arc": "The Midnight Scooter",
+ "part": 43,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: CHAMPIONSHIP WON",
+ "bg_hints": [
+  "city",
+  "satisfying"
+ ],
+ "lines": [
+  {
+   "speaker": "bruno",
+   "emotion": "angry",
+   "text": "YOU’RE REALLY GOING TO RACE THAT RUSTY JUNK [beat] AGAINST MY BRAND NEW PRO-GRADE TURBO SCOOTER FOR THE CHAMPIONSHIP?!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "smug",
+   "text": "Don't let the exterior fool you Bruno [beat] because my dad didn't just make us scrub the garage floor for sixteen hours straight!"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "neutral",
+   "text": "I told you kids that if you wanted to keep those wheels [beat] you had to learn exactly how the manifold pressure works."
+  },
+  {
+   "speaker": "joy",
+   "emotion": "excited",
+   "text": "I can’t believe your dad used to be the local racing legend [beat] and we thought he was just being a grumpy old man this whole time!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "smug",
+   "text": "Check out the ignition sequence I programmed [beat] while I was supposed to be grounded for hacking the school’s cafeteria menu!"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "angry",
+   "text": "You guys are dead meat once I hit the straightaway [beat] because my dad spent three thousand dollars on this custom engine!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "Money can’t buy the secret nitro-mix [beat] that’s currently coursing through my scooter’s refurbished vintage veins right now!"
+  },
+  {
+   "speaker": "ding",
+   "emotion": "shock",
+   "text": "Look at him go [beat] Nix is literally leaving a trail of blue sparks on the pavement while Bruno’s expensive engine starts smoking!"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "panic",
+   "text": "WHAT IS HAPPENING [beat] MY SCOOTER IS STALLING WHILE THAT PIECE OF GARBAGE IS MOVING LIKE A JET ENGINE!"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "deadpan",
+   "text": "That’s what happens when you prioritize shiny paint [beat] over the soul of a machine that’s been tuned with actual greasy hands."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "Crossing the finish line never felt so good [beat] especially knowing that our punishment was actually a masterclass in mechanical engineering!"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "smug",
+   "text": "Just don't forget you still have to finish the dishes [beat] or your next upgrade will be a permanent seat on the living room sofa."
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "And so the Midnight Scooter crew proved that the best upgrades [beat] aren't bought in a store but earned in a messy garage."
+  }
+ ]
+}
