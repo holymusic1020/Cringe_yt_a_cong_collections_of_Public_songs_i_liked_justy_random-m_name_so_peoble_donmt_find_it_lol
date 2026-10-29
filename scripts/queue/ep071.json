@@ -1,0 +1,80 @@
+{
+ "title": "THE GARAGE SECRET REVEALED! 🔑",
+ "topic": "family secrets and rewards",
+ "arc": "The Midnight Scooter",
+ "part": 42,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: THE CHAMPIONSHIP UPGRADE",
+ "bg_hints": [
+  "working",
+  "satisfying"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "MOVE THAT HEAVY BOX NOW [beat] OR UNCLE JAMAL WILL LOCK US IN THIS DUSTY CRAWLSPACE UNTIL MONDAY MORNING!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "My hands are literally covered in black grease [beat] and I think I just saw a spider the size of a dinner plate crawling near my leg!"
+  },
+  {
+   "speaker": "joy",
+   "emotion": "angry",
+   "text": "This is totally unfair [beat] we barely even touched those scooters and now we are basically unpaid labor for his weird car collection!"
+  },
+  {
+   "speaker": "ding",
+   "emotion": "shock",
+   "text": "Wait [beat] look behind this stack of old tires [beat] why does Jamal have a golden key taped under the handle of the broken scooter?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "That is not a broken brake cable at all [beat] it is actually a release wire for a secret compartment hidden right inside the frame!"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "smug",
+   "text": "I see you finally found the hidden latch [beat] though I honestly expected it to take you three days of scrubbing to notice it."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "You lied about the brakes being broken [beat] just so you could watch us suffer while cleaning your disgusting garage, didn't you?"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "neutral",
+   "text": "Actually [beat] I needed to know if you were observant enough to handle the real prize waiting inside that secret slot."
+  },
+  {
+   "speaker": "riku",
+   "emotion": "shock",
+   "text": "No way [beat] is that a VIP pass to the National E-Scooter Championship for the whole squad [beat] and four brand new racing models?"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "excited",
+   "text": "The 'broken' scooters were just a test of character [beat] you had to prove you would stick together even when the work got dirty!"
+  },
+  {
+   "speaker": "joy",
+   "emotion": "smug",
+   "text": "I knew you weren't actually a total villain Uncle Jamal [beat] even if your garage smells like old socks and engine oil!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "Forget the cleaning [beat] grab the new racing boards because we have a championship to win before the sun goes down tonight!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "And that is how a weekend of punishment [beat] turned into the ultimate upgrade for the fastest crew in the entire neighborhood."
+  }
+ ]
+}
