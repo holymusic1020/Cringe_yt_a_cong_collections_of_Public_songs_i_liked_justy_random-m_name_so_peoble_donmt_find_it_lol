@@ -1,0 +1,76 @@
+{
+ "title": "THE GARAGE SECRET REVEALED! 🔧",
+ "topic": "Family Mystery",
+ "arc": "The Midnight Scooter",
+ "part": 45,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "FINALE: DADA'S SECRET",
+ "bg_hints": [
+  "working",
+  "city",
+  "satisfying"
+ ],
+ "lines": [
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "Look at the garage floor, the oil trail leads exactly [beat] to the legendary Midnight Scooter hidden under that old tarp!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Everyone thought we lost it in the final crash, but the truth is [beat] much more terrifying than just a broken metal frame."
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "angry",
+   "text": "I told you boys a thousand times to stay away from that corner, [beat] some things are better left buried in the dust and grease!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "excited",
+   "text": "Uncle Rafiq, you don't understand, this machine literally [beat] defied every law of physics when we jumped the school fence tonight!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "neutral",
+   "text": "We used every scrap of high-tech gear we had, but the engine [beat] didn't start because of the micro-chips or the new wiring."
+  },
+  {
+   "speaker": "dada",
+   "emotion": "smug",
+   "text": "Stop your shouting right now, you little fools, you really think [beat] your expensive gadgets were what made that scrap metal fly?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Dada? You’ve been standing in the shadows watching us this whole time [beat] while we risked our lives for this legend?"
+  },
+  {
+   "speaker": "dada",
+   "emotion": "deadpan",
+   "text": "I built that scooter forty years ago using nothing but [beat] pure grit, heavy iron, and a stolen lawnmower motor from the neighbor."
+  },
+  {
+   "speaker": "riku",
+   "emotion": "shock",
+   "text": "Wait, so the 'High-Tech Ghost' we saw in the security footage [beat] was actually just you wearing your old leather jacket and mask?"
+  },
+  {
+   "speaker": "dada",
+   "emotion": "whisper",
+   "text": "I saw you kids struggling and decided to give the engine [beat] a little mechanical miracle to keep your crazy dream alive."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "sad",
+   "text": "So the legend of the Midnight Scooter isn't about the bike at all, [beat] it’s about the person who never let us fail."
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "The heavy garage door finally closes on the mystery, proving that [beat] the greatest legends are just family secrets in disguise."
+  }
+ ]
+}
