@@ -1,0 +1,80 @@
+{
+ "title": "DADA’S SECRET REVEALED: THE SILVER BOLT! 🛵",
+ "topic": "Family secrets and heroics",
+ "arc": "The Midnight Scooter",
+ "part": 47,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "THE LEGEND OF SILVER BOLT LIVES ON",
+ "bg_hints": [
+  "city streets at night",
+  "working delivery job"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "STOP THE BIKE right now [beat] because I cannot believe the infamous Silver Bolt of the city is actually my own grandfather!"
+  },
+  {
+   "speaker": "dada",
+   "emotion": "panic",
+   "text": "Nix, keep your voice down [beat] before the whole neighborhood realizes that the most reliable courier in the district has a bedtime at nine!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "You have been sneaking out every single night [beat] hitting a hundred percent delivery rate while we all thought you were just snoring in the den!"
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "smug",
+   "text": "Look at this high-tech aerodynamic helmet [beat] and this customized engine, Dada you aren't just delivering food, you are basically a local legend!"
+  },
+  {
+   "speaker": "dada",
+   "emotion": "sad",
+   "text": "I didn't do it for the street credit [beat] I did it because your Grandma’s old tea shop was going bankrupt and she is far too proud to ask for help!"
+  },
+  {
+   "speaker": "nani",
+   "emotion": "angry",
+   "text": "You old fool [beat] I knew you weren't just going for late-night walks when I found those extra-large pizza coupons hidden under our mattress!"
+  },
+  {
+   "speaker": "dada",
+   "emotion": "excited",
+   "text": "Nani, I have saved every single cent from the tips [beat] and today the Silver Bolt officially retires because the shop’s mortgage is finally paid in full!"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "shock",
+   "text": "I tried to buy that shop for my new franchise last week [beat] but some mysterious high-speed investor outbid me by a single dollar and a warm cinnamon roll!"
+  },
+  {
+   "speaker": "dada",
+   "emotion": "smug",
+   "text": "That cinnamon roll was my signature move [beat] because every customer deserves a little bit of sugar with their midnight craving delivery!"
+  },
+  {
+   "speaker": "phupu",
+   "emotion": "neutral",
+   "text": "I told everyone at the salon you were having a mid-life crisis [beat] but instead you were basically becoming the neighborhood superhero on two wheels!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Wait, if the debt is paid and the shop is saved [beat] then why is your phone still buzzing with a premium order for the Mayor’s residence?"
+  },
+  {
+   "speaker": "dada",
+   "emotion": "deadpan",
+   "text": "Old habits die hard [beat] and a true legend like the Silver Bolt never leaves a hungry customer waiting for their spicy ramen!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "Dada rode off into the sunrise [beat] proving that you are never too old to be the fastest delivery man in history and save the family business!"
+  }
+ ]
+}
