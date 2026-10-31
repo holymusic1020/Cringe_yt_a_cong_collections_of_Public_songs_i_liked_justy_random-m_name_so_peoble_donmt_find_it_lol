@@ -1,0 +1,80 @@
+{
+ "title": "The Secret Inside the Biryani Pot 🥘",
+ "topic": "Family Mystery",
+ "arc": "The Biryani Incident",
+ "part": 4,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "WHO HAS THE MAP?",
+ "bg_hints": [
+  "food",
+  "city"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "WHO REPLACED MY MOM’S FAMOUS GOLDEN BIRYANI POT WITH THIS RUSTY TRASH OVERNIGHT! [beat] I’m not joking, my life is literally over if she sees this!"
+  },
+  {
+   "speaker": "phupu",
+   "emotion": "smug",
+   "text": "I saw a certain someone sneaking [beat] into the kitchen at midnight, and they weren’t looking for a snack, they were looking for a quick profit!"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "angry",
+   "text": "Don't you dare look at me, Nix! [beat] I might be a bully, but I’m not a common thief who steals heavy kitchenware from old ladies in the dark!"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "panic",
+   "text": "That pot has been in our family for three generations, and it's the only reason [beat] the biryani tastes like heaven and not like dry cardboard!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "excited",
+   "text": "Wait! I caught the whole thing on my [beat] bedroom security cam because I thought someone was trying to hack my gaming setup and steal my skins!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "neutral",
+   "text": "Riku, stop talking about your frame rates for one second [beat] and show us the footage before Phupu starts calling the actual police on all of us!"
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "shock",
+   "text": "Is that... Uncle Jamal? Why are you [beat] wearing a ski mask and dragging a heavy sack toward the backyard garden shed like a cartoon villain?"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "panic",
+   "text": "It’s not what it looks like! [beat] I was just trying to protect the family legacy from a very specific type of expensive, metal-eating termite!"
+  },
+  {
+   "speaker": "milli",
+   "emotion": "whisper",
+   "text": "Uncle Jamal is totally lying! [beat] I saw him hiding a shiny gold key inside his expensive leather briefcase right before he started sweating!"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "smug",
+   "text": "Looks like the rich uncle isn't as rich as he [beat] pretends to be if he's hocking his sister’s kitchen supplies for some quick fast cash!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "Open the briefcase right now, Jamal, or [beat] I’m calling the principal to report a family emergency that involves literal grand larceny!"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "shock",
+   "text": "You don’t understand! The pot isn't just gold-plated... [beat] it contains the map to the real secret ingredient that started this whole mess!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "The Biryani Incident just became a treasure hunt. [beat] But the person holding the real map is the last person you would ever expect."
+  }
+ ]
+}
