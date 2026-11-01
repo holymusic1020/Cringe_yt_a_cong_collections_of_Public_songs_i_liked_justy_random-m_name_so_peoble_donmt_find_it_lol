@@ -1,0 +1,81 @@
+{
+ "title": "GRANDPA'S FORBIDDEN SAFE 🤐",
+ "topic": "Family Mystery",
+ "arc": "The Attic Secret",
+ "part": 1,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 2: THE UNSEALING",
+ "bg_hints": [
+  "dusty attic",
+  "wooden floorboards",
+  "satisfying gears"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "RIKU STOP! [beat] If you pull that lever right now the whole floor is going to collapse on top of us!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "smug",
+   "text": "Relax Nix [beat] I saw this in a video once and I’m telling you there is a hidden compartment behind these old dusty books."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "You always think life is a video game [beat] but we are literally in Grandpa’s attic and he will kill us if we break anything."
+  },
+  {
+   "speaker": "riku",
+   "emotion": "excited",
+   "text": "Look at this gold-plated handle [beat] do you really think Dada just keeps regular old junk in a place this well hidden?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "It looks like a safe from the eighteen hundreds [beat] and why is there a weird ticking sound coming from the inside of the wall?"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "smug",
+   "text": "It’s probably just some ancient clock mechanism [beat] or maybe a countdown to the biggest jackpot of our lives!"
+  },
+  {
+   "speaker": "dada",
+   "emotion": "angry",
+   "text": "Boys! [beat] I told you to stay away from the north wing of the attic because the floorboards are completely rotten!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "Sorry Grandpa! [beat] We were just looking for my old skateboard but then Riku found this crazy looking metal door."
+  },
+  {
+   "speaker": "dada",
+   "emotion": "whisper",
+   "text": "Get away from there right now [beat] that is not a safe and you definitely do not want to see what is locked inside."
+  },
+  {
+   "speaker": "riku",
+   "emotion": "smug",
+   "text": "Don't try to scare us Dada [beat] I know you’re just trying to keep all the family gold for yourself and your secret bank account."
+  },
+  {
+   "speaker": "dada",
+   "emotion": "sad",
+   "text": "You think this is about money? [beat] That door was sealed fifty years ago to keep something from getting out, not to keep things in."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "The ticking just stopped [beat] and I think I hear something scratching against the metal from the other side."
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "Some family secrets are better left buried [beat] especially when they start breathing back at you."
+  }
+ ]
+}
