@@ -1,0 +1,85 @@
+{
+ "title": "HE'S LOCKING US IN! 🏚️",
+ "topic": "The Hidden Workshop",
+ "arc": "The Attic Secret",
+ "part": 8,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 9: THE ESCAPE PLAN",
+ "bg_hints": [
+  "working",
+  "satisfying"
+ ],
+ "lines": [
+  {
+   "speaker": "tuli",
+   "emotion": "panic",
+   "text": "GET AWAY FROM THE DOOR DADA [beat] YOU ARE ACTUALLY INSANE IF YOU THINK WE’LL JUST STAND HERE WHILE YOU LOCK US IN THIS FILTHY ATTIC!"
+  },
+  {
+   "speaker": "dada",
+   "emotion": "smug",
+   "text": "You always were the loud one Tuli [beat] but you fail to realize that this workshop has kept our family rich for three generations of lies!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Grandpa [beat] what are these blueprints on the table [beat] they look like the layout of every house in the neighborhood with red X's on them!"
+  },
+  {
+   "speaker": "dada",
+   "emotion": "deadpan",
+   "text": "Those aren't just houses Nix [beat] they are targets [beat] and your father was supposed to take over the operation before he got soft!"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "angry",
+   "text": "Don’t you dare bring Rafiq into your twisted games [beat] he left this house because he saw the monster you were becoming behind these walls!"
+  },
+  {
+   "speaker": "dada",
+   "emotion": "angry",
+   "text": "He left because he was a coward [beat] but you kids have the spark [beat] even if I have to break your spirits to make you useful to the legacy."
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "panic",
+   "text": "The floor is vibrating [beat] Nix look at the walls [beat] the shelves are sliding back to reveal some kind of high-tech surveillance room!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "whisper",
+   "text": "He’s been watching everyone [beat] every single neighbor [beat] even my friends [beat] he’s been recording us for years through the vents!"
+  },
+  {
+   "speaker": "dada",
+   "emotion": "excited",
+   "text": "Information is the only real currency [beat] and now that you’ve seen the hub [beat] you either join the family business or you become a liability."
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "shock",
+   "text": "Is that a gas canister in your hand [beat] you wouldn't actually hurt your own grandchildren just to keep a secret about some spying ring!"
+  },
+  {
+   "speaker": "dada",
+   "emotion": "deadpan",
+   "text": "Family is a word for people who don't betray you [beat] and right now [beat] all of you look like a massive betrayal to everything I built."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "The door just clicked [beat] he’s sealing the vents and the air is starting to smell like bitter almonds [beat] someone help us please!"
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "angry",
+   "text": "Smash the window Nix [beat] use the heavy wrench on the workbench before we all pass out from whatever he just released into the air!"
+  },
+  {
+   "speaker": "dada",
+   "emotion": "smug",
+   "text": "That glass is bulletproof [beat] you’ll be asleep in thirty seconds [beat] and when you wake up [beat] we are going to have a very long talk!"
+  }
+ ]
+}
