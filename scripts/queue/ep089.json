@@ -1,0 +1,80 @@
+{
+ "title": "WHAT'S UNDER THE FLOORBOARDS?! 🗝️",
+ "topic": "family secret",
+ "arc": "The Attic Secret",
+ "part": 7,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 8: THE FINAL CONFRONTATION",
+ "bg_hints": [
+  "working",
+  "city"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "JAMAL GRAB MY HAND BEFORE YOU FALL INTO THAT VOID [beat] THE ENTIRE ATTIC IS TURNING INTO A DEATH TRAP RIGHT NOW!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "My heart is pounding against my ribs [beat] as I watch the floorboards crumble into a dusty pit that definitely wasn't there five minutes ago."
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "panic",
+   "text": "I'm trying nix [beat] but there’s something wrapped around my ankle pulling me down into the darkness underneath this cursed house!"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "shock",
+   "text": "Oh my god rafiq [beat] do you see what’s shining at the bottom of that hole while the dust starts to settle around jamal's legs?"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "angry",
+   "text": "I told you we should have never opened this [beat] your father’s old inheritance was buried here for a reason and we just woke it up!"
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "whisper",
+   "text": "It’s not just money [beat] look at the way those gold coins are moving on their own like they have a mind of their own in the shadows!"
+  },
+  {
+   "speaker": "dada",
+   "emotion": "smug",
+   "text": "You children were always too curious for your own good [beat] and now you’ve found the real reason why this wing was locked for forty years."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "Dada stop being cryptic and help us pull uncle jamal up [beat] before he gets swallowed whole by whatever is living down there in the dark!"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "shock",
+   "text": "It’s a safe [beat] a massive iron safe with the family crest on it but the lock has already been smashed open from the inside!"
+  },
+  {
+   "speaker": "milli",
+   "emotion": "panic",
+   "text": "I can see eyes [beat] there are glowing yellow eyes staring back at us from the corner of the safe and they look incredibly hungry!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "Sometimes the family secrets aren't just stories [beat] they are living nightmares waiting for someone to drop a flashlight and say hello."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Wait a second [beat] that’s not a monster in the safe [beat] that’s a photo of phupu with a mask on holding a massive crowbar!"
+  },
+  {
+   "speaker": "phupu",
+   "emotion": "smug",
+   "text": "You were never supposed to find my secret workshop nix [beat] and now that you have [beat] I can’t let any of you leave this attic alive!"
+  }
+ ]
+}
