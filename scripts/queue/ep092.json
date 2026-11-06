@@ -1,0 +1,85 @@
+{
+ "title": "THE ATTIC IS A GAS CHAMBER! 💨",
+ "topic": "The Attic Secret",
+ "arc": "The Attic Secret",
+ "part": 9,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 10: THE SUB-BASEMENT HORROR",
+ "bg_hints": [
+  "working",
+  "city"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "THE GAS IS LEAKING THROUGH THE VENTS [beat] COVER YOUR MOUTH WITH YOUR SHIRT BEFORE YOU PASS OUT!"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "smug",
+   "text": "You always were too smart for your own good [beat] but my security system is smarter than a middle schooler with a grudge."
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "panic",
+   "text": "Nix [beat] the door handle is freezing cold and it won't even budge [beat] we're literally trapped like rats in a cage!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "You’re a freaking psycho Jamal [beat] my dad is going to track my phone and he'll have the cops here in five minutes!"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "deadpan",
+   "text": "Check your signal kid [beat] this entire attic is lined with lead shielding and your precious GPS is currently pointing to a dumpster downtown."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "whisper",
+   "text": "Tuli [beat] look under the floorboards by the old trunk [beat] there's a loose panel where Grandpa used to hide his tools."
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "shock",
+   "text": "I found it [beat] but it’s just a rusted hammer and a bunch of old wiring [beat] how is this supposed to save us from suffocating?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "Don't use the hammer on the glass [beat] use it to smash the thermostat and short-circuit the entire security loop!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "Desperation makes the mind move faster [beat] as the air turns thick and sweet with the smell of knockout gas."
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "angry",
+   "text": "What are you doing in there [beat] stop touching those wires or I'll stop being nice and turn the oxygen off completely!"
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "panic",
+   "text": "The spark just set the insulation on fire [beat] nix [beat] the room is filling with smoke and I can't see the exit anymore!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Look at the wall [beat] the fire revealed a hidden staircase behind the bookshelf [beat] move it before the ceiling collapses!"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "panic",
+   "text": "No [beat] you aren't supposed to know about the sub-basement [beat] if you go down there [beat] you'll see what happened to the others."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "We’re coming for you next Jamal [beat] and you better hope the police find you before I do!"
+  }
+ ]
+}
