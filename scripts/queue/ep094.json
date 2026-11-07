@@ -1,0 +1,85 @@
+{
+ "title": "DON'T BREATHE THE PURGE AIR! 😱",
+ "topic": "Survival Mystery",
+ "arc": "The Attic Secret",
+ "part": 11,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 12: THE HIDDEN CHAMBER",
+ "bg_hints": [
+  "working",
+  "satisfying"
+ ],
+ "lines": [
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "STOP BREATHING [beat] EVERY SECOND YOU INHALE IS REMOVING TEN MINUTES FROM YOUR ENTIRE LIFE SPAN!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "The vents are literally glowing red [beat] and I can hear the sub-basement fans grinding against the metal floor!"
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "angry",
+   "text": "We need to find the manual override [beat] but grandpa’s old schematics say the lever is hidden behind the main circuit breaker!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "It’s not just a purge [beat] the system is actually rewriting the entire security protocol to lock us in here forever!"
+  },
+  {
+   "speaker": "joy",
+   "emotion": "shock",
+   "text": "I found a hatch near the ceiling [beat] but it’s welded shut and there’s some kind of liquid leaking from the hinges!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "That’s not liquid [beat] that’s the liquid nitrogen coolant used to freeze the old attic records before they’re shredded!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "sad",
+   "text": "The temperature is dropping forty degrees every minute [beat] and my fingers are starting to turn completely blue!"
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "angry",
+   "text": "Grab that heavy wrench from the toolbox [beat] if we can’t open the hatch we’ll have to smash through the ventilation shaft!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Wait [beat] look at the screen on the wall [beat] it’s showing a live feed of Grandpa watching us from the living room!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "angry",
+   "text": "He’s just sitting there drinking tea [beat] while we’re literally being erased from the family database by a vacuum!"
+  },
+  {
+   "speaker": "joy",
+   "emotion": "panic",
+   "text": "The pressure is building up so much [beat] that the glass on the sensors is starting to spiderweb and crack!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "If this glass breaks [beat] the entire sub-basement will implode and we’ll be crushed into the size of a soda can!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "The countdown just hit zero [beat] and I can hear the giant hydraulic press moving toward the center of the room!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "The floor is opening up [beat] and whatever is underneath that metal grating is definitely not meant for human eyes."
+  }
+ ]
+}
