@@ -1,0 +1,85 @@
+{
+ "title": "THE SUB-BASEMENT IS A DEATH TRAP! 💀",
+ "topic": "family betrayal and high-tech traps",
+ "arc": "The Attic Secret",
+ "part": 10,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 11: THE FINAL PURGE",
+ "bg_hints": [
+  "working",
+  "city"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "THE SUB-BASEMENT DOOR IS BLEEDING [beat] AND THE LOCK HAS BEEN WELDED SHUT FROM THE INSIDE!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "Look at these monitors [beat] Jamal isn't just hiding here, he’s been live-streaming our entire house for months!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "Every private conversation [beat] every secret we thought we buried in the attic, he’s got it all on these hard drives!"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "smug",
+   "text": "You should have stayed in the gas chamber [beat] because curiosity doesn't just kill cats, it bankrupts families!"
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "angry",
+   "text": "You absolute snake [beat] you stole the inheritance money just to build this disgusting high-tech dungeon!"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "deadpan",
+   "text": "It wasn't just about the money [beat] it was about watching you all scramble like rats in a maze I built!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "Wait [beat] the server rack is ticking, and I don't think that's the sound of a cooling fan failing!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "He’s rigged the whole sub-basement to incinerate [beat] he’s going to erase the evidence and us with it!"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "smug",
+   "text": "The data is already in the cloud [beat] but your physical presence has become a bit of a liability, Nix!"
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "panic",
+   "text": "The vents are closing [beat] we're trapped in a lead-lined box with a digital timer counting down to zero!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "Riku, use your bypass key [beat] if you can't hack this door in ten seconds, we’re literal toast!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "The firewall is too thick [beat] but I see a manual override lever behind that glass panel over the furnace!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "I’m going for it [beat] even if I have to reach through the flames to pull that lever down!"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "smug",
+   "text": "Too late [beat] the system just initiated the final purge sequence and the air is getting very thin!"
+  }
+ ]
+}
