@@ -1,0 +1,80 @@
+{
+ "title": "MY HOUSE IS A GIANT MACHINE?! ⚙️",
+ "topic": "mystery",
+ "arc": "The Attic Secret",
+ "part": 13,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 14: THE ARCHITECT",
+ "bg_hints": [
+  "working",
+  "satisfying"
+ ],
+ "lines": [
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "Nix, don't let go [beat] because if this floor opens any wider we are both getting turned into human confetti!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "I’m trying to hold on but the gravity in this room [beat] feels like it's flipping upside down right now!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "shock",
+   "text": "Look at the walls, those aren't pipes, they are massive glass tubes [beat] filled with every single one of my missing video games!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "Forget the games, Riku, look at that central furnace [beat] it’s glowing with the same weird energy as Grandpa’s old watch!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "angry",
+   "text": "Why is there a giant brass engine [beat] hidden under the floorboards of a suburban house like some kind of steampunk nightmare?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "I think this whole house isn't just a building [beat] it’s a massive machine and someone has been fueling it for decades!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "There’s a control panel over here with a nameplate that says [beat] Property of the Great Architect, do not touch or face deletion!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "Riku, stay away from those levers because if you pull the wrong one [beat] the entire neighborhood might just vanish off the map!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "The boys had finally found the heart of the mystery [beat] but the engine was just starting to warm up for its final mission."
+  },
+  {
+   "speaker": "riku",
+   "emotion": "shock",
+   "text": "I found a logbook under the desk and the last entry is dated today [beat] and it’s signed with my Mom’s actual handwriting!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "That means Aunt Lubna has been the one [beat] keeping this engine running while we were all just eating dinner upstairs!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "Wait, do you hear that clicking sound coming from the ventilation shaft [beat] because I think we just tripped a silent alarm!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "The doors are locking themselves and I can see [beat] a shadow moving behind the frosted glass of the main observation deck!"
+  }
+ ]
+}
