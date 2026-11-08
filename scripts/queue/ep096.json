@@ -1,0 +1,80 @@
+{
+ "title": "WHAT’S UNDER THE GRATE? 😨",
+ "topic": "suspenseful discovery in a hidden floor chamber",
+ "arc": "The Attic Secret",
+ "part": 12,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 13: THE ENGINE ROOM",
+ "bg_hints": [
+  "city landscape",
+  "satisfying mechanical motion"
+ ],
+ "lines": [
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "Nix, get back! The sensors are turning bright red [beat] and there’s something heavy breathing down there in the dark!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "I can't just leave it, Riku! That grating looks like it hasn't been opened in fifty years [beat] but the lock is still burning hot."
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "angry",
+   "text": "Will you two stop messing with that? Dad is coming up the stairs right now and if he sees that trapdoor [beat] we are all dead meat!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "Wait, look at the tablet screen! The thermal camera is picking up a human shape [beat] but it’s way too small to be an adult."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "It’s not a person, look at the way it moves! It’s a series of clockwork gears [beat] holding up a massive, glowing blue orb."
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "angry",
+   "text": "I told you kids a thousand times to stay away from the north wing of the attic! Step away from that grate [beat] before it’s too late!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Dad, what is this place? You’ve been hiding an entire power source under the floorboards [beat] while the rest of the city is in a blackout!"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "neutral",
+   "text": "It is not just a power source, Nix. It’s a family legacy that you were never supposed to see [beat] until your eighteenth birthday."
+  },
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "The metal is vibrating! Something is trying to push the grate open from the inside [beat] and it sounds like a high-pitched scream!"
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "panic",
+   "text": "The attic walls are starting to crack! Whatever is in there is feeding off the house's energy [beat] and we need to run out of here now!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "I’m not running! If we don’t close that safety valve, the whole neighborhood is going to get [beat] sucked right into this void!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "As the floor begins to collapse, the kids realize the attic isn't just a room [beat] it is the main engine of the entire house."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "The blue light is blinding me! Riku, grab my hand because I think the hidden chamber [beat] is starting to pull us inside!"
+  }
+ ]
+}
