@@ -1,0 +1,80 @@
+{
+ "title": "THE BASEMENT IS A STUDIO?! 🎬",
+ "topic": "The family discovers they are the stars of a secret reality show.",
+ "arc": "The Attic Secret",
+ "part": 15,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 16: THE FINAL BROADCAST",
+ "bg_hints": [
+  "city",
+  "satisfying"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "STOP! DON'T TOUCH THAT HANDLE OR THE ENTIRE HOUSE IS GOING TO LOCK DOWN AND TRAP US DOWN HERE FOREVER!"
+  },
+  {
+   "speaker": "joy",
+   "emotion": "shock",
+   "text": "Nix [beat] look at those monitors [beat] why is your entire life playing out on twenty different screens at the same time?"
+  },
+  {
+   "speaker": "ding",
+   "emotion": "panic",
+   "text": "This isn't just a basement [beat] it’s a high-tech production studio [beat] and look [beat] my house is on one of these screens too!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Wait [beat] that's Dad in the kitchen [beat] but he's wearing the same shirt from three years ago [beat] this is all recorded footage!"
+  },
+  {
+   "speaker": "joy",
+   "emotion": "panic",
+   "text": "If this is all old recordings [beat] then why is the red 'LIVE' light blinking on the camera pointed directly at us right now?"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "angry",
+   "text": "I told you kids to stay in the attic [beat] because some secrets are better left buried under the foundation of this house!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "Dad [beat] what are you doing down here with all this surveillance gear and why is Uncle Jamal's name on all these server bills?"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "smug",
+   "text": "Because dear nephew [beat] privacy is a luxury that only the poor believe they actually possess in this digital world!"
+  },
+  {
+   "speaker": "phupu",
+   "emotion": "excited",
+   "text": "Oh [beat] don't look so shocked Nix [beat] the whole neighborhood has been paying for the premium subscription to your family drama!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "You've been selling our lives as a reality show [beat] and we never even got a single cent of the profit for any of this?"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "smug",
+   "text": "The profit went into paying for this mansion [beat] but now that you've found the server room [beat] we have to start the final protocol!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "Wait [beat] what does 'Final Protocol' mean [beat] and why are the basement walls starting to slide inward like a trash compactor?"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "The basement reveal was a trap [beat] and Nix is about to find out exactly how this series is scheduled to end!"
+  }
+ ]
+}
