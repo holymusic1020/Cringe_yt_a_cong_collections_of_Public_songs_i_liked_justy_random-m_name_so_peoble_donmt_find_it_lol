@@ -1,0 +1,85 @@
+{
+ "title": "THE HOUSE IS WATCHING US! 👁️",
+ "topic": "suspicion",
+ "arc": "The Attic Secret",
+ "part": 14,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 15: THE BASEMENT REVEAL",
+ "bg_hints": [
+  "working gears and pistons",
+  "satisfying mechanical clicks"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "Don't touch that handle [beat] because the house just registered our fingerprints and it is sealing every single exit shut!"
+  },
+  {
+   "speaker": "joy",
+   "emotion": "shock",
+   "text": "Nix, I can see a figure [beat] standing right there behind the frosted glass, and it looks exactly like your Grandpa!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "That's impossible because Grandpa has been in Florida for weeks [beat] but whoever that is, they're holding the master override key!"
+  },
+  {
+   "speaker": "dada",
+   "emotion": "deadpan",
+   "text": "You were never supposed to find the observation deck [beat] and now that you have, the house has no choice but to initiate protocol seven."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Grandpa? [beat] Why are you appearing on a holographic screen, and what on earth do you mean by protocol seven?"
+  },
+  {
+   "speaker": "dada",
+   "emotion": "deadpan",
+   "text": "This house isn't just a building [beat] it is a living, breathing security vault meant to protect the family’s greatest secret from the neighbors."
+  },
+  {
+   "speaker": "joy",
+   "emotion": "panic",
+   "text": "The walls are literally shifting [beat] and I think I can hear the sound of massive gears grinding underneath our very feet right now!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "Tell us how to stop this [beat] or we are going to be crushed by the rotating kitchen floor before the sun even goes down!"
+  },
+  {
+   "speaker": "dada",
+   "emotion": "deadpan",
+   "text": "The Architect designed the system to be irreversible [beat] unless you can provide the biometric scan of the first-born grandchild immediately."
+  },
+  {
+   "speaker": "joy",
+   "emotion": "shock",
+   "text": "That is your sister Tuli [beat] but she is at the mall and there is no way we can get her here in time!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Wait, look at the screen [beat] there is a countdown starting and the shadow behind the glass is finally stepping into the light!"
+  },
+  {
+   "speaker": "phupu",
+   "emotion": "smug",
+   "text": "I told your father that you kids would be too nosey [beat] and now I have to be the one to clean up this mechanical mess."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "Phupu?! [beat] You are the Architect behind this entire nightmare [beat] and you have been watching us from the attic this whole time?"
+  },
+  {
+   "speaker": "phupu",
+   "emotion": "excited",
+   "text": "The real show is just beginning [beat] because the basement is about to open and you are not going to like what is inside!"
+  }
+ ]
+}
