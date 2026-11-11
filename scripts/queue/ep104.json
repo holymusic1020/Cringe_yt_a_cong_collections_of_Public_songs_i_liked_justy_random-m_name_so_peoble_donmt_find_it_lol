@@ -1,0 +1,80 @@
+{
+ "title": "THE SCHOOL SPY SCANDAL 📁",
+ "topic": "School conspiracy and family betrayal",
+ "arc": "The Principal's Files",
+ "part": 2,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 3: THE BASEMENT BETRAYAL",
+ "bg_hints": [
+  "school office",
+  "dark hallway"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "PUT THAT DOWN JOY [beat] YOU HAVE NO IDEA WHAT KIND OF TROUBLE WE ARE IN IF HUDA CATCHES US HOLDING THESE!"
+  },
+  {
+   "speaker": "joy",
+   "emotion": "shock",
+   "text": "But Nix [beat] look at this photo of Kamal! There is a price tag written on the back of his head like he is some kind of product!"
+  },
+  {
+   "speaker": "ding",
+   "emotion": "panic",
+   "text": "It is not just him [beat] every single teacher who disagreed with the new budget has a red cross over their eyes in this file!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "whisper",
+   "text": "Wait... [beat] I hear heels clicking in the hallway! Get under the desk and do not breathe until I say it is safe!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "angry",
+   "text": "I do not care if they have families [beat] if they do not sign the loyalty pledge by midnight [beat] make sure their careers are over!"
+  },
+  {
+   "speaker": "joy",
+   "emotion": "whisper",
+   "text": "I can see her shoes through the gap [beat] she is holding a shredder and a thick stack of folders with our names on them!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "shock",
+   "text": "Who left this cabinet unlocked? [beat] I know someone was snooping around in my private records and they are going to regret it!"
+  },
+  {
+   "speaker": "ding",
+   "emotion": "panic",
+   "text": "My phone is vibrating in my pocket [beat] it is my mom calling and I cannot reach the silence button without making a noise!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "smug",
+   "text": "I hear a buzzing sound coming from under my own mahogany desk [beat] come out right now before I call the security team!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Stay back! [beat] We saw the files Huda! We know you are trying to sell the school land to a private developer!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "deadpan",
+   "text": "You think you found a secret [beat] but you have no idea how deep this hole goes or who is actually funding my project!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "Wait... [beat] why is my dad Rafiq walking into the office right now with a briefcase full of money and a smile?"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "The betrayal was coming from inside the house [beat] and Nix's world was about to crumble into a million pieces."
+  }
+ ]
+}
