@@ -1,0 +1,80 @@
+{
+ "title": "THE SECRET SCHOOL CASE 💼",
+ "topic": "school",
+ "arc": "The Principal's Files",
+ "part": 1,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 2: THE BLACKMAIL SCENE",
+ "bg_hints": [
+  "school lockers",
+  "satisfying clicks"
+ ],
+ "lines": [
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "NIX! WE HAVE TO HIDE THIS CASE RIGHT NOW [beat] OR THE WHOLE SCHOOL IS GOING TO BLOW UP IN OUR FACES!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Riku, why are you carrying a locked steel briefcase [beat] and why does it have the Principal's private seal on the lid?"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "whisper",
+   "text": "I found it sitting in the teacher's lounge, Nix! [beat] I thought it was the new VR prototype, but it’s making a weird ticking sound!"
+  },
+  {
+   "speaker": "kamal",
+   "emotion": "angry",
+   "text": "Nix, why are you two huddled in the corner like guilty raccoons [beat] instead of finishing your calculus equations?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "It’s just my science project, Mr. Kamal! [beat] It's a very sensitive vacuum chamber that needs to stay away from the light!"
+  },
+  {
+   "speaker": "kamal",
+   "emotion": "neutral",
+   "text": "That is the strangest science project I've ever seen, [beat] and I'm pretty sure I heard a digital beep coming from your backpack."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "smug",
+   "text": "Look at these two losers trying to hide a treasure chest [beat] move aside before I show you what a real scientist does!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "Bruno, back off! [beat] This thing is dangerous and you have no idea what you’re messing with, you absolute meathead!"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "smug",
+   "text": "Oh, I'm shaking in my boots! [beat] Give it here or I'll tell the Principal you're planning some kind of prank in the hallways!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "The timer just skipped a minute, Nix! [beat] If we don't open this thing now, the security team is going to hunt us down!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Fine, Riku! [beat] Use the gaming pick you carry around and let's see what’s inside before we all get expelled!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "The lock clicked open, revealing something that wasn't a bomb, [beat] but was definitely much worse for Nix's future."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Wait... [beat] why are there photos of every single teacher in here with red circles around their faces?"
+  }
+ ]
+}
