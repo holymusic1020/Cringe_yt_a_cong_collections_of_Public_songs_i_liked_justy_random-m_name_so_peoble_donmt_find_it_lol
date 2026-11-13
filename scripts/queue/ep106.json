@@ -1,0 +1,85 @@
+{
+ "title": "THE BASEMENT BETRAYAL 🕵️",
+ "topic": "The Principal's Files",
+ "arc": "The Principal's Files",
+ "part": 3,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 4: THE ULTIMATE BLACKMAIL",
+ "bg_hints": [
+  "working",
+  "city"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "RIKU, GET AWAY FROM THAT COMPUTER [beat] I KNOW YOU HAVE THE PRINCIPAL'S MASTER DRIVE HIDDEN UNDER THE COUCH!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "smug",
+   "text": "Nix, chill out [beat] you're acting like a total psycho just because I'm playing a game in the basement at midnight."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "Don't lie to me [beat] because I saw the encrypted folder with Principal Huda's private signature blinking on your screen!"
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "panic",
+   "text": "Both of you shut up [beat] before Mom comes down here and finds out what we really did with the school server keys."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Wait, Tuli, you're involved in this too [beat] I thought you were the one person I could actually trust in this house!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "smug",
+   "text": "She's not just involved, Nix [beat] she's the one who paid me to bypass the firewall so she could delete her suspension record."
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "angry",
+   "text": "That’s not the whole story [beat] and if Nix finds the red file in the basement safe, we are all going to jail tonight."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "I don't care about your records [beat] I want the file on my grades that Kamal has been using to blackmail our family!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "whisper",
+   "text": "Check the bottom drawer of the old workbench [beat] the drive is taped behind the power outlet where nobody ever looks."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "I found it [beat] but wait, why is there a live GPS tracker attached to the casing and why is it currently beeping?"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "smug",
+   "text": "Because I knew exactly which one of you greedy little thieves would come back for the evidence [beat] and now I have you."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Principal Huda, how did you get into our basement [beat] and why are you holding my Mom's spare set of house keys?"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "deadpan",
+   "text": "I gave them to her, Nix [beat] because some secrets are better kept by the school than by a son who can't stop digging."
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "Nix looked at his mother's cold eyes [beat] and realized the real spy wasn't a student, but the person who tucked him in at night."
+  }
+ ]
+}
