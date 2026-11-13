@@ -1,0 +1,85 @@
+{
+ "title": "THE ULTIMATE BLACKMAIL 📄",
+ "topic": "Betrayal by family and school secrets",
+ "arc": "The Principal's Files",
+ "part": 4,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 5: THE DISCIPLINARY PROTOCOL",
+ "bg_hints": [
+  "working",
+  "city"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Mom, I saw the files [beat] and I know you've been selling out every kid in this school to Principal Huda for months!"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "smug",
+   "text": "Lower your voice Nix [beat] or you'll find out exactly how fast your college dreams can turn into a total nightmare."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "You're supposed to protect me, not act like a double agent for that power-hungry principal [beat] you're a traitor to this family!"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "deadpan",
+   "text": "I'm doing this for your future [beat] because your grades are a joke and your 'extracurriculars' are mostly criminal activities."
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "shock",
+   "text": "What is going on in here? Nix, why are you screaming at your mother [beat] like she's some kind of common criminal?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "Because she is, Dad! She's the one who leaked the basement footage [beat] and she’s framing the other students for her own gain!"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "smug",
+   "text": "Rafiq, go back to the office. This is a private matter [beat] regarding Nix's recent 'unauthorized' entry into the school servers."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "You're blackmailing your own son [beat] just to stay in Huda's good graces? That's pathetic and honestly it's just disgusting."
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "neutral",
+   "text": "It's not blackmail, it's management. Now give me the USB drive you stole [beat] before I call the police myself right now."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "I don't have it! I gave the drive to Joy [beat] and he's already uploading the proof of your secret deals online for everyone!"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "angry",
+   "text": "You little idiot [beat] you have no idea who you're actually messing with or what Principal Huda is truly capable of doing."
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "The air turned cold as Lubna pulled out a second phone [beat] and dialed a number Nix never expected to see her call."
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "whisper",
+   "text": "Hello, Principal Huda? The boy is being difficult [beat] it's time to initiate Phase Two of the disciplinary protocol immediately."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "Wait, what is Phase Two? Mom [beat] what did you just do to my life and why are there sirens outside?"
+  }
+ ]
+}
