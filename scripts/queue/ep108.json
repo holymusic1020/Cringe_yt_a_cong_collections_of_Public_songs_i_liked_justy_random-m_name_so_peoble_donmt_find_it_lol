@@ -1,0 +1,85 @@
+{
+ "title": "MOM'S SECRET REVEALED! 📂",
+ "topic": "school mystery and family secrets",
+ "arc": "The Principal's Files",
+ "part": 5,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 6: THE OFFSHORE ACCOUNT",
+ "bg_hints": [
+  "high speed city sirens",
+  "intense school hallway"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "MOM, DON'T OPEN THAT DOOR UNTIL YOU TELL ME WHY THE SWAT TEAM IS SURROUNDING THE PRINCIPAL'S OFFICE RIGHT NOW!"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "smug",
+   "text": "Relax, Nix, [beat] they aren't here for you, they are here to collect the servers because Principal Huda forgot one tiny detail about her dark past."
+  },
+  {
+   "speaker": "huda",
+   "emotion": "shock",
+   "text": "Lubna, stop this madness right now before you ruin your son's entire future [beat] and I make sure he never steps foot in a classroom again!"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "angry",
+   "text": "You haven't changed since college, Huda, [beat] always hiding your mistakes behind a desk, but I kept every single receipt from that 2004 incident!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Wait, you two actually know each other, and [beat] why is the math teacher, Mr. Kamal, climbing out the window with a giant black duffel bag?"
+  },
+  {
+   "speaker": "kamal",
+   "emotion": "panic",
+   "text": "I told you we should have burned those files months ago, Huda, [beat] but you were too greedy and now we are both going down for this absolute mess!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "angry",
+   "text": "Shut your mouth, Kamal, and get back inside [beat] because if I am going to jail for the missing scholarship funds, you are definitely coming with me!"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "deadpan",
+   "text": "I told you we should have just gone to the PTA meeting instead of initiating a full-scale [beat] federal intervention on a Tuesday afternoon, Lubna."
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "excited",
+   "text": "Oh hush, Rafiq, [beat] watching her face turn that specific shade of purple is worth every single penny of the massive retainer fee I paid the lawyers."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "Mom, you aren't listening, [beat] the officers aren't just taking the servers, they are looking for a folder labeled Disciplinary Protocol and it's in my bag!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "smug",
+   "text": "You little idiot, you just confessed to stealing classified school property [beat] in front of three police officers and a government witness!"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "whisper",
+   "text": "Nix, give me that folder right now [beat] and whatever you do, do not let them see what is written on the very last page of that document!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Why is my name [beat] listed as the primary donor for a secret offshore account worth three million dollars and why is it dated the day I was born?"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "Some secrets are better left buried [beat] especially when your own mother is the one who buried them in your name to hide the evidence."
+  }
+ ]
+}
