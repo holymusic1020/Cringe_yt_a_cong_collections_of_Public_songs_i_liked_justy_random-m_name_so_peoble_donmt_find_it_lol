@@ -1,0 +1,85 @@
+{
+ "title": "MOM’S $2,000,000 SECRET! 🏦",
+ "topic": "Financial suspicion and family betrayal",
+ "arc": "The Principal's Files",
+ "part": 6,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 7: THE POLICE RAID",
+ "bg_hints": [
+  "working office",
+  "city at night"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "MOM, WHY IS THERE TWO MILLION DOLLARS SITTING IN A SWISS ACCOUNT UNDER MY NAME?"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "panic",
+   "text": "Lower your voice right now [beat] before your father hears you and starts asking questions that neither of us can answer!"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "shock",
+   "text": "Too late for that [beat] because I just saw the bank notification on the family tablet and I want an explanation immediately."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "It’s not just money [beat] there’s a direct link to Principal Huda’s private firm hidden in every single transaction history."
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "whisper",
+   "text": "You don't understand the pressure I was under [beat] Huda promised to erase your record if I let her use your identity."
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "smug",
+   "text": "That’s not a business deal [beat] that’s money laundering 101 and you just made your own son the primary suspect in a crime."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "You mean the police will think I’m the one who stole the school’s renovation budget [beat] while I was sitting in detention?"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "sad",
+   "text": "We were going to move it back [beat] but the password was changed by someone else the moment the funds landed in the account."
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "angry",
+   "text": "You let a corrupt principal use our son as a human shield for her crimes [beat] and now the money is just gone?"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "deadpan",
+   "text": "It isn't gone [beat] it’s currently being processed as a voluntary donation from Nix to my new offshore development project."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Principal Huda? How did you even get into our house [beat] and why are you holding my laptop like it’s a weapon?"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "smug",
+   "text": "Because the files on this drive are worth more than your entire family's future [beat] and I am not leaving without the key."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "You’ll have to take it from me [beat] because I just sent the login details to the police about ten seconds ago."
+  },
+  {
+   "speaker": "huda",
+   "emotion": "shock",
+   "text": "You little brat [beat] you have no idea what you’ve just started or who is really coming for that money now."
+  }
+ ]
+}
