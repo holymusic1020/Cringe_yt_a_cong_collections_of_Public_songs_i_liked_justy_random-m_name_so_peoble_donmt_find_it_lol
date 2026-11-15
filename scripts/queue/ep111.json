@@ -1,0 +1,85 @@
+{
+ "title": "POLICE RAID AT MIDNIGHT! 👮‍♂️",
+ "topic": "The fallout of the stolen scholarship money and a massive betrayal.",
+ "arc": "The Principal's Files",
+ "part": 7,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 8: THE ESCAPE",
+ "bg_hints": [
+  "city sirens and flashing blue lights",
+  "working quickly in a messy room"
+ ],
+ "lines": [
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "MOM, GET DOWN! [beat] THE COPS ARE LITERALLY TEARING THE FRONT DOOR OFF ITS HINGES RIGHT NOW!"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "angry",
+   "text": "Shut your mouth, Riku! [beat] I told you to hide that briefcase in the attic before the principal's tracker went live!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "You said that money was an inheritance from Grandpa, [beat] but those sirens aren't for a simple tax audit, Mom!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "smug",
+   "text": "Step away from the desk, Lubna! [beat] You didn't think a humble school principal would notice two million dollars missing?"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "panic",
+   "text": "Huda, you've got it all wrong! [beat] I was just holding that cash to keep it safe from Jamal’s gambling debts!"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "angry",
+   "text": "Don't you dare bring my name into your filthy web of lies, [beat] you backstabbing, thieving excuse for a sister!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "whisper",
+   "text": "Wait... [beat] why is the principal wearing a wire, and why is Uncle Jamal holding a master key to our house?"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "deadpan",
+   "text": "Because your mother isn't the only one who wanted a piece of the pie, [beat] but she's the only one going to jail."
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "shock",
+   "text": "Lubna, tell me this isn't true! [beat] Tell me our entire life hasn't been funded by stolen grants and student lunch money!"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "angry",
+   "text": "You enjoyed the luxury cars and the vacations just fine, Rafiq, [beat] so don't act like a pathetic saint now!"
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "smug",
+   "text": "Hand over the digital key to the offshore account, Lubna, [beat] or I’ll make sure the police find the bag under Nix’s bed."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "There is nothing under my bed! [beat] You guys are framing me just to keep the rest of the loot for yourselves!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "excited",
+   "text": "Search the kid's room immediately! [beat] If we find that hard drive, the principal’s files will be closed for good!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "Nix thought his mom was the villain, [beat] but he just realized he’s the one being set up as the fall guy."
+  }
+ ]
+}
