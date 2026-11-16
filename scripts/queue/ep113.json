@@ -1,0 +1,80 @@
+{
+ "title": "ESCAPE OR GO TO JAIL! 🏃‍♂️",
+ "topic": "school",
+ "arc": "The Principal's Files",
+ "part": 8,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 9: THE SECRET FOLDER",
+ "bg_hints": [
+  "school",
+  "city"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "The police are literally at the door and you're telling me [beat] that the principal planted the flash drive in my locker?!"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "shock",
+   "text": "Nix, listen to me, I didn't call them to get you arrested, [beat] I called them because Huda was blackmailing our entire family!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "smug",
+   "text": "It’s too late for explanations, because the moment those officers enter this room, [beat] Nix is the only one holding the stolen files."
+  },
+  {
+   "speaker": "riku",
+   "emotion": "excited",
+   "text": "I’ve hacked the school's security cameras, but I can only loop the hallway footage [beat] for exactly sixty seconds before the system reboots!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "Sixty seconds is not enough time to get past three squads of officers [beat] who are looking for a kid in a red hoodie!"
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "panic",
+   "text": "Take my jacket and jump through the cafeteria window, [beat] but don't you dare lose that drive or we're all going to jail!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "Nix knew he was running out of time; [beat] it was a race against a principal who had rigged the entire game against him."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "smug",
+   "text": "You're not going anywhere, Nix, because Huda promised me a clean record [beat] if I made sure you stayed right here in this corner."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "Get out of my way, Bruno, or I swear I will show everyone [beat] the video of you stealing the math final from Kamal’s office!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "angry",
+   "text": "He’s bluffing, you idiot, just grab the bag and hold him [beat] until the police reach the second floor landing!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "The loop is breaking! Nix, you have five seconds to move [beat] or the cameras will catch you jumping out that window!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "I’m taking the leap, but if I don't make it, [beat] tell Mom I found the file labeled Project Shadow under Huda's private folder!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "Nix vanished into the night just as the door was kicked in, [beat] but he didn't realize who was waiting for him in the alleyway."
+  }
+ ]
+}
