@@ -1,0 +1,80 @@
+{
+ "title": "THE SECRET FOLDER REVEALED 📁",
+ "topic": "suspicion",
+ "arc": "The Principal's Files",
+ "part": 9,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 10: THE LOCKDOWN",
+ "bg_hints": [
+  "dark city alleyway",
+  "flickering school lights"
+ ],
+ "lines": [
+  {
+   "speaker": "bruno",
+   "emotion": "shock",
+   "text": "Stop right there Nix, [beat] because if you take one more step into this dark alleyway, you are going to regret it for the rest of your life!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "Bruno, get out of my way right now! [beat] I have the principal’s secret folder and the police are literally seconds away from catching us!"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "smug",
+   "text": "You think I'm here to stop you? [beat] Look around, idiot, I’m the only one who knows how to decode the encrypted files in that blue folder."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Why would a brainless bully like you know anything about Huda’s digital encryption, [beat] unless you've been working for her this whole time?"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "angry",
+   "text": "Shut your mouth before I shut it for you, [beat] I’m not her pawn, I’m the one she stole those student bank records from last summer!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "whisper",
+   "text": "Wait, if these are bank records, [beat] then the principal isn't just grading papers, she’s actually funneling our tuition money into a private account."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "neutral",
+   "text": "Exactly, and if we don't get to the computer lab to upload this evidence right now, [beat] she’s going to erase the server and blame both of us."
+  },
+  {
+   "speaker": "huda",
+   "emotion": "angry",
+   "text": "I knew I’d find you two bottom-feeders lurking in the shadows, [beat] trying to play hero with things you will never truly understand!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "Principal Huda? How did you get behind us so fast, [beat] and why are you holding a master override key for the entire school security system?"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "smug",
+   "text": "This school is my kingdom, and you children are just [beat] temporary guests who have finally overstayed their welcome in my private files."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "shock",
+   "text": "Nix, look at the security cameras on the wall, [beat] they aren't recording us, they're broadcasting a fake loop to the police dispatchers right now!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "She’s not calling the cops on us to arrest us, [beat] she’s locking the alley gates to make sure we never walk out of here with that folder!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "deadpan",
+   "text": "Hand over the blue folder now, or I’ll make sure your permanent records [beat] are the very least of your worries by tomorrow morning."
+  }
+ ]
+}
