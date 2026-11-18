@@ -1,0 +1,80 @@
+{
+ "title": "My Parents Are Actually Villains 🕵️",
+ "topic": "Nix discovers his parents are the masterminds behind the school's surveillance system.",
+ "arc": "The Principal's Files",
+ "part": 12,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 13: THE LOCKDOWN",
+ "bg_hints": [
+  "working",
+  "city"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "STOP TELLING LIES ABOUT MY FAMILY RIGHT NOW [beat] BECAUSE THERE IS NO WAY MY DAD WOULD EVER WORK FOR SOMEONE AS CORRUPT AS YOU!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "smug",
+   "text": "Oh Nix, you poor naive boy [beat] go home and look inside that dusty old toolbox in the garage that your father never lets you touch."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "I ran home faster than I ever have before [beat] and my heart was pounding against my ribs like a drum while I looked for that hidden silver key."
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "angry",
+   "text": "Nix! What on earth are you doing digging through my private things [beat] when I specifically told you to stay out of this garage for your own safety?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "I found it dad [beat] the blue folder with the school crest on it and a list of every student’s private data including mine and my friends!"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "whisper",
+   "text": "You weren't supposed to see that yet [beat] the project is way bigger than just one school and your mother is actually the one who started it."
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "deadpan",
+   "text": "Close the folder Nix [beat] the Principal is just a middleman and we are the ones who decide who gets to stay in this city or who gets erased."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "My own parents are running a mass surveillance operation [beat] and they are using the school as a front to collect data on every family in town!"
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "smug",
+   "text": "Don't act so surprised Nix [beat] I’ve been coding the encryption for them for three years and I'm the one who leaked the files just to bait you."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "You guys are monsters [beat] you’re literally ruining people’s lives just to build some perfect society that only benefits people like us!"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "angry",
+   "text": "We are protecting you from the chaos outside [beat] but since you found the master key, we can't let you leave this house ever again."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "Why is the front door locking itself [beat] and why is there a red countdown timer appearing on every single screen in the living room right now?"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "smug",
+   "text": "I told you the rabbit hole was deep Nix [beat] now witness the activation of the real project in three, two, one, and say goodbye to the old world!"
+  }
+ ]
+}
