@@ -1,0 +1,80 @@
+{
+ "title": "THE ELEVATOR TO HELL 🏫",
+ "topic": "The conspiracy of the hidden school floor and Nix's parents.",
+ "arc": "The Principal's Files",
+ "part": 14,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 15: THE CRYOGENIC TRUTH",
+ "bg_hints": [
+  "school",
+  "working"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "IF WE ENTER THIS ELEVATOR [beat] THERE IS NO COMING BACK FOR ANY OF US!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "angry",
+   "text": "Shut up and hack the keypad [beat] because Huda is literally ten seconds away from turning us into school history!"
+  },
+  {
+   "speaker": "joy",
+   "emotion": "shock",
+   "text": "My dad's security clearance shouldn't work here [beat] but the scanner just turned green like it was waiting for me."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "whisper",
+   "text": "The school records said this building only had four floors [beat] so why is the elevator panel showing a negative thirteen?"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "angry",
+   "text": "You meddling little parasites [beat] step away from that door before I make sure you never graduate from this life!"
+  },
+  {
+   "speaker": "ding",
+   "emotion": "shock",
+   "text": "Look at the monitor [beat] that's Nix's mom and dad talking to the principal like they own the entire school board!"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "smug",
+   "text": "The experiment is reaching the final stage [beat] so if the children interfere [beat] you have our permission to neutralize them."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "sad",
+   "text": "My own mother just gave the order to hunt me down [beat] like I'm some kind of lab rat in their twisted basement!"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "deadpan",
+   "text": "Don't be emotional [beat] Nix was always just a variable in the data set [beat] and the data demands a sacrifice."
+  },
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "The doors are opening [beat] but this isn't a basement [beat] it's a massive server room filled with frozen students!"
+  },
+  {
+   "speaker": "kamal",
+   "emotion": "smug",
+   "text": "Welcome to the real curriculum boys [beat] where we don't teach you history [beat] we use your brains to write it."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "This isn't a school [beat] it's a harvesting plant [beat] and look at the name on that central cryo-pod!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "The basement level holds a secret [beat] that makes the lockdown look like a playground game of tag."
+  }
+ ]
+}
