@@ -1,0 +1,80 @@
+{
+ "title": "SCHOOL LOCKDOWN REVEALED 🏫",
+ "topic": "suspicion",
+ "arc": "The Principal's Files",
+ "part": 13,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 14: THE HIDDEN FLOOR",
+ "bg_hints": [
+  "school security cameras",
+  "dark flickering hallways"
+ ],
+ "lines": [
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "EVERY DOOR IN THIS ENTIRE BUILDING JUST WELDED ITSELF SHUT [beat] WE ARE OFFICIALLY TRAPPED IN HERE LIKE LAB RATS NIX!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Look at the security monitors [beat] the principal isn't just locking us in [beat] she’s purging all the digital student records right now!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "smug",
+   "text": "Attention students [beat] your identities as citizens are being erased [beat] prepare for the new mandatory curriculum of the Academy."
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "panic",
+   "text": "Nix [beat] look at the windows [beat] those aren't regular security shutters [beat] they are heavy steel blast plates meant to block out the world!"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "deadpan",
+   "text": "Don't look so surprised son [beat] your mother and I designed this containment protocol specifically for your generation of digital rebels."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "You’re my father [beat] not some high-tech warden [beat] how can you do this to your own family just for a corporate paycheck?"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "smug",
+   "text": "It’s not about the money Nix [beat] it’s about perfect order [beat] we are turning this school into the ultimate conditioning facility."
+  },
+  {
+   "speaker": "riku",
+   "emotion": "whisper",
+   "text": "Nix [beat] I managed to bypass the firewall for one minute [beat] there is a secret basement floor that doesn't exist on any school map."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "panic",
+   "text": "I don't care about your family drama [beat] just let me out of this hallway before those gas vents in the ceiling fully open!"
+  },
+  {
+   "speaker": "kamal",
+   "emotion": "angry",
+   "text": "Get back to your designated holding zones immediately [beat] or the disciplinary bots will be authorized to use physical force on everyone."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "The disciplinary bots [beat] wait [beat] Dad [beat] those aren't robots [beat] those are the missing seniors from last year's graduation!"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "smug",
+   "text": "They aren't missing anymore Nix [beat] they are the first successful graduates of the project [beat] and now it is finally your turn."
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "The school is a cage [beat] the teachers are guards [beat] and Nix's parents just pulled the trigger on the final phase of the files."
+  }
+ ]
+}
