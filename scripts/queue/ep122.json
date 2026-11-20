@@ -1,0 +1,86 @@
+{
+ "title": "THE CRYOGENIC TRUTH ❄️",
+ "topic": "The discovery of a hidden student-cloning facility in the school basement.",
+ "arc": "The Principal's Files",
+ "part": 15,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 16: THE VIRUS UNLEASHED",
+ "bg_hints": [
+  "dark school basement",
+  "satisfying ice textures",
+  "glowing computer screens"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "LOOK AT THOSE FROST-COVERED GLASS TANKS [beat] THERE ARE ACTUAL STUDENTS TRAPPED INSIDE THIS FREEZER!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "My thermal scanner is glitching out because these pods are at absolute zero [beat] and look at the names on the digital labels!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "That’s Bruno’s older brother who disappeared three years ago [beat] and that girl who was supposed to move to another state!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "smug",
+   "text": "I told you the basement was off-limits for a reason [beat] some students are just too valuable to let go of so easily."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "You’re literally freezing children to keep the school's reputation perfect [beat] you’re a total monster, Principal Huda!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "deadpan",
+   "text": "It's not about grades [beat] it's about preservation because the air outside these walls isn't what you think it is."
+  },
+  {
+   "speaker": "riku",
+   "emotion": "shock",
+   "text": "Wait [beat] the labels don't say preservation they say cloning sequence and your status is already at ninety-nine percent!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "If the clone is almost finished [beat] then where is the original Principal Huda hidden in this frozen nightmare?"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "smug",
+   "text": "You’re looking at her [beat] and very soon the school will have a brand new Nix who actually follows the rules."
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "angry",
+   "text": "Get your freezing hands off my friend [beat] I don't care about the rules anymore I just want my brother back!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "whisper",
+   "text": "Nix, look behind the central console [beat] there's a manual override but it needs a biological signature from a real human."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "Principal Huda [beat] if you’re a clone then your fingerprint won’t work on that scanner and the whole system will melt!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "shock",
+   "text": "Don't you dare touch that lever [beat] you have no idea what kind of ancient virus is sleeping inside those tanks!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "I’m pulling it anyway [beat] because anything is better than being your frozen trophy for the next fifty years!"
+  }
+ ]
+}
