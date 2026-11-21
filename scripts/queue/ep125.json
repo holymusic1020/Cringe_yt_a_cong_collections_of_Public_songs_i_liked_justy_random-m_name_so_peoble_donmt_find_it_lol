@@ -1,0 +1,85 @@
+{
+ "title": "ERASING MY MEMORIES! 🧠",
+ "topic": "The school basement memory wipe",
+ "arc": "The Principal's Files",
+ "part": 17,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 18: THE GLOBAL LEAK",
+ "bg_hints": [
+  "dark school basement",
+  "glowing blue server racks"
+ ],
+ "lines": [
+  {
+   "speaker": "tuli",
+   "emotion": "panic",
+   "text": "Nix, wake up! [beat] You can't just stare at the screen while the air in this server room is literally turning blue and humming like a jet engine!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "I don't know who you are... [beat] but the monitor says 'Initialization 40%' and my head feels like it is being erased with a sandpaper block."
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "panic",
+   "text": "It is the school’s neural-link! [beat] Principal Huda isn't just filing grades... she's actually rewiring our memories to forget what we saw in her office!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "smug",
+   "text": "I told you children that curiosity has a very steep price... [beat] and unfortunately for you, your loyalty is currently being downloaded and replaced."
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "angry",
+   "text": "You are a monster, Huda! [beat] You can't just delete our personalities to make us the perfect straight-A students for your upcoming school inspection!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "whisper",
+   "text": "Tuli... I see names flashing on the screen. [beat] It's not just us... the whole school is on this list, even Bruno and Mr. Kamal are being targeted!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "deadpan",
+   "text": "A quiet school is a successful school. [beat] Once the reboot hits one hundred percent, you will both walk out of here and thank me for the detention."
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "excited",
+   "text": "The override code! [beat] I remember Nix saying he hid it in his gamer tag... Nix, think! What was the name you used to beat Riku last summer?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "I can't... [beat] every time I try to remember a game, all I see is a white void and a spinning loading icon right in the middle of my vision!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "smug",
+   "text": "Ninety percent complete. [beat] Say goodbye to your rebellion, because the 'New Student Initiative' is officially going live in exactly five seconds!"
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "shock",
+   "text": "Wait... the cables! [beat] If I can't stop the software, I will just destroy the hardware with this fire extinguisher I found under the metal desk!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "panic",
+   "text": "Don't you dare touch that server! [beat] If you force a manual shutdown now, you won't just lose your memories... you will fry your entire brain!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Tuli, look at the screen! [beat] It is not a reboot... it is a broadcast! The files are being uploaded to every single phone in the city right now!"
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "panic",
+   "text": "Oh no... [beat] if that data gets out, it won't just be Huda who is in trouble... it is every single parent in this town!"
+  }
+ ]
+}
