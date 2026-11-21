@@ -1,0 +1,80 @@
+{
+ "title": "THE VIRUS UNLEASHED 🦠",
+ "topic": "school",
+ "arc": "The Principal's Files",
+ "part": 16,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 17: SYSTEM REBOOT",
+ "bg_hints": [
+  "school",
+  "working"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "STOP! [beat] That red light wasn't a warning, it was the countdown to the total destruction of every student record in this building!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "angry",
+   "text": "You idiot! [beat] You didn't just stop the cryogenic process, you triggered the fail-safe protocol I spent ten years perfecting!"
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "panic",
+   "text": "Nix, look at the monitors! [beat] The data is literally melting off the screens, and the server room door just magnetically locked us inside!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Wait, if the records are being wiped, [beat] then why is my name the only one flashing in neon green across the entire mainframe?"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "smug",
+   "text": "Because you were never meant to be a student here, Nix. [beat] You were always the core source code for the entire system!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "shock",
+   "text": "I’m looking at the code right now and it makes no sense! [beat] Nix, your DNA sequence is being used as the encryption key for the Principal’s secret files!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "My DNA? [beat] That’s impossible, I’ve lived in this city my whole life, and I have a family and a birth certificate to prove it!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "deadpan",
+   "text": "Those memories were uploaded into your brain [beat] the same way I’m currently downloading the school’s black budget into my private offshore account!"
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "angry",
+   "text": "She’s using the virus as a smokescreen! [beat] She’s wiping our identities so she can disappear with millions of dollars while we take the fall!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "I won’t let you do this! [beat] Riku, if you can bridge the connection to my phone, maybe we can override the purge before it hits 100 percent!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "It’s too fast! [beat] The virus just reached the 'Final Delete' stage and the fire suppression gas is starting to fill the entire lab!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "smug",
+   "text": "Goodbye, Nix. [beat] By the time the police arrive, you won’t even remember your own name, let alone what happened in this basement!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "whisper",
+   "text": "The lights are flickering out... [beat] Tuli, I’m starting to forget... why did we even come down here in the first place?"
+  }
+ ]
+}
