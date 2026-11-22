@@ -1,0 +1,81 @@
+{
+ "title": "THE WHOLE TOWN'S SECRET IS OUT! 😱",
+ "topic": "The Principal's Files Global Leak",
+ "arc": "The Principal's Files",
+ "part": 18,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 19: THE REVELATION",
+ "bg_hints": [
+  "school hallway computer lab",
+  "digital glitch glitching screen",
+  "dark rainy city street"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "If this upload reaches one hundred percent, [beat] my parents are going to jail and our lives are officially over!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "Nix, I am trying to block the server, [beat] but this virus is spreading faster than a wildfire through every phone in the city!"
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "shock",
+   "text": "I just saw Dad's name on the leaked list, [beat] and next to it there is a folder titled 'Operation Tax Evasion 2022'!"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "angry",
+   "text": "Why is everyone screaming in here? [beat] Nix, why is my private banking password flashing on the living room television screen?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "Dad, Principal Huda didn't just have school records; [beat] she had a secret surveillance file on every single adult in this neighborhood!"
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "angry",
+   "text": "That miserable woman! [beat] I knew she was a snake, but how did she get access to our private medical records and mortgage details?"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "shock",
+   "text": "It is not just Huda anymore! [beat] Someone hijacked her mainframe and they are broadcasting the entire database to the global web!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Wait... [beat] there is a folder here with your name on it, Joy, and it says 'Experimental Student Brainwashing Project'!"
+  },
+  {
+   "speaker": "joy",
+   "emotion": "panic",
+   "text": "What are you talking about? [beat] I thought I was just in the gifted program, not some freakish government science experiment!"
+  },
+  {
+   "speaker": "kamal",
+   "emotion": "smug",
+   "text": "You students were never supposed to see those files, [beat] and now you have triggered a global kill-switch we cannot stop!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "Mr. Kamal? You were in on this too? [beat] You are the one who helped Huda build this digital blackmail dungeon!"
+  },
+  {
+   "speaker": "kamal",
+   "emotion": "deadpan",
+   "text": "Huda was just a puppet, Nix. [beat] The real owners of this data are already standing outside your front door right now!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "The screens went black as a heavy knock echoed through the house, [beat] and the town's darkest secrets were only the beginning."
+  }
+ ]
+}
