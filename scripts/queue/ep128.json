@@ -1,0 +1,86 @@
+{
+ "title": "THE PRINCIPAL IS AT OUR DOOR! 🚪",
+ "topic": "The town's deepest corruption is revealed in the principal's files.",
+ "arc": "The Principal's Files",
+ "part": 19,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 20: THE FINAL VERDICT",
+ "bg_hints": [
+  "blue police lights",
+  "heavy rain",
+  "dark street"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "EVERYBODY GET DOWN [beat] AND STAY AWAY FROM THE WINDOWS RIGHT NOW!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "shock",
+   "text": "The entire local server just got wiped, [beat] and someone is jamming our signal from the driveway!"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "angry",
+   "text": "Nix, if this is another one of your [beat] internet pranks, you are grounded until you graduate!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "deadpan",
+   "text": "It’s not a prank, you spineless [beat] coward, and I suggest you open this door before the police arrive."
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "shock",
+   "text": "Principal Huda? Why on earth [beat] are you standing on our porch at midnight looking like a fugitive?"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "whisper",
+   "text": "Mom, don't open it! [beat] I saw the names on that list and half the town's council is involved in the bribery."
+  },
+  {
+   "speaker": "huda",
+   "emotion": "smug",
+   "text": "The digital copies are gone, [beat] but I know your sister Tuli still has the original ledger in her backpack."
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "panic",
+   "text": "I didn't steal it, I found it in [beat] Mr. Kamal’s desk while I was looking for my graded math essay!"
+  },
+  {
+   "speaker": "kamal",
+   "emotion": "angry",
+   "text": "You found things you weren't [beat] supposed to see, you meddling brat, and now Jamal's reputation is at stake."
+  },
+  {
+   "speaker": "jamal",
+   "emotion": "smug",
+   "text": "Family loyalty is expensive, [beat] but silence is much cheaper if you just hand over the physical evidence."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Wait, Uncle Jamal, you're the one [beat] funding the principal's secret offshore accounts this whole time?"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "The hard drive is melting! [beat] Someone is remotely self-destructing every piece of evidence we have left!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "The heat in the room was rising, [beat] but the chill in Nix's heart was far more dangerous than the fire."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Look at the last page... [beat] Dad, why is your signature on the bottom of the demolition permit for the school?"
+  }
+ ]
+}
