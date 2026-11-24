@@ -1,0 +1,80 @@
+{
+ "title": "THE MIDNIGHT HEIST 🏗️",
+ "topic": "school heist",
+ "arc": "The Principal's Files",
+ "part": 21,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 22: THE FINAL COUNTDOWN",
+ "bg_hints": [
+  "school",
+  "city"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "We only have six hours before the bulldozers turn my classroom into a parking lot [beat] so stop shaking and pick the lock!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "I am a gamer [beat] not a professional cat burglar [beat] and this digital security system is way more advanced than your average locker."
+  },
+  {
+   "speaker": "joy",
+   "emotion": "shock",
+   "text": "If we get caught [beat] my parents are going to ground me until I am thirty [beat] and Nix [beat] your dad is the one who called the cops!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "My dad was trapped in the living room [beat] but he won't stay distracted forever [beat] we need those files before he breaks loose and finds us!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "whisper",
+   "text": "You kids shouldn't be here [beat] but since the demolition crew is already at the gate [beat] I suggest you find that hidden safe immediately."
+  },
+  {
+   "speaker": "riku",
+   "emotion": "shock",
+   "text": "Wait [beat] the principal is actually helping us? [beat] This feels like a massive trap [beat] or she is just as desperate to save her job as we are."
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "angry",
+   "text": "I knew I would find you here [beat] trying to sabotage the biggest project of my entire career [beat] move away from that desk right now [beat] Nix!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Dad [beat] how did you get out? [beat] You were supposed to be locked at home [beat] you are making a huge mistake with this demolition!"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "smug",
+   "text": "I built this city [beat] and I won't let my own son ruin a multi-million dollar contract [beat] hand over those files or you are grounded for life!"
+  },
+  {
+   "speaker": "joy",
+   "emotion": "panic",
+   "text": "The folder is empty! [beat] Someone already took the real blueprints [beat] and left us this fake printed receipt for a paper shredder!"
+  },
+  {
+   "speaker": "phupu",
+   "emotion": "smug",
+   "text": "Looking for these? [beat] I always knew this family had too many juicy secrets [beat] and I am selling this scoop to the local news tonight."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "Phupu [beat] you are literally betraying your own family for a headline [beat] give those papers back before the first bulldozer starts its engine!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "The clock strikes midnight [beat] and the heavy machinery just crushed the school front gate [beat] it might already be too late to stop them."
+  }
+ ]
+}
