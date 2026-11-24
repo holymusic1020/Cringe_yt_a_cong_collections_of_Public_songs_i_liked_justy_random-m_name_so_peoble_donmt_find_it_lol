@@ -1,0 +1,85 @@
+{
+ "title": "MY DAD IS DESTROYING MY SCHOOL! 🏗️",
+ "topic": "Family betrayal and school demolition conspiracy",
+ "arc": "The Principal's Files",
+ "part": 20,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 21: THE MIDNIGHT HEIST",
+ "bg_hints": [
+  "city",
+  "school"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "DAD, EXPLAIN WHY YOUR NAME IS ON A PAPER THAT TURNS MY ENTIRE SCHOOL INTO A LUXURY PARKING LOT!"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "panic",
+   "text": "Nix, keep your voice down [beat] you don't understand how the city planning department works behind closed doors for people like us."
+  },
+  {
+   "speaker": "huda",
+   "emotion": "smug",
+   "text": "Oh, he understands perfectly, Rafiq [beat] your son found the one document that proves you're the one funding the entire eviction project."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "sad",
+   "text": "You told me you were working late to save our mortgage [beat] but you were actually plotting to bulldoze my friends' futures for a paycheck?"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "panic",
+   "text": "It wasn't my choice, Nix [beat] the bank told me if I didn't sign that permit, we would lose this house by the end of the month!"
+  },
+  {
+   "speaker": "tuli",
+   "emotion": "angry",
+   "text": "So you traded our school for our house? [beat] Dad, that's low, even for a real estate lawyer trying to make a desperate end-of-year quota."
+  },
+  {
+   "speaker": "huda",
+   "emotion": "deadpan",
+   "text": "There is a way to make this entire mess disappear, but it requires Nix to hand over the flash drive he stole from my office."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "Wait, if Dad signed it, why are YOU so desperate to get the files back? [beat] What else is hidden in those folders, Principal Huda?"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "angry",
+   "text": "That's none of your concern, you little brat [beat] just hand over the drive before I call the police for trespassing and theft."
+  },
+  {
+   "speaker": "lubna",
+   "emotion": "shock",
+   "text": "Nobody is calling anyone until I see page forty-two [beat] Rafiq, is there another signature next to yours on the original draft of the permit?"
+  },
+  {
+   "speaker": "rafiq",
+   "emotion": "whisper",
+   "text": "Don't look at the back of the page, Nix [beat] there's a reason I never wanted you to find these files in the first place."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Too late, I'm looking right now [beat] Wait... why is Principal Huda's sister listed as the primary contractor for the new construction?"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "angry",
+   "text": "GIVE ME THAT PAPER RIGHT NOW OR YOU'LL NEVER SET FOOT IN ANY SCHOOL IN THIS COUNTY EVER AGAIN!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "The demolition starts in twelve hours [beat] and the only person who can stop it is currently being cornered in his own living room."
+  }
+ ]
+}
