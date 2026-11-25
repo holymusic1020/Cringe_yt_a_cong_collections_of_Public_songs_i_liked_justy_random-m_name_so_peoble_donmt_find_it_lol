@@ -1,0 +1,80 @@
+{
+ "title": "THE PRINCIPAL'S DEADLY TRAP 🏗️",
+ "topic": "school",
+ "arc": "The Principal's Files",
+ "part": 22,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 23: BURIED ALIVE?",
+ "bg_hints": [
+  "school destruction",
+  "city at night"
+ ],
+ "lines": [
+  {
+   "speaker": "nix",
+   "emotion": "panic",
+   "text": "THE ENTIRE CEILING IS COMING DOWN [beat] WE NEED TO GRAB THOSE FILES AND RUN BEFORE THE BULLDOZERS REACH THE MAIN OFFICE!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "I CAN'T JUST DISCONNECT THE HARD DRIVE NIX [beat] IF I UNPLUG THIS NOW THE ENTIRE ENCRYPTION WILL LOCK US OUT FOREVER!"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "angry",
+   "text": "THOSE CONSTRUCTION GUYS DON'T CARE IF WE ARE INSIDE [beat] LOOK AT THE DUST CLOUD [beat] THE MAIN HALLWAY IS COMPLETELY BLOCKED!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "WAIT [beat] WHY IS THE PRINCIPAL'S SAFE ALREADY OPEN [beat] AND WHO LEFT THIS RED ENVELOPE SITTING ON TOP OF THE SECRET LEDGER?"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "smug",
+   "text": "YOU KIDS REALLY SHOULD HAVE STAYED AT HOME TONIGHT [beat] BECAUSE NOW YOU ARE WITNESSING A PLANNED ACCIDENT IN REAL TIME!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "shock",
+   "text": "PRINCIPAL HUDA [beat] YOU ARE THE ONE WHO ORDERED THE DEMOLITION EARLY [beat] YOU'RE TRYING TO BURY THE EVIDENCE LITERALLY!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "deadpan",
+   "text": "THE SCHOOL NEEDS A NEW WING [beat] AND THE INSURANCE MONEY IS FAR MORE VALUABLE THAN A FEW STUPID STUDENT PERMANENT RECORDS!"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "panic",
+   "text": "THE WALL JUST CRACKED [beat] NIX WE HAVE TO JUMP THROUGH THE WINDOW OR WE ARE GOING TO BE PART OF THE FOUNDATION!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "I'M NOT LEAVING WITHOUT THE TRUTH [beat] RIKU FASTEN THAT CABLE [beat] I CAN SEE THE NAMES OF EVERY TEACHER ON THIS PAYROLL!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "whisper",
+   "text": "YOU THINK YOU'RE HEROES [beat] BUT NO ONE WILL BELIEVE THREE TROUBLEMAKERS WHO BROKE INTO A CONDEMNED BUILDING AT MIDNIGHT!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "excited",
+   "text": "THE DOWNLOAD IS AT NINETY NINE PERCENT [beat] JUST TEN MORE SECONDS AND EVERY CRIME SHE EVER COMMITTED IS ON MY CLOUD DRIVE!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "THE FLOOR IS DISAPPEARING [beat] HUDA JUST KICKED THE SERVER RACK OVER THE EDGE [beat] RIKU HOLD ON TO MY HAND RIGHT NOW!"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "THE BUILDING COLLAPSES IN A CLOUD OF DEBRIS [beat] BUT DID THE TRUTH SURVIVE THE FALL [beat] OR IS IT BURIED UNDER THE RUBBLE?"
+  }
+ ]
+}
