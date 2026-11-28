@@ -1,0 +1,86 @@
+{
+ "title": "THE PRINCIPAL'S DARKEST SECRET 🏫",
+ "topic": "school mystery",
+ "arc": "The Principal's Files",
+ "part": 26,
+ "lang": "en",
+ "energy": "high",
+ "endcard": "PART 27: KAMAL'S BETRAYAL",
+ "bg_hints": [
+  "school office computer screen",
+  "dark hallway flickering lights",
+  "satisfying keyboard typing"
+ ],
+ "lines": [
+  {
+   "speaker": "riku",
+   "emotion": "panic",
+   "text": "THE UPLOAD IS AT NINETY PERCENT [beat] AND WE CAN'T STOP IT NOW WITHOUT CRASHING THE ENTIRE SCHOOL NETWORK!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Look at the folder names [beat] they aren't just about the prom budget [beat] it says Project Stratosphere is funded by our tuition!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "angry",
+   "text": "Step away from that terminal right now [beat] you have no idea what kind of legal fire you are playing with [beat] little boy!"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "smug",
+   "text": "Too late for that Principal Huda [beat] the whole student body just got a notification on their phones [beat] and they are not happy."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "excited",
+   "text": "It's showing receipts for a private luxury penthouse [beat] she didn't just steal prom money [beat] she stole the whole gym renovation fund too!"
+  },
+  {
+   "speaker": "huda",
+   "emotion": "panic",
+   "text": "It was for the school's image [beat] I needed a place to meet high-level donors [beat] you are destroying our reputation for a few viral likes!"
+  },
+  {
+   "speaker": "joy",
+   "emotion": "shock",
+   "text": "A luxury penthouse is not a donor meeting room [beat] it has a gold-plated jacuzzi and three balconies overlooking the city!"
+  },
+  {
+   "speaker": "riku",
+   "emotion": "neutral",
+   "text": "Wait [beat] the upload just hit one hundred percent [beat] but something weird is happening [beat] the files are being redirected to a secure server."
+  },
+  {
+   "speaker": "huda",
+   "emotion": "smug",
+   "text": "Did you really think I wouldn't have a fail-safe [beat] you just sent all that evidence directly to my private lawyers for deletion [beat] you lose!"
+  },
+  {
+   "speaker": "nix",
+   "emotion": "angry",
+   "text": "You are a snake Huda [beat] but you forgot one thing [beat] we weren't just uploading files [beat] we were live-streaming the entire folder to the cloud!"
+  },
+  {
+   "speaker": "bruno",
+   "emotion": "shock",
+   "text": "Wait Nix [beat] look at the screen [beat] there is a second folder hidden inside the stratosphere files [beat] it is labeled Kamal."
+  },
+  {
+   "speaker": "kamal",
+   "emotion": "whisper",
+   "text": "Nix [beat] I wouldn't open that file if I were you [beat] some secrets are buried deep for a very good reason [beat] walk away."
+  },
+  {
+   "speaker": "nix",
+   "emotion": "shock",
+   "text": "Mr. Kamal [beat] why is your name on a secret payroll document [beat] were you helping her hide the money this whole time?"
+  },
+  {
+   "speaker": "narrator",
+   "emotion": "deadpan",
+   "text": "The truth is more expensive than the prom [beat] and Mr. Kamal just became the primary suspect in the stratosphere scandal."
+  }
+ ]
+}
